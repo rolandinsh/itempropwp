@@ -18,7 +18,11 @@ This plugin is very simple. Using WordPress built in function to filter element 
 
 Add human invisible schema.org `itemprop` code to images (post thumbnails!).
 
-[Project Page](http://simplemediacode.info/snippets/itemprop-attributes-for-wordpress-serp-results/) | [Git](https://bitbucket.org/simplemediacode/itempropwp) | [Documentation](http://simplemediacode.info/snippets/add-itemprop-image-to-all-wordpress-images/) | [SMC Facebook](http://www.facebook.com/pages/SimpleMediaCode/125547717479727)
+* [Project Page](http://simplemediacode.info/snippets/itemprop-attributes-for-wordpress-serp-results/)
+* [Documentation](http://simplemediacode.info/snippets/add-itemprop-image-to-all-wordpress-images/)
+* [SMC Facebook](http://www.facebook.com/pages/SimpleMediaCode/125547717479727)
+
+Development: [Git at bitbucket](https://bitbucket.org/simplemediacode/itempropwp) | [Github](https://github.com/rolandinsh/itempropwp)
 
 == Installation ==
 
