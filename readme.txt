@@ -18,7 +18,7 @@ This plugin is very simple. Using WordPress built in function to filter element 
 
 NEW in 3.0 
 
-* new: context, without context for SEo this plugin was somehow useless. We FIXED it ;)
+* new: context, without context for SEO this plugin was somehow useless. We FIXED it ;)
 * new: itemprop="name"
 * new: itemprop="url"
 * new: itemprop="image"
