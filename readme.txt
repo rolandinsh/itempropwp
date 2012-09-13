@@ -3,8 +3,8 @@ Contributors: rolandinsh
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=Z4ALL9WUMY3CL&lc=LV&item_name=Umbrovskis%2e%20WordPress%20plugins&item_number=002&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted
 Tags: SEO, schema, schema.org, itemprop, schema.org itemprop, images, rich snippets, richsnippets, SERP
 Requires at least: 3.3
-Tested up to: 3.4.1
-Stable tag: 2.0
+Tested up to: 3.4.2
+Stable tag: 3.0
 License: simplemediacode
 License URI: http://simplemediacode.com/license/gpl/
 
@@ -15,6 +15,16 @@ Add human invisible schema.org itemprop code to images
 This plugin is very simple. Using WordPress built in function to filter element attributes. 
 
 `<img src="http://example.com/janedoe.jpg" itemprop="image" />`
+
+NEW in 3.0 
+
+* new: context, without context for SEo this plugin was somehow useless. We FIXED it ;)
+* new: itemprop="name"
+* new: itemprop="url"
+* new: itemprop="image"
+* new: itemprop="author"
+* new: itemprop="datePublished"
+* new: "UserComments:325" itemprop="interactionCount"
 
 Add human invisible schema.org `itemprop` code to images (post thumbnails!).
 
@@ -34,11 +44,17 @@ Development: [Git at bitbucket](https://bitbucket.org/simplemediacode/itempropwp
 == Frequently Asked Questions ==
 There are no questions for now! [Ask!](http://simplemediacode.info/snippets/itemprop-attributes-for-wordpress-serp-results/)
 
-== Screenshots ==
-
-1. Content http://simplemediacode.info/snippets/itemprop-attributes-for-wordpress-serp-results/
-
 == Changelog ==
+
+= 3.0 =
+
+* new: context
+* new: itemprop="name"
+* new: itemprop="url"
+* new: itemprop="image"
+* new: itemprop="author"
+* new: itemprop="datePublished"
+* new: "UserComments:325" itemprop="interactionCount"
 
 = 2.0 =
 * new code
@@ -56,3 +72,15 @@ There are no questions for now! [Ask!](http://simplemediacode.info/snippets/item
 = 2.0 =
 * new: as extendable class function
 * new: using WordPress filter for image attributed on thumbnails
+
+= 3.0 =
+* new: context
+* new: itemprop="name"
+* new: itemprop="url"
+* new: itemprop="image"
+* new: itemprop="author"
+* new: itemprop="datePublished"
+* new: "UserComments:325" itemprop="interactionCount"
+
+== Screenshots ==
+1. 3.0 Full futured example http://simplemediacode.info/snippets/add-itemprop-image-to-all-wordpress-images/
