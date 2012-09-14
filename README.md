@@ -80,7 +80,7 @@ There are no questions for now! [Ask!](http://simplemediacode.info/snippets/item
 ### 1.1
 * fix: SMCIPWPURL
 
-### 1.0 =
+### 1.0
 
 * init
 
