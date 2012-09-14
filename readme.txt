@@ -16,14 +16,14 @@ This plugin is very simple. Using WordPress built in function to filter element 
 
 `
 <span itemscope itemtype="http://schema.org/Article">
-<!-- ItemProp WP 3.0 by Rolands Umbrovskis http://umbrovskis.com -->
-	<meta itemprop="name" content="Title of the Article" />
-	<meta itemprop="url" content="http://full.link.to.example.com/some-seo-optimized-article/" />
-	<meta itemprop="image" content="http://full.link.to.example.com/some-seo-optimized-article/eSIA.gif" />
-	<meta itemprop="author" content="http://full.link.to.example.com/author/esiaadmin/"/>
-	<meta itemprop="datePublished" content="2012-09-13 19:17:21"/>
-	<meta itemprop="interactionCount" content="UserComments:356"/>
-<!-- ItemProp WP 3.0 by Rolands Umbrovskis http://umbrovskis.com end -->
+<!-- Itemprop WP 3.0 by Rolands Umbrovskis http://umbrovskis.com -->
+ <meta itemprop="name" content="Title of the Article" />
+ <meta itemprop="url" content="http://fulllink.example.com/seo-optimized-article/" />
+ <meta itemprop="image" content="http://fulllink.example.com/seo-optimized-article/example.jpg" />
+ <meta itemprop="author" content="http://fulllink.example.com/author/esiaadmin/"/>
+ <meta itemprop="datePublished" content="2012-09-13 19:17:21"/>
+ <meta itemprop="interactionCount" content="UserComments:356"/>
+<!-- Itemprop WP 3.0 by Rolands Umbrovskis http://umbrovskis.com end -->
 </span>
 `
 
