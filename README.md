@@ -17,18 +17,18 @@ License URI: http://simplemediacode.com/license/gpl/
 This plugin is very simple. Using WordPress built in function to filter element attributes. 
 
 Example:
-`
-<span itemscope itemtype="http://schema.org/Article">
-<!-- Itemprop WP 3.0 by Rolands Umbrovskis http://umbrovskis.com -->
- <meta itemprop="name" content="Title of the Article" />
- <meta itemprop="url" content="http://fulllink.example.com/seo-optimized-article/" />
- <meta itemprop="image" content="http://fulllink.example.com/seo-optimized-article/example.jpg" />
- <meta itemprop="author" content="http://fulllink.example.com/author/authorusername/"/>
- <meta itemprop="datePublished" content="2012-09-13 19:17:21"/>
- <meta itemprop="interactionCount" content="UserComments:356"/>
-<!-- Itemprop WP 3.0 by Rolands Umbrovskis http://umbrovskis.com end -->
-</span>
-`
+
+	<span itemscope itemtype="http://schema.org/Article">
+	<!-- Itemprop WP 3.0 by Rolands Umbrovskis http://umbrovskis.com -->
+	 <meta itemprop="name" content="Title of the Article" />
+	 <meta itemprop="url" content="http://fulllink.example.com/seo-optimized-article/" />
+	 <meta itemprop="image" content="http://fulllink.example.com/seo-optimized-article/example.jpg" />
+	 <meta itemprop="author" content="http://fulllink.example.com/author/authorusername/"/>
+	 <meta itemprop="datePublished" content="2012-09-13 19:17:21"/>
+	 <meta itemprop="interactionCount" content="UserComments:356"/>
+	<!-- Itemprop WP 3.0 by Rolands Umbrovskis http://umbrovskis.com end -->
+	</span>
+
 
 NEW in 3.0 
 
