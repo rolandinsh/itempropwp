@@ -3,7 +3,7 @@
  * Plugin Name: itemprop WP for SERP/SEO Rich snippets
  * Plugin URI: http://simplemediacode.com/wordpress/itempropwp/?utm_source=wordpress&utm_medium=wpplugin&utm_campaign=itempropWP&utm_content=v-3-0-itempropWP_load_widgets
  * Description: Add human invisible schema.org itemprop code to images
- * Version: 3.1
+ * Version: 3.1.0
  * Requires at least: 3.3
  * Tested up to: 3.4.2
  * Author: Rolands Umbrovskis
@@ -11,7 +11,7 @@
  * License: simplemediacode
  * License URI: http://simplemediacode.com/license/gpl/
  */
-	define('SMCIPWPV','3.1'); // location general @since 1.0
+	define('SMCIPWPV','3.1.0'); // location general @since 1.0
 	define('SMCIPWPM',dirname(__FILE__)); // location general @since 1.0
 	define('SMCIPWPF','itempropwp'); // location folder @since 1.0 
 	define('SMCIPWPURL', plugin_dir_url(__FILE__)); // Plugin URI @since 1.0
