@@ -15,11 +15,11 @@
 	define('SMCIPWPM',dirname(__FILE__)); // location general @since 1.0
 	define('SMCIPWPF','itempropwp'); // location folder @since 1.0 
 	define('SMCIPWPURL', plugin_dir_url(__FILE__)); // Plugin URI @since 1.0
-	$smcipwp_url = SMCIPWPURL; // @since 3.1 Use of undefined constant SMCIPWPURL - assumed 'SMCIPWPURL' in 
-	$smcipwp_f = SMCIPWPF; // @since 3.1 Use of undefined constant SMCIPWPF - assumed 'SMCIPWPF' in 
+	//$smcipwp_url = SMCIPWPURL; // @since 3.1 Use of undefined constant SMCIPWPURL - assumed 'SMCIPWPURL' in 
+	//$smcipwp_f = SMCIPWPF; // @since 3.1 Use of undefined constant SMCIPWPF - assumed 'SMCIPWPF' in 
 	
-	define('SMCIPWPI',$smcipwp_url.'/img'); // Image location @since 1.0
-	define('SMCIPWPORG','http://wordpress.org/extend/plugins/'.$smcipwp_f.'/'); // Plugin on WordPress.org @since 1.0
+	define('SMCIPWPI',trailingslashit( SMCIPWPURL . '/img' )); // Image location @since 1.0
+	define('SMCIPWPORG','http://wordpress.org/extend/plugins/'.trailingslashit(SMCIPWPF)); // Plugin on WordPress.org @since 1.0
 	define('IPWPT',__('itemprop WP for SERP/SEO Rich snippets','itempropwp')); // Name @since 1.1
 	define('IPWPT_HOMEPAGE','http://simplemediacode.com/wordpress/itempropwp/'); // Homepage @since 3.1
 	define('IPWPT_GITHUB','https://github.com/rolandinsh/itempropwp'); // Homepage @since 3.1
