@@ -24,6 +24,7 @@ Example:
 	 <meta itemprop="url" content="http://fulllink.example.com/seo-optimized-article/" />
 	 <meta itemprop="image" content="http://fulllink.example.com/seo-optimized-article/example.jpg" />
 	 <meta itemprop="author" content="http://fulllink.example.com/author/authorusername/"/>
+	  <meta itemprop="description" content="excerpt from post OR firs 128 symbols (with full word), ..." />
 	 <meta itemprop="datePublished" content="2012-09-13 19:17:21"/>
 	 <meta itemprop="interactionCount" content="UserComments:356"/>
 	<!-- Itemprop WP 3.0 by Rolands Umbrovskis http://umbrovskis.com end -->
