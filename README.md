@@ -30,6 +30,10 @@ Example:
 	</span>
 
 
+NEW in 3.1.1 
+
+* new: itemprop="description"
+
 NEW in 3.0 
 
 * new: context, without context for SEO this plugin was somehow useless. We FIXED it ;)
