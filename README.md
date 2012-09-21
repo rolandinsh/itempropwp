@@ -15,7 +15,7 @@ Add human invisible schema.org itemprop code to post content
 
 This plugin is very simple. Using WordPress built in function to filter element attributes. It will add human invisible / search engine visible schema.org `itemprop` code to content (via META tags).
 
-Example:
+### Example:
 
 	<span itemscope itemtype="http://schema.org/Article">
 	<!-- Itemprop WP 3.0 by Rolands Umbrovskis http://umbrovskis.com -->
@@ -32,7 +32,6 @@ Example:
 ### Features
 
 * itemprop="description" (since 3.1.1)
-* context, without context for SEO this plugin was somehow useless. We FIXED it ;)
 * itemprop="name" (since 3.0)
 * itemprop="url" (since 3.0)
 * itemprop="image" (since 1.0)
@@ -86,6 +85,3 @@ There are no questions for now! [Ask!](http://simplemediacode.info/snippets/item
 ### 1.0
 
 * init
-
-## Screenshots
-1. 3.0 Full futured example http://simplemediacode.info/snippets/add-itemprop-image-to-all-wordpress-images/
