@@ -3,7 +3,8 @@
 wp-config.php
 .cache
 .maintenance
-
+cache/**/* 
+cache/*
 
 profile
 
