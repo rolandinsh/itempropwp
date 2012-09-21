@@ -1,0 +1,15 @@
+
+profile
+
+# Logs #
+######################
+*.log
+
+# svn & cvs
+.svn
+CVS
+=======
+*~
+._*
+.DS_Store
+Thumbs.db
