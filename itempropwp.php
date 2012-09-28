@@ -3,15 +3,15 @@
  * Plugin Name: itemprop WP for SERP/SEO Rich snippets
  * Plugin URI: http://simplemediacode.com/wordpress/itempropwp/?utm_source=wordpress&utm_medium=wpplugin&utm_campaign=itempropWP&utm_content=v-3-1-1-itempropWP_load_widgets
  * Description: Add human invisible schema.org itemprop code to images
- * Version: 3.1.1
+ * Version: 3.1.2
  * Requires at least: 3.3
- * Tested up to: 3.4.2
+ * Tested up to: 3.5
  * Author: Rolands Umbrovskis
  * Author URI: http://umbrovskis.com
  * License: simplemediacode
  * License URI: http://simplemediacode.com/license/gpl/
  */
-	define('SMCIPWPV','3.1.1'); // location general @since 1.0
+	define('SMCIPWPV','3.1.2'); // location general @since 1.0
 	define('SMCIPWPM',dirname(__FILE__)); // location general @since 1.0
 	define('SMCIPWPF','itempropwp'); // location folder @since 1.0 
 	define('SMCIPWPURL', plugin_dir_url(__FILE__)); // Plugin URI @since 1.0
@@ -49,9 +49,12 @@ if(!class_exists('itempropwp')){
 	 * @Todo rewrite
 	 * @since 3.1
 	*/
-		public function ipwp_excerpt_maxchr($charlength) {
-			global $post;
-			$ipwp_content = apply_filters('ipwp_excmc_filter_content', $post->post_content);  // Extending @since 3.1
+		public function ipwp_excerpt_maxchr($charlength,$ipwp_content='') {
+			if($ipwp_content==''){
+				global $post;
+				$ipwp_content = apply_filters('ipwp_excmc_filter_content', $post->post_content);  // Extending @since 3.1
+			}
+
 			$charlength++;
 			
 			if ( mb_strlen( $ipwp_content ) > $charlength ) {
@@ -71,13 +74,8 @@ if(!class_exists('itempropwp')){
 		
 		public function ipwp_the_content_filter($content) {
 			if (is_singular() && !is_feed()){
-				
 				global $post;
-				
-	/*
-		for development: get fast all array values and keys
-	*/
-	// var_dump($post);
+				/* var_dump($post); */
 	
 				$thisipwp_post = get_post($post->ID);
 				$ipwp_posth = '';
@@ -94,7 +92,7 @@ if(!class_exists('itempropwp')){
 	
 				if(!$ipwp_post_dsc){
 					$ipwp_n = new itempropwp;
-					$ipwp_post_dsc = apply_filters('ipwp_post_dsc', $ipwp_n->ipwp_excerpt_maxchr(128)); // Extending @since 3.1
+					$ipwp_post_dsc = apply_filters('ipwp_post_dsc', $ipwp_n->ipwp_excerpt_maxchr(128,$thisipwp_post->post_content)); // Extending @since 3.1
 				}
 	
 				$content = $content."\n".'<span itemscope itemtype="http://schema.org/Article">
