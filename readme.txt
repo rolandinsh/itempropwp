@@ -50,6 +50,8 @@ Add human invisible schema.org `itemprop` code to images (post thumbnails!).
 
 Development: [Git at bitbucket](https://bitbucket.org/simplemediacode/itempropwp) | [Github](https://github.com/rolandinsh/itempropwp)
 
+Developer on twitter [@UmbrovskisCom](http://twitter.com/UmbrovskisCom)  /  [@SimpleMediaCode](http://twitter.com/SimpleMediaCode)
+
 == Installation ==
 
 1. Unzip the download package
