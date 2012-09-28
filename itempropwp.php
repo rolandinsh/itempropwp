@@ -32,85 +32,87 @@ itempropwp::init();
  * itempropwp class
  * @since 2.0
 */
-class itempropwp {
-	// Initialize
-	public function init() {
-		// add_filter('wp_get_attachment_image_attributes', array( 'itempropwp', 'ipwp_img_attr' ), 10, 2 ); // Adding itemprop=image to thumbnails  @since 2.0
-		add_filter('the_content', array( 'itempropwp', 'ipwp_the_content_filter' ), 10, 2 ); // Adding context @since 3.0
-	}
-	/* droped at 3.0 */
-	public function ipwp_img_attr($attr) {
-		$attr['itemprop'] = 'image';
-		return apply_filters('ipwp_img_attr_filter', $attr); // Extending @since 3.1
-	}
-/*
- * if post has no excerpt, we will use this
- * @Todo rewrite
- * @since 3.1
-*/
-	public function ipwp_excerpt_maxchr($charlength) {
-		global $post;
-		$ipwp_content = apply_filters('ipwp_excmc_filter_content', $post->post_content);  // Extending @since 3.1
-		$charlength++;
-		
-		if ( mb_strlen( $ipwp_content ) > $charlength ) {
-			$subex = mb_substr( $ipwp_content, 0, $charlength - 5 );
-			$exwords = explode( ' ', $subex );
-			$excut = - ( mb_strlen( $exwords[ count( $exwords ) - 1 ] ) );
-			if ( $excut < 0 ) {
-				return apply_filters('ipwp_excmc_filter0', mb_substr( $subex, 0, $excut )); // Extending @since 3.1
-			} else {
-				return apply_filters('ipwp_excmc_filter1', $subex); // Extending @since 3.1
-			}
-			return apply_filters('ipwp_excmc_filter_more', '[...]'); // Extending @since 3.1
-		} else {
-			return $ipwp_content;
+if(!class_exists('itempropwp')){
+	class itempropwp {
+		// Initialize
+		public function init() {
+			// add_filter('wp_get_attachment_image_attributes', array( 'itempropwp', 'ipwp_img_attr' ), 10, 2 ); // Adding itemprop=image to thumbnails  @since 2.0
+			add_filter('the_content', array( 'itempropwp', 'ipwp_the_content_filter' ), 10, 2 ); // Adding context @since 3.0
 		}
-	}
-	
-	public function ipwp_the_content_filter($content) {
-		if (is_singular() && !is_feed()){
-			
+		/* 3.0 drop */
+		public function ipwp_img_attr($attr) {
+			$attr['itemprop'] = 'image';
+			return apply_filters('ipwp_img_attr_filter', $attr); // Extending @since 3.1
+		}
+	/*
+	 * if post has no excerpt, we will use this
+	 * @Todo rewrite
+	 * @since 3.1
+	*/
+		public function ipwp_excerpt_maxchr($charlength) {
 			global $post;
+			$ipwp_content = apply_filters('ipwp_excmc_filter_content', $post->post_content);  // Extending @since 3.1
+			$charlength++;
 			
-/*
-	for development: get fast all array values and keys
-*/
-// var_dump($post);
-
-			$thisipwp_post = get_post($post->ID);
-			$ipwp_posth = '';
-			$ipwp_image = '';
-			$ipwp_post_dsc = apply_filters('ipwp_post_dsc', $thisipwp_post->post_excerpt);
-			if ( has_post_thumbnail($post->ID)) {
-				$ipwp_post_imga = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full'); // all other sizes are not permanent :| 
-				$ipwp_posth = apply_filters('ipwp_post_imguri', $ipwp_post_imga[0]); // image link + Extending @since 3.1
+			if ( mb_strlen( $ipwp_content ) > $charlength ) {
+				$subex = mb_substr( $ipwp_content, 0, $charlength - 5 );
+				$exwords = explode( ' ', $subex );
+				$excut = - ( mb_strlen( $exwords[ count( $exwords ) - 1 ] ) );
+				if ( $excut < 0 ) {
+					return apply_filters('ipwp_excmc_filter0', mb_substr( $subex, 0, $excut )); // Extending @since 3.1
+				} else {
+					return apply_filters('ipwp_excmc_filter1', $subex); // Extending @since 3.1
+				}
+				return apply_filters('ipwp_excmc_filter_more', '[...]'); // Extending @since 3.1
+			} else {
+				return $ipwp_content;
 			}
-			
-			if($ipwp_posth){
-				$ipwp_image = "\n\t".'<meta itemprop="image" content="'.esc_url($ipwp_posth).'" />'."\n\t";
-			}
-
-			if(!$ipwp_post_dsc){
-				$ipwp_n = new itempropwp;
-				$ipwp_post_dsc = apply_filters('ipwp_post_dsc', $ipwp_n->ipwp_excerpt_maxchr(128)); // Extending @since 3.1
-			}
-
-			$content = $content."\n".'<span itemscope itemtype="http://schema.org/Article">
-<!-- ItemProp WP '.SMCIPWPV.' by Rolands Umbrovskis http://umbrovskis.com -->
-	<meta itemprop="name" content="'.esc_attr($thisipwp_post->post_title).'" />
-	<meta itemprop="url" content="'.esc_url(get_permalink()).'" />'
-	.$ipwp_image.
-	'<meta itemprop="author" content="'.get_author_posts_url($thisipwp_post-> post_author).'" />
-	<meta itemprop="description" content="'.esc_attr($ipwp_post_dsc).'"/>
-	<meta itemprop="datePublished" content="'.esc_attr($thisipwp_post->post_date).'" />
-	<meta itemprop="interactionCount" content="UserComments:'.esc_attr($thisipwp_post->comment_count).'" />
-<!-- ItemProp WP '.SMCIPWPV.' by Rolands Umbrovskis http://umbrovskis.com end -->
-</span>'."\n";
+		}
 		
+		public function ipwp_the_content_filter($content) {
+			if (is_singular() && !is_feed()){
+				
+				global $post;
+				
+	/*
+		for development: get fast all array values and keys
+	*/
+	// var_dump($post);
+	
+				$thisipwp_post = get_post($post->ID);
+				$ipwp_posth = '';
+				$ipwp_image = '';
+				$ipwp_post_dsc = apply_filters('ipwp_post_dsc', $thisipwp_post->post_excerpt);
+				if ( has_post_thumbnail($post->ID)) {
+					$ipwp_post_imga = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full'); // all other sizes are not permanent :| 
+					$ipwp_posth = apply_filters('ipwp_post_imguri', $ipwp_post_imga[0]); // image link + Extending @since 3.1
+				}
+				
+				if($ipwp_posth){
+					$ipwp_image = "\n\t".'<meta itemprop="image" content="'.esc_url($ipwp_posth).'" />'."\n\t";
+				}
+	
+				if(!$ipwp_post_dsc){
+					$ipwp_n = new itempropwp;
+					$ipwp_post_dsc = apply_filters('ipwp_post_dsc', $ipwp_n->ipwp_excerpt_maxchr(128)); // Extending @since 3.1
+				}
+	
+				$content = $content."\n".'<span itemscope itemtype="http://schema.org/Article">
+	<!-- ItemProp WP '.SMCIPWPV.' by Rolands Umbrovskis http://umbrovskis.com -->
+		<meta itemprop="name" content="'.esc_attr($thisipwp_post->post_title).'" />
+		<meta itemprop="url" content="'.esc_url(get_permalink()).'" />'
+		.$ipwp_image.
+		'<meta itemprop="author" content="'.get_author_posts_url($thisipwp_post-> post_author).'" />
+		<meta itemprop="description" content="'.esc_attr($ipwp_post_dsc).'"/>
+		<meta itemprop="datePublished" content="'.esc_attr($thisipwp_post->post_date).'" />
+		<meta itemprop="interactionCount" content="UserComments:'.esc_attr($thisipwp_post->comment_count).'" />
+	<!-- ItemProp WP '.SMCIPWPV.' by Rolands Umbrovskis http://umbrovskis.com end -->
+	</span>'."\n";
+			
+				return $content;
+			}
 			return $content;
 		}
-		return $content;
+	
 	}
-
-}
+} /* end if(!class_exists('itempropwp')) */
