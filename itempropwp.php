@@ -15,11 +15,11 @@
 	define('SMCIPWPM',dirname(__FILE__)); // location general @since 1.0
 	define('SMCIPWPF','itempropwp'); // location folder @since 1.0 
 	define('SMCIPWPURL', plugin_dir_url(__FILE__)); // Plugin URI @since 1.0
-	//$smcipwp_url = SMCIPWPURL; // @since 3.1 Use of undefined constant SMCIPWPURL - assumed 'SMCIPWPURL' in 
-	//$smcipwp_f = SMCIPWPF; // @since 3.1 Use of undefined constant SMCIPWPF - assumed 'SMCIPWPF' in 
+	$smcipwp_url = SMCIPWPURL; // @since 3.1 Use of undefined constant SMCIPWPURL - assumed 'SMCIPWPURL' in 
+	$smcipwp_f = SMCIPWPF; // @since 3.1 Use of undefined constant SMCIPWPF - assumed 'SMCIPWPF' in 
 	
-	define('SMCIPWPI',trailingslashit( SMCIPWPURL . '/img' )); // Image location @since 1.0
-	define('SMCIPWPORG','http://wordpress.org/extend/plugins/'.trailingslashit(SMCIPWPF)); // Plugin on WordPress.org @since 1.0
+	define('SMCIPWPI',trailingslashit( $smcipwp_url. '/img' )); // Image location @since 1.0
+	define('SMCIPWPORG','http://wordpress.org/extend/plugins/'.trailingslashit($smcipwp_f)); // Plugin on WordPress.org @since 1.0
 	define('IPWPT',__('itemprop WP for SERP/SEO Rich snippets','itempropwp')); // Name @since 1.1
 	define('IPWPT_HOMEPAGE','http://simplemediacode.com/wordpress/itempropwp/'); // Homepage @since 3.1
 	define('IPWPT_GITHUB','https://github.com/rolandinsh/itempropwp'); // Homepage @since 3.1
@@ -32,7 +32,7 @@ itempropwp::init();
  * itempropwp class
  * @since 2.0
 */
-if(!class_exists('itempropwp')){
+
 	class itempropwp {
 		// Initialize
 		public function init() {
@@ -51,10 +51,14 @@ if(!class_exists('itempropwp')){
 	*/
 		public function ipwp_excerpt_maxchr($charlength,$ipwp_content='') {
 			if($ipwp_content==''){
-				global $post;
-				$ipwp_content = apply_filters('ipwp_excmc_filter_content', $post->post_content);  // Extending @since 3.1
+				global $post;  
+				
+				$ipwp_content = apply_filters('ipwp_excmc_filter_content', $post->post_excerpt);  // Extending @since 3.1.2
+				
+				if(!$ipwp_content||$ipwp_content==''){
+					$ipwp_content = apply_filters('ipwp_excmc_filter_content', $post->post_content);  // Extending @since 3.1
+				}
 			}
-
 			$charlength++;
 			
 			if ( mb_strlen( $ipwp_content ) > $charlength ) {
@@ -90,22 +94,25 @@ if(!class_exists('itempropwp')){
 					$ipwp_image = "\n\t".'<meta itemprop="image" content="'.esc_url($ipwp_posth).'" />'."\n\t";
 				}
 	
+				
 				if(!$ipwp_post_dsc){
-					$ipwp_n = new itempropwp;
-					$ipwp_post_dsc = apply_filters('ipwp_post_dsc', $ipwp_n->ipwp_excerpt_maxchr(128,$thisipwp_post->post_content)); // Extending @since 3.1
+					//$ipwp_n = new itempropwp;
+					//$ipwp_post_dsc = apply_filters('ipwp_post_dsc', $ipwp_n->ipwp_excerpt_maxchr(128,$thisipwp_post->post_content)); // Extending @since 3.1
+					$ipwp_post_dsc = apply_filters('ipwp_post_dsc', $thisipwp_post->post_title); // Extending @since 3.1.2
 				}
+				
 	
 				$content = $content."\n".'<span itemscope itemtype="http://schema.org/Article">
-	<!-- ItemProp WP '.SMCIPWPV.' by Rolands Umbrovskis http://umbrovskis.com -->
-		<meta itemprop="name" content="'.esc_attr($thisipwp_post->post_title).'" />
-		<meta itemprop="url" content="'.esc_url(get_permalink()).'" />'
-		.$ipwp_image.
-		'<meta itemprop="author" content="'.get_author_posts_url($thisipwp_post-> post_author).'" />
-		<meta itemprop="description" content="'.esc_attr($ipwp_post_dsc).'"/>
-		<meta itemprop="datePublished" content="'.esc_attr($thisipwp_post->post_date).'" />
-		<meta itemprop="interactionCount" content="UserComments:'.esc_attr($thisipwp_post->comment_count).'" />
-	<!-- ItemProp WP '.SMCIPWPV.' by Rolands Umbrovskis http://umbrovskis.com end -->
-	</span>'."\n";
+<!-- ItemProp WP '.SMCIPWPV.' by Rolands Umbrovskis http://umbrovskis.com -->
+	<meta itemprop="name" content="'.esc_attr($thisipwp_post->post_title).'" />
+	<meta itemprop="url" content="'.esc_url(get_permalink()).'" />'
+	.$ipwp_image.
+	'<meta itemprop="author" content="'.get_author_posts_url($thisipwp_post-> post_author).'" />
+	<meta itemprop="description" content="'.esc_html($ipwp_post_dsc).'"/>
+	<meta itemprop="datePublished" content="'.esc_attr($thisipwp_post->post_date).'" />
+	<meta itemprop="interactionCount" content="UserComments:'.esc_attr($thisipwp_post->comment_count).'" />
+<!-- ItemProp WP '.SMCIPWPV.' by Rolands Umbrovskis http://umbrovskis.com end -->
+</span>'."\n";
 			
 				return $content;
 			}
@@ -113,4 +120,3 @@ if(!class_exists('itempropwp')){
 		}
 	
 	}
-} /* end if(!class_exists('itempropwp')) */

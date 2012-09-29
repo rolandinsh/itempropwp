@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=Z4ALL
 Tags: SEO, schema, schema.org, itemprop, schema.org itemprop, images, microdata, rich snippets, richsnippets, SERP, html5, structured data
 Requires at least: 3.3
 Tested up to: 3.4.2
-Stable tag: 3.1.1
+Stable tag: 3.1.2
 License: simplemediacode
 License URI: http://simplemediacode.com/license/gpl/
 
@@ -14,19 +14,26 @@ Add human invisible schema.org itemprop code to post content
 
 This plugin is very simple. Using WordPress built in function to filter element attributes and adding < meta > tags with schema.org item properties.
 
+Example output:
+
 `
 <span itemscope itemtype="http://schema.org/Article">
-<!-- Itemprop WP 3.0 by Rolands Umbrovskis http://umbrovskis.com -->
+<!-- Itemprop WP 3.1.2 by Rolands Umbrovskis http://umbrovskis.com -->
  <meta itemprop="name" content="Title of the Article" />
- <meta itemprop="url" content="http://fulllink.example.com/seo-optimized-article/" />
- <meta itemprop="image" content="http://fulllink.example.com/seo-optimized-article/example.jpg" />
- <meta itemprop="author" content="http://fulllink.example.com/author/authorusername/"/>
- <meta itemprop="description" content="excerpt from post OR firs 128 symbols (with full word), ..." />
+ <meta itemprop="url" content="http://example.com/seo-optimized-article/" />
+ <meta itemprop="image" content="http://example.com/images/example.jpg" />
+ <meta itemprop="author" content="http://example.com/author/authorusername/"/>
+ <meta itemprop="description" content="excerpt from post" />
  <meta itemprop="datePublished" content="2012-09-13 19:17:21" />
  <meta itemprop="interactionCount" content="UserComments:356" />
-<!-- Itemprop WP 3.0 by Rolands Umbrovskis http://umbrovskis.com end -->
+<!-- Itemprop WP 3.1.2 by Rolands Umbrovskis http://umbrovskis.com end -->
 </span>
 `
+
+NEW in 3.1.2
+
+* itemprop="description" fix
+* todo: finish fix for description part
 
 NEW in 3.1
 
@@ -63,6 +70,14 @@ Developer on twitter [@UmbrovskisCom](http://twitter.com/UmbrovskisCom)  /  [@Si
 There are no questions for now! [Ask!](http://simplemediacode.info/snippets/itemprop-attributes-for-wordpress-serp-results/)
 
 == Changelog ==
+
+= 3.1.2 =
+
+* fix: itemprop="description"
+
+= 3.1.1 =
+
+* new: itemprop="description"
 
 = 3.0 =
 
