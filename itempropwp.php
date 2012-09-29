@@ -1,9 +1,9 @@
 <?php 
 /**
  * Plugin Name: itemprop WP for SERP/SEO Rich snippets
- * Plugin URI: http://simplemediacode.com/wordpress/itempropwp/?utm_source=wordpress&utm_medium=wpplugin&utm_campaign=itempropWP&utm_content=v-3-1-1-itempropWP_load_widgets
+ * Plugin URI: http://simplemediacode.com/wordpress/itempropwp/?utm_source=wordpress&utm_medium=wpplugin&utm_campaign=itempropWP&utm_content=v-3-1-3-itempropWP_load_widgets
  * Description: Add human invisible schema.org itemprop code to images
- * Version: 3.1.2
+ * Version: 3.1.3
  * Requires at least: 3.3
  * Tested up to: 3.5
  * Author: Rolands Umbrovskis
@@ -11,7 +11,7 @@
  * License: simplemediacode
  * License URI: http://simplemediacode.com/license/gpl/
  */
-	define('SMCIPWPV','3.1.2'); // location general @since 1.0
+	define('SMCIPWPV','3.1.3'); // location general @since 1.0
 	define('SMCIPWPM',dirname(__FILE__)); // location general @since 1.0
 	define('SMCIPWPF','itempropwp'); // location folder @since 1.0 
 	define('SMCIPWPURL', plugin_dir_url(__FILE__)); // Plugin URI @since 1.0
@@ -108,7 +108,7 @@ itempropwp::init();
 	<meta itemprop="url" content="'.esc_url(get_permalink()).'" />'
 	.$ipwp_image.
 	'<meta itemprop="author" content="'.get_author_posts_url($thisipwp_post-> post_author).'" />
-	<meta itemprop="description" content="'.esc_html($ipwp_post_dsc).'"/>
+	<meta itemprop="description" content="'.strip_tags($ipwp_post_dsc).'"/>
 	<meta itemprop="datePublished" content="'.esc_attr($thisipwp_post->post_date).'" />
 	<meta itemprop="interactionCount" content="UserComments:'.esc_attr($thisipwp_post->comment_count).'" />
 <!-- ItemProp WP '.SMCIPWPV.' by Rolands Umbrovskis http://umbrovskis.com end -->
