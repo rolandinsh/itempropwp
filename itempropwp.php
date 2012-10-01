@@ -56,7 +56,7 @@ itempropwp::init();
 				$ipwp_content = apply_filters('ipwp_excmc_filter_content', $post->post_excerpt);  // Extending @since 3.1.2
 				
 				if(!$ipwp_content||$ipwp_content==''){
-					$ipwp_content = apply_filters('ipwp_excmc_filter_content', $post->post_content);  // Extending @since 3.1
+					$ipwp_content = apply_filters('ipwp_excmc_filter_content', strip_shortcodes( $post->post_content ));  // Extending @since 3.1
 				}
 			}
 			$charlength++;
@@ -96,9 +96,9 @@ itempropwp::init();
 	
 				
 				if(!$ipwp_post_dsc){
-					//$ipwp_n = new itempropwp;
-					//$ipwp_post_dsc = apply_filters('ipwp_post_dsc', $ipwp_n->ipwp_excerpt_maxchr(128,$thisipwp_post->post_content)); // Extending @since 3.1
-					$ipwp_post_dsc = apply_filters('ipwp_post_dsc', $thisipwp_post->post_title); // Extending @since 3.1.2
+					$ipwp_n = new itempropwp;
+					$ipwp_post_dsc = apply_filters('ipwp_post_dsc', $ipwp_n->ipwp_excerpt_maxchr(128, strip_shortcodes($thisipwp_post->post_content) )); // Extending @since 3.1
+					//$ipwp_post_dsc = apply_filters('ipwp_post_dsc', $thisipwp_post->post_title); // Extending @since 3.1.2
 				}
 				
 	
