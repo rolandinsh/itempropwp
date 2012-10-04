@@ -30,7 +30,7 @@ Example output:
 </span>
 `
 
-= How does it work? =
+How does it work?
 
 There are no options. yet!
 
