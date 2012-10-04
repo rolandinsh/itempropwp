@@ -27,13 +27,16 @@
 /*
  * Starting itempropwp
 */
-itempropwp::init();
+new itempropwp;
 /*
  * itempropwp class
  * @since 2.0
 */
 
 	class itempropwp {
+		public function __construct(){
+			add_filter('the_content', array( 'itempropwp', 'ipwp_the_content_filter' ), 10, 2 );
+		} 
 		// Initialize
 		public function init() {
 			// add_filter('wp_get_attachment_image_attributes', array( 'itempropwp', 'ipwp_img_attr' ), 10, 2 ); // Adding itemprop=image to thumbnails  @since 2.0
@@ -49,16 +52,16 @@ itempropwp::init();
 	 * @Todo rewrite
 	 * @since 3.1
 	*/
-		public function ipwp_excerpt_maxchr($charlength,$ipwp_content='') {
+		public function ipwp_excerpt_maxchr($charlength=170,$ipwp_content='') {
+			/* did we get content? No, let's make it from post */
 			if($ipwp_content==''){
 				global $post;  
-				
 				$ipwp_content = apply_filters('ipwp_excmc_filter_content', $post->post_excerpt);  // Extending @since 3.1.2
-				
 				if(!$ipwp_content||$ipwp_content==''){
 					$ipwp_content = apply_filters('ipwp_excmc_filter_content', strip_shortcodes( $post->post_content ));  // Extending @since 3.1
 				}
 			}
+			
 			$charlength++;
 			
 			if ( mb_strlen( $ipwp_content ) > $charlength ) {
@@ -71,9 +74,19 @@ itempropwp::init();
 					return apply_filters('ipwp_excmc_filter1', $subex); // Extending @since 3.1
 				}
 				return apply_filters('ipwp_excmc_filter_more', '[...]'); // Extending @since 3.1
-			} else {
+			}elseif(!$ipwp_content||$ipwp_content==''){
+				 // Extending @since 3.1.3
+				/* heeeeey! We still have no content! OK, let's tray get post title */
+				// rare cases where post content is ONLY shortcode
+				global $post;
+				$ipwp_content = $post->post_title;
 				return $ipwp_content;
 			}
+			else{
+				/* I give up! Some very rare,rare cases where we do not have content AND we do not have title. That's weird!*/
+				return $ipwp_content;
+			}
+
 		}
 		
 		public function ipwp_the_content_filter($content) {
@@ -94,10 +107,9 @@ itempropwp::init();
 					$ipwp_image = "\n\t".'<meta itemprop="image" content="'.esc_url($ipwp_posth).'" />'."\n\t";
 				}
 	
-				
 				if(!$ipwp_post_dsc){
 					$ipwp_n = new itempropwp;
-					$ipwp_post_dsc = apply_filters('ipwp_post_dsc', $ipwp_n->ipwp_excerpt_maxchr(128, strip_shortcodes($thisipwp_post->post_content) )); // Extending @since 3.1
+					$ipwp_post_dsc = apply_filters('ipwp_post_dsc', $ipwp_n->ipwp_excerpt_maxchr(170, strip_shortcodes($thisipwp_post->post_content) )); // Extending @since 3.1
 					//$ipwp_post_dsc = apply_filters('ipwp_post_dsc', $thisipwp_post->post_title); // Extending @since 3.1.2
 				}
 				
@@ -107,7 +119,8 @@ itempropwp::init();
 	<meta itemprop="name" content="'.esc_attr($thisipwp_post->post_title).'" />
 	<meta itemprop="url" content="'.esc_url(get_permalink()).'" />'
 	.$ipwp_image.
-	'<meta itemprop="author" content="'.get_author_posts_url($thisipwp_post-> post_author).'" />
+	'
+	<meta itemprop="author" content="'.get_author_posts_url($thisipwp_post-> post_author).'" />
 	<meta itemprop="description" content="'.strip_tags($ipwp_post_dsc).'"/>
 	<meta itemprop="datePublished" content="'.esc_attr($thisipwp_post->post_date).'" />
 	<meta itemprop="interactionCount" content="UserComments:'.esc_attr($thisipwp_post->comment_count).'" />

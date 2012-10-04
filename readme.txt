@@ -30,10 +30,23 @@ Example output:
 </span>
 `
 
-NEW in 3.1.2
+= How does it work? =
 
-* itemprop="description" fix
-* todo: finish fix for description part
+There are no options. yet!
+
+This asumes that Yout page is not fully integrated with HTML5's data properties for microdata. This plugin will create small code inside Your full content, with extra microdata from schema.org. This will be ONLY on singular pages - post, page or your custom post type.
+
+Once we are on singular page:
+
+# we will extract from it EXCERPT.
+# If You haven't provided excerpt, plugin will look-up for post content, and downsize it to 170 symbols up to full word.
+# If your content consist ONLY of shortcode, it will strip it out, and leave empty content. :(
+# If we have empty content, from previous step, we will use post title. Not best choise, but at least we have some `description`.
+# If Your post do not have even title, plugin will giveup and your description will be ampty. (This ir very bad :') )
+
+Other options, like `datePublished`, `UserComments`, `url` are taken from post
+
+
 
 NEW in 3.1
 
@@ -71,6 +84,10 @@ There are no questions for now! [Ask!](http://simplemediacode.info/snippets/item
 
 == Changelog ==
 
+= 3.1.3 =
+
+* fixed: itemprop="description"
+
 = 3.1.2 =
 
 * fix: itemprop="description"
@@ -101,6 +118,10 @@ There are no questions for now! [Ask!](http://simplemediacode.info/snippets/item
 * init
 
 == Upgrade Notice ==
+
+= 3.1.3 =
+
+* new: itemprop="description"
 
 = 2.0 =
 * new: as extendable class function
