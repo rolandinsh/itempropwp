@@ -47,7 +47,6 @@ Once we are on singular page:
 Other options, like `datePublished`, `UserComments`, `url` are taken from post
 
 
-
 NEW in 3.1
 
 * itemprop="description"
@@ -64,8 +63,7 @@ NEW in 3.0
 
 Add human invisible schema.org `itemprop` code to images (post thumbnails!).
 
-* [Project Page](http://simplemediacode.info/snippets/itemprop-attributes-for-wordpress-serp-results/)
-* [Documentation](http://simplemediacode.info/snippets/add-itemprop-image-to-all-wordpress-images/)
+* [Project Page](http://simplemediacode.com/wordpress-pugins/itemprop-wp/)
 * [SMC Facebook](http://www.facebook.com/pages/SimpleMediaCode/125547717479727)
 
 Development: [Git at bitbucket](https://bitbucket.org/simplemediacode/itempropwp) | [Github](https://github.com/rolandinsh/itempropwp)
