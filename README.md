@@ -22,8 +22,9 @@ This plugin is very simple. Using WordPress built in function to filter element 
 	 <meta itemprop="url" content="http://fulllink.example.com/seo-optimized-article/" />
 	 <meta itemprop="image" content="http://fulllink.example.com/seo-optimized-article/example.jpg" />
 	 <meta itemprop="author" content="http://fulllink.example.com/author/authorusername/"/>
-	 <meta itemprop="description" content="excerpt from post OR first 128 symbols (with full word), ..." />
+	 <meta itemprop="description" content="excerpt from post OR first 170 symbols (with full word), ..." />
 	 <meta itemprop="datePublished" content="2012-09-13 19:17:21"/>
+	 <meta itemprop="dateModified" content="2012-09-29 13:33:25" />
 	 <meta itemprop="interactionCount" content="UserComments:356"/>
 	<!-- Itemprop WP 3.1.3 by Rolands Umbrovskis http://umbrovskis.com end -->
 	</span>
@@ -46,6 +47,7 @@ Other options, like `datePublished`, `UserComments`, `url` are taken from post
 
 ### Features
 
+* Admin interface for options: description lenght (if excerpt not provided),show/hide UserComments:325,  show/hide dateModified 
 * itemprop="description" (since 3.1.1)
 * itemprop="name" (since 3.0)
 * itemprop="url" (since 3.0)
@@ -56,8 +58,7 @@ Other options, like `datePublished`, `UserComments`, `url` are taken from post
 
 ### Links
 
-* [Project Page](http://simplemediacode.info/snippets/itemprop-attributes-for-wordpress-serp-results/)
-* [Documentation](http://simplemediacode.info/snippets/add-itemprop-image-to-all-wordpress-images/)
+* [Project Page](http://simplemediacode.com/wordpress-pugins/itemprop-wp/)
 * [SMC Facebook](http://www.facebook.com/pages/SimpleMediaCode/125547717479727)
 * Development: [Git at bitbucket](https://bitbucket.org/simplemediacode/itempropwp) | [Github](https://github.com/rolandinsh/itempropwp)
 
@@ -68,15 +69,18 @@ Other options, like `datePublished`, `UserComments`, `url` are taken from post
 1. Activate the plugin through the 'Plugins' menu in WordPress
 1. See `itempropwp.php` for usage
 
+Require PHP at least 5.3
+
 ## Frequently Asked Questions
 
-There are no questions for now! [Ask!](http://simplemediacode.info/snippets/itemprop-attributes-for-wordpress-serp-results/)
-
-## ToDo
-
-* fix: itemprop="description" full fix
+There are no questions for now! [Ask!](http://simplemediacode.com/wordpress-pugins/itemprop-wp/)
 
 ## Changelog
+
+### 3.1.4
+
+* updated: itemprop="description"
+* Admin interface for options: description lenght (if excerpt not provided),show/hide UserComments:325,  show/hide dateModified 
 
 ### 3.1.2
 

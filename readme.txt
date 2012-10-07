@@ -3,8 +3,8 @@ Contributors: rolandinsh
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=Z4ALL9WUMY3CL&lc=LV&item_name=Umbrovskis%2e%20WordPress%20plugins&item_number=002&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted
 Tags: SEO, schema, schema.org, itemprop, schema.org itemprop, images, microdata, rich snippets, richsnippets, SERP, html5, structured data
 Requires at least: 3.3
-Tested up to: 3.4.2
-Stable tag: 3.1.3
+Tested up to: 3.5
+Stable tag: 3.1.4
 License: simplemediacode
 License URI: http://simplemediacode.com/license/gpl/
 
@@ -18,15 +18,16 @@ Example output:
 
 `
 <span itemscope itemtype="http://schema.org/Article">
-<!-- Itemprop WP 3.1.3 by Rolands Umbrovskis http://umbrovskis.com -->
+<!-- Itemprop WP 3.1.4 by Rolands Umbrovskis http://umbrovskis.com -->
  <meta itemprop="name" content="Title of the Article" />
  <meta itemprop="url" content="http://example.com/seo-optimized-article/" />
  <meta itemprop="image" content="http://example.com/images/example.jpg" />
  <meta itemprop="author" content="http://example.com/author/authorusername/"/>
  <meta itemprop="description" content="excerpt from post" />
  <meta itemprop="datePublished" content="2012-09-13 19:17:21" />
+ <meta itemprop="dateModified" content="2012-09-29 13:33:25" />
  <meta itemprop="interactionCount" content="UserComments:356" />
-<!-- Itemprop WP 3.1.3 by Rolands Umbrovskis http://umbrovskis.com end -->
+<!-- Itemprop WP 3.1.4 by Rolands Umbrovskis http://umbrovskis.com end -->
 </span>
 `
 
@@ -46,6 +47,10 @@ Once we are on singular page:
 
 Other options, like `datePublished`, `UserComments`, `url` are taken from post
 
+NEW in 3.1.4
+
+* updated: itemprop="description"
+* Admin interface for options: description lenght (if excerpt not provided),show/hide UserComments:325,  show/hide dateModified 
 
 NEW in 3.1
 
@@ -70,6 +75,8 @@ Development: [Git at bitbucket](https://bitbucket.org/simplemediacode/itempropwp
 
 Developer on twitter [@UmbrovskisCom](http://twitter.com/UmbrovskisCom)  /  [@SimpleMediaCode](http://twitter.com/SimpleMediaCode)
 
+Require PHP at least 5.3
+
 == Installation ==
 
 1. Unzip the download package
@@ -81,6 +88,11 @@ Developer on twitter [@UmbrovskisCom](http://twitter.com/UmbrovskisCom)  /  [@Si
 There are no questions for now! [Ask!](http://simplemediacode.info/snippets/itemprop-attributes-for-wordpress-serp-results/)
 
 == Changelog ==
+
+= 3.1.4 =
+
+* updated: itemprop="description"
+* Admin interface for options: description lenght (if excerpt not provided),show/hide UserComments:325,  show/hide dateModified 
 
 = 3.1.3 =
 
@@ -117,13 +129,14 @@ There are no questions for now! [Ask!](http://simplemediacode.info/snippets/item
 
 == Upgrade Notice ==
 
+= 3.1.4 =
+
+* updated: itemprop="description"
+* Admin interface for options: description lenght (if excerpt not provided),show/hide UserComments:325,  show/hide dateModified 
+
 = 3.1.3 =
 
 * new: itemprop="description"
-
-= 2.0 =
-* new: as extendable class function
-* new: using WordPress filter for image attributed on thumbnails
 
 = 3.0 =
 * new: context
@@ -133,6 +146,10 @@ There are no questions for now! [Ask!](http://simplemediacode.info/snippets/item
 * new: itemprop="author"
 * new: itemprop="datePublished"
 * new: "UserComments:325" itemprop="interactionCount"
+
+= 2.0 =
+* new: as extendable class function
+* new: using WordPress filter for image attributed on thumbnails
 
 == Screenshots ==
 1. 3.0 Full futured example http://simplemediacode.info/snippets/add-itemprop-image-to-all-wordpress-images/

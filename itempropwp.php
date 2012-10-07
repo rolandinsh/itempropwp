@@ -1,27 +1,41 @@
 <?php 
 /**
- * Plugin Name: itemprop WP for SERP/SEO Rich snippets
- * Plugin URI: http://simplemediacode.com/wordpress/itempropwp/?utm_source=wordpress&utm_medium=wpplugin&utm_campaign=itempropWP&utm_content=v-3-1-3-itempropWP_load_widgets
- * Description: Add human invisible schema.org itemprop code to images
- * Version: 3.1.3
- * Requires at least: 3.3
- * Tested up to: 3.5
- * Author: Rolands Umbrovskis
- * Author URI: http://umbrovskis.com
- * License: simplemediacode
- * License URI: http://simplemediacode.com/license/gpl/
+Plugin Name: itemprop WP for SERP/SEO Rich snippets
+Plugin URI: http://simplemediacode.com/wordpress-pugins/itemprop-wp/?utm_source=wordpress&utm_medium=wpplugin&utm_campaign=itempropWP&utm_content=v-3-1-4-itempropWP_load_widgets
+Description: Add human invisible schema.org itemprop code to images
+Version: 3.1.3
+Requires at least: 3.3
+Tested up to: 3.5
+Author: Rolands Umbrovskis
+Author URI: http://umbrovskis.com
+License: simplemediacode
+License URI: http://simplemediacode.com/license/gpl/
+
+Copyright (C) 2008-2012, Rolands Umbrovskis - rolands@simplemediacode.com
+
  */
-	define('SMCIPWPV','3.1.3'); // location general @since 1.0
+	define('SMCIPWPV','3.1.4'); // location general @since 1.0
 	define('SMCIPWPM',dirname(__FILE__)); // location general @since 1.0
 	define('SMCIPWPF','itempropwp'); // location folder @since 1.0 
+	define('IPWPT',__('itemprop WP for SERP/SEO Rich snippets','itempropwp')); // Name @since 1.1
 	define('SMCIPWPURL', plugin_dir_url(__FILE__)); // Plugin URI @since 1.0
 	$smcipwp_url = SMCIPWPURL; // @since 3.1 Use of undefined constant SMCIPWPURL - assumed 'SMCIPWPURL' in 
 	$smcipwp_f = SMCIPWPF; // @since 3.1 Use of undefined constant SMCIPWPF - assumed 'SMCIPWPF' in 
 	
 	define('SMCIPWPI',trailingslashit( $smcipwp_url. '/img' )); // Image location @since 1.0
 	define('SMCIPWPORG','http://wordpress.org/extend/plugins/'.trailingslashit($smcipwp_f)); // Plugin on WordPress.org @since 1.0
-	define('IPWPT',__('itemprop WP for SERP/SEO Rich snippets','itempropwp')); // Name @since 1.1
-	define('IPWPT_HOMEPAGE','http://simplemediacode.com/wordpress/itempropwp/'); // Homepage @since 3.1
+	
+/** Plugin homepage based on WP language
+ * @since 3.1.4
+*/
+	$plugref='?'.SMCIPWPF.'='.SMCIPWPV;
+	if(WPLANG=='lv'){ 
+		//define('IPWPT_HOMEPAGE','http://mediabox.lv/wordpress-pugins/itemprop-wp/'.$plugref); // Homepage @since 3.1
+		define('IPWPT_HOMEPAGE','http://simplemediacode.com/wordpress-pugins/itemprop-wp/'.$plugref); // Homepage @since 3.1.4
+	}else{
+		define('IPWPT_HOMEPAGE','http://simplemediacode.com/wordpress-pugins/itemprop-wp/'.$plugref); // Homepage @since 3.1
+	}
+	
 	define('IPWPT_GITHUB','https://github.com/rolandinsh/itempropwp'); // Homepage @since 3.1
 	define('IPWPT_BITBUCKET','https://bitbucket.org/simplemediacode/itempropwp'); // Homepage @since 3.1
 /*
@@ -32,21 +46,32 @@ new itempropwp;
  * itempropwp class
  * @since 2.0
 */
-
+//if (!class_exists('itempropwp')) {
 	class itempropwp {
 		public function __construct(){
-			add_filter('the_content', array( 'itempropwp', 'ipwp_the_content_filter' ), 10, 2 );
+			add_action('init', array( 'itempropwp', 'init' ),10);
+/*
+ * itempropwp Admin interface
+ * @since 3.1.4
+ * @version 1.0
+*/
+			if(is_admin()):
+				include_once(SMCIPWPM.'/admin/adminipwp.php');
+			endif;
 		} 
 		// Initialize
 		public function init() {
-			// add_filter('wp_get_attachment_image_attributes', array( 'itempropwp', 'ipwp_img_attr' ), 10, 2 ); // Adding itemprop=image to thumbnails  @since 2.0
+			load_plugin_textdomain( 'itempropwp', false, dirname( plugin_basename( __FILE__ ) ). '/lang/');
 			add_filter('the_content', array( 'itempropwp', 'ipwp_the_content_filter' ), 10, 2 ); // Adding context @since 3.0
+			
 		}
 		/* 3.0 drop */
 		public function ipwp_img_attr($attr) {
 			$attr['itemprop'] = 'image';
 			return apply_filters('ipwp_img_attr_filter', $attr); // Extending @since 3.1
 		}
+
+
 	/*
 	 * if post has no excerpt, we will use this
 	 * @Todo rewrite
@@ -56,9 +81,10 @@ new itempropwp;
 			/* did we get content? No, let's make it from post */
 			if($ipwp_content==''){
 				global $post;  
-				$ipwp_content = apply_filters('ipwp_excmc_filter_content', $post->post_excerpt);  // Extending @since 3.1.2
+				$ipwp_content = apply_filters('ipwp_excmc_filter_excerpt', $post->post_excerpt);  // Extending @since 3.1.2
 				if(!$ipwp_content||$ipwp_content==''){
-					$ipwp_content = apply_filters('ipwp_excmc_filter_content', strip_shortcodes( $post->post_content ));  // Extending @since 3.1
+					$ipwp_content = apply_filters('ipwp_excmc_filter_content', strip_shortcodes($post->post_content));  // Extending @since 3.1
+					$ipwp_content = str_replace(array("\r\n", "\n", "\r", "\t"), "", $ipwp_content);
 				}
 			}
 			
@@ -75,16 +101,17 @@ new itempropwp;
 				}
 				return apply_filters('ipwp_excmc_filter_more', '[...]'); // Extending @since 3.1
 			}elseif(!$ipwp_content||$ipwp_content==''){
-				 // Extending @since 3.1.3
-				/* heeeeey! We still have no content! OK, let's tray get post title */
-				// rare cases where post content is ONLY shortcode
+/** rare cases where post content is ONLY shortcode
+* heeeeey! We still have no content! OK, let's tray get post title
+* @since 3.1.3
+*/
 				global $post;
 				$ipwp_content = $post->post_title;
-				return $ipwp_content;
+				return apply_filters('ipwp_excmc_nocontent', $ipwp_content);
 			}
 			else{
 				/* I give up! Some very rare,rare cases where we do not have content AND we do not have title. That's weird!*/
-				return $ipwp_content;
+				return apply_filters('ipwp_excmc_nocontent_notitle', $ipwp_content);
 			}
 
 		}
@@ -97,6 +124,10 @@ new itempropwp;
 				$thisipwp_post = get_post($post->ID);
 				$ipwp_posth = '';
 				$ipwp_image = '';
+				$showcommcount = '';
+				$ipwp_datemodified='';
+				$ipwpdatemodified = get_option('smcipwp_datemodified');
+
 				$ipwp_post_dsc = apply_filters('ipwp_post_dsc', $thisipwp_post->post_excerpt);
 				if ( has_post_thumbnail($post->ID)) {
 					$ipwp_post_imga = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full'); // all other sizes are not permanent :| 
@@ -108,28 +139,35 @@ new itempropwp;
 				}
 	
 				if(!$ipwp_post_dsc){
-					$ipwp_n = new itempropwp;
-					$ipwp_post_dsc = apply_filters('ipwp_post_dsc', $ipwp_n->ipwp_excerpt_maxchr(170, strip_shortcodes($thisipwp_post->post_content) )); // Extending @since 3.1
-					//$ipwp_post_dsc = apply_filters('ipwp_post_dsc', $thisipwp_post->post_title); // Extending @since 3.1.2
+		$ipwp_n = new itempropwp;
+		$ipwp_post_dsc = apply_filters('ipwp_post_dsc', $ipwp_n->ipwp_excerpt_maxchr(get_option('smcipwp_maxlenght'), strip_shortcodes($thisipwp_post->post_content) )); // Extending @since 3.1
 				}
 				
-	
-				$content = $content."\n".'<span itemscope itemtype="http://schema.org/Article">
+				if(get_option('smcipwp_showcommcount')=='on'){
+					$showcommcount = "\n\t".'<meta itemprop="interactionCount" content="UserComments:'.esc_attr($thisipwp_post->comment_count).'" />';
+				}
+				if($ipwpdatemodified=='on'){
+					$ipwp_datemodified= "\n\t".'<meta itemprop="dateModified" content="'.esc_attr($thisipwp_post->post_modified).'" />';
+				}
+
+				$content = $content.'
+<span itemscope itemtype="http://schema.org/Article">
 <!-- ItemProp WP '.SMCIPWPV.' by Rolands Umbrovskis http://umbrovskis.com -->
 	<meta itemprop="name" content="'.esc_attr($thisipwp_post->post_title).'" />
 	<meta itemprop="url" content="'.esc_url(get_permalink()).'" />'
 	.$ipwp_image.
-	'
-	<meta itemprop="author" content="'.get_author_posts_url($thisipwp_post-> post_author).'" />
-	<meta itemprop="description" content="'.strip_tags($ipwp_post_dsc).'"/>
-	<meta itemprop="datePublished" content="'.esc_attr($thisipwp_post->post_date).'" />
-	<meta itemprop="interactionCount" content="UserComments:'.esc_attr($thisipwp_post->comment_count).'" />
+	'<meta itemprop="author" content="'.get_author_posts_url($thisipwp_post-> post_author).'" />
+	<meta itemprop="description" content="'.strip_tags(str_replace(array("\r\n", "\n", "\r", "\t"), "", $ipwp_post_dsc)).'"/>
+	<meta itemprop="datePublished" content="'.esc_attr($thisipwp_post->post_date).'" />'
+	.$ipwp_datemodified
+	.$showcommcount.'
 <!-- ItemProp WP '.SMCIPWPV.' by Rolands Umbrovskis http://umbrovskis.com end -->
-</span>'."\n";
-			
+</span>
+';
 				return $content;
 			}
 			return $content;
 		}
 	
 	}
+//}
