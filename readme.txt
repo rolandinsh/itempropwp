@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=Z4ALL
 Tags: SEO, schema, schema.org, itemprop, schema.org itemprop, images, microdata, rich snippets, richsnippets, SERP, html5, structured data
 Requires at least: 3.3
 Tested up to: 3.5
-Stable tag: 3.1.4
+Stable tag: 3.1.4.1
 License: simplemediacode
 License URI: http://simplemediacode.com/license/gpl/
 
