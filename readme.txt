@@ -152,4 +152,4 @@ There are no questions for now! [Ask!](http://simplemediacode.info/snippets/item
 * new: using WordPress filter for image attributed on thumbnails
 
 == Screenshots ==
-1. 3.0 Full futured example http://simplemediacode.info/snippets/add-itemprop-image-to-all-wordpress-images/
+1. 3.0 Full futured example http://simplemediacode.com/wordpress-pugins/itemprop-wp/
