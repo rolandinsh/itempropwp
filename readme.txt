@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=Z4ALL
 Tags: SEO, schema, schema.org, itemprop, schema.org itemprop, images, microdata, rich snippets, richsnippets, SERP, html5, structured data
 Requires at least: 3.3
 Tested up to: 3.5
-Stable tag: 3.1.4.1
+Stable tag: 3.2.0
 License: simplemediacode
 License URI: http://simplemediacode.com/license/gpl/
 
@@ -17,8 +17,8 @@ This plugin is very simple. Using WordPress built in function to filter element 
 Example output:
 
 `
-<span itemscope itemtype="http://schema.org/Article">
-<!-- Itemprop WP 3.1.4 by Rolands Umbrovskis http://umbrovskis.com -->
+<span itemscope itemtype="http://schema.org/Article" class="itempropwp-wrap">
+<!-- Itemprop WP 3.1.4.3 by Rolands Umbrovskis http://umbrovskis.com -->
  <meta itemprop="name" content="Title of the Article" />
  <meta itemprop="url" content="http://example.com/seo-optimized-article/" />
  <meta itemprop="image" content="http://example.com/images/example.jpg" />
@@ -27,15 +27,13 @@ Example output:
  <meta itemprop="datePublished" content="2012-09-13 19:17:21" />
  <meta itemprop="dateModified" content="2012-09-29 13:33:25" />
  <meta itemprop="interactionCount" content="UserComments:356" />
-<!-- Itemprop WP 3.1.4 by Rolands Umbrovskis http://umbrovskis.com end -->
+<!-- Itemprop WP 3.1.4.3 by Rolands Umbrovskis http://umbrovskis.com end -->
 </span>
 `
 
 How does it work?
 
-There are no options. yet!
-
-This asumes that Yout page is not fully integrated with HTML5's data properties for microdata. This plugin will create small code inside Your full content, with extra microdata from schema.org. This will be ONLY on singular pages - post, page or your custom post type.
+This asumes that Your page is not fully integrated with HTML5's data properties for microdata. This plugin will create small code inside Your `full content`, with extra microdata from schema.org. This will be ONLY on singular pages - post, page or your custom post type.
 
 Once we are on singular page:
 
@@ -45,28 +43,7 @@ Once we are on singular page:
 # If we have empty content, from previous step, we will use post title. Not best choise, but at least we have some `description`.
 # If Your post do not have even title, plugin will giveup and your description will be ampty. (This ir very bad :') )
 
-Other options, like `datePublished`, `UserComments`, `url` are taken from post
-
-NEW in 3.1.4
-
-* updated: itemprop="description"
-* Admin interface for options: description lenght (if excerpt not provided),show/hide UserComments:325,  show/hide dateModified 
-
-NEW in 3.1
-
-* itemprop="description"
-
-NEW in 3.0 
-
-* new: context, without context for SEO this plugin was somehow useless. We FIXED it ;)
-* new: itemprop="name"
-* new: itemprop="url"
-* new: itemprop="image"
-* new: itemprop="author"
-* new: itemprop="datePublished"
-* new: "UserComments:325" itemprop="interactionCount"
-
-Add human invisible schema.org `itemprop` code to images (post thumbnails!).
+Other options, like `datePublished`, `dateModified` (if enabled), `UserComments` (if enabled), `url` are taken from post
 
 * [Project Page](http://simplemediacode.com/wordpress-pugins/itemprop-wp/)
 * [SMC Facebook](http://www.facebook.com/pages/SimpleMediaCode/125547717479727)
@@ -85,9 +62,15 @@ Require PHP at least 5.3
 1. See `itempropwp.php` for usage
 
 == Frequently Asked Questions ==
-There are no questions for now! [Ask!](http://simplemediacode.info/snippets/itemprop-attributes-for-wordpress-serp-results/)
+There are no questions for now! [Ask!](http://simplemediacode.com/wordpress-pugins/itemprop-wp/)
 
 == Changelog ==
+
+= 3.2.0  =
+
+* updated: admin interface for options
+* new: CSS class for wrapper
+
 
 = 3.1.4 =
 

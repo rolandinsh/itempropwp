@@ -8,7 +8,7 @@ add_action('admin_menu', 'smc_ipwp_admin_menu');
 
 function smc_ipwp_admin_menu() {
 	//create new top-level menu
-	add_menu_page(__('itemprop WP for SERP/SEO Rich snippets','itempropwp'), __('itemprop WP','itempropwp'), 'activate_plugins', 'smcipwp_menu', 'smcipwp_settings');
+	add_menu_page(__('itemprop WP for SERP/SEO Rich snippets','itempropwp'), __('itemprop WP','itempropwp'), 'activate_plugins', 'smcipwp_menu', 'smcipwp_settings',SMCIPWPURL.'assets/img/itempropwp-icon-small.jpg');
 	//add_submenu_page( 'smcipwp_menu', __('Help','itempropwp'), __('Help','itempropwp'), 'edit_posts', 'smcipwphelp', 'smcipwp_help');
 	register_setting( 'smcipwp-settings', 'smcipwp_maxlenght' );
 	register_setting( 'smcipwp-settings', 'smcipwp_showcommcount' );
@@ -16,7 +16,7 @@ function smc_ipwp_admin_menu() {
 	register_setting( 'smcipwp-settings', 'smcipwp_perpostopt' ); /* Per post options @since 1.5.0 */
 }
 
-function smcipwp_settings(){ ?><div class="wrap"><div class="icon32" id="icon-tools"><br /></div>
+function smcipwp_settings(){ ?><div class="wrap"><img src="<?php echo SMCIPWPURL;?>assets/img/itempropwp-icon-64.jpg" alt="itempropWP" style="float: left; display:inline; margin-right:10px;" />
 	<h2><?php _e('Settings');?></h2>
 	<form method="post" action="options.php">
 <?php 
@@ -52,10 +52,12 @@ Per post options
 @since 1.5.0 
 */
 ?>
+<!-- 
 	<tr>
 		<th valign="top"><?php _e('Per post options','itempropwp');?></th>
 		<td valign="top"><input type="checkbox" id="smcipwp_perpostopt" name="smcipwp_perpostopt" <?php checked($smcipwp_perpostopt,'on') ?> /></td>
 	</tr>
+-->
  </table>
     <p class="submit"><input type="submit" class="button-primary" value="<?php _e('Save Changes','itempropwp') ?>" /></p>
 </form>

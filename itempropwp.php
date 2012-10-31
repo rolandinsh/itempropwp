@@ -1,9 +1,9 @@
 <?php 
 /**
 Plugin Name: itemprop WP for SERP/SEO Rich snippets
-Plugin URI: http://simplemediacode.com/wordpress-pugins/itemprop-wp/?utm_source=wordpress&utm_medium=wpplugin&utm_campaign=itempropWP&utm_content=v-3.1.4.2-itempropWP_load_widgets
+Plugin URI: http://simplemediacode.com/wordpress-pugins/itemprop-wp/?utm_source=wordpress&utm_medium=wpplugin&utm_campaign=itempropWP&utm_content=v-3.2.0-itempropWP_load_widgets
 Description: Add human invisible schema.org itemprop code to images
-Version: 3.1.4.2
+Version: 3.2.0
 Requires at least: 3.3
 Tested up to: 3.5
 Author: Rolands Umbrovskis
@@ -14,11 +14,12 @@ License URI: http://simplemediacode.com/license/gpl/
 Copyright (C) 2008-2012, Rolands Umbrovskis - rolands@simplemediacode.com
 
  */
-	define('SMCIPWPV','3.1.4.2'); // location general @since 1.0
+	define('SMCIPWPV','3.2.0'); // location general @since 1.0
 	define('SMCIPWPM',dirname(__FILE__)); // location general @since 1.0
 	define('SMCIPWPF','itempropwp'); // location folder @since 1.0 
 	define('IPWPT',__('itemprop WP for SERP/SEO Rich snippets','itempropwp')); // Name @since 1.1
 	define('SMCIPWPURL', plugin_dir_url(__FILE__)); // Plugin URI @since 1.0
+	define('SMCIPWPDIR',dirname( plugin_basename( __FILE__ ) ));/* @since 3.2.0 */
 	$smcipwp_url = SMCIPWPURL; // @since 3.1 Use of undefined constant SMCIPWPURL - assumed 'SMCIPWPURL' in 
 	$smcipwp_f = SMCIPWPF; // @since 3.1 Use of undefined constant SMCIPWPF - assumed 'SMCIPWPF' in 
 	
@@ -58,10 +59,19 @@ new itempropwp;
 			if(is_admin()):
 				include_once(SMCIPWPM.'/admin/adminipwp.php');
 			endif;
+/*
+ * itempropwp CSS
+ * @since 3.2.0
+ * @version 1.0
+*/
+			if(!is_admin()):	
+				wp_register_style('itempropwp', SMCIPWPURL.'/assets/css/itempropwp.css', array(), SMCIPWPV, 'all');
+				wp_enqueue_style('itempropwp');
+			endif;
 		} 
 		// Initialize
 		public function init() {
-			load_plugin_textdomain( 'itempropwp', false, dirname( plugin_basename( __FILE__ ) ). '/lang/');
+			load_plugin_textdomain( 'itempropwp', false, SMCIPWPDIR. '/lang/');
 			add_filter('the_content', array( 'itempropwp', 'ipwp_the_content_filter' ), 10, 2 ); // Adding context @since 3.0
 			
 		}
@@ -151,7 +161,7 @@ new itempropwp;
 				}
 
 				$content = $content.'
-<span itemscope itemtype="http://schema.org/Article">
+<span itemscope itemtype="http://schema.org/Article" class="itempropwp-wrap">
 <!-- ItemProp WP '.SMCIPWPV.' by Rolands Umbrovskis http://umbrovskis.com -->
 	<meta itemprop="name" content="'.esc_attr($thisipwp_post->post_title).'" />
 	<meta itemprop="url" content="'.esc_url(get_permalink()).'" />'

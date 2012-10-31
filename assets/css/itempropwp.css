@@ -1,0 +1,13 @@
+@charset "utf-8";
+/*
+ * itempropwp CSS
+ * @since 3.1.4.3
+ * @version 1.0
+*/
+.itempropwp-wrap{
+	padding:0;
+	margin:0;
+	overflow:hidden;
+	display:inline;
+}
+
