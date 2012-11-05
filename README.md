@@ -2,21 +2,16 @@
 
 Add human invisible schema.org itemprop code to post content
 
-* Contributors: rolandinsh (Rolands Umbrovskis)
 * [Donate](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=Z4ALL9WUMY3CL&lc=LV&item_name=Umbrovskis%2e%20WordPress%20plugins&item_number=002&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted) or promote this work 
-* Tags: SEO, schema, schema.org, itemprop, schema.org itemprop, images, microdata, rich snippets, richsnippets, SERP, html5, structured data
-* Requires at least: 3.3
-* Tested up to: 3.4.2
-* Stable tag: 3.1.3
 * License URI: http://simplemediacode.com/license/gpl/
 
 ## Description
 
-This plugin is very simple. Using WordPress built in function to filter element attributes. It will add human invisible / search engine visible schema.org `itemprop` code to content (via META tags).
+Very simple WordPress plugin, that uses built in function to filter element attributes. It will add human invisible / search engine visible schema.org `itemprop` code to content (via META tags).
 
 ### Example:
 
-	<span itemscope itemtype="http://schema.org/Article">
+	<span itemscope itemtype="http://schema.org/Article" class="itempropwp-wrap">
 	<!-- Itemprop WP 3.1.3 by Rolands Umbrovskis http://umbrovskis.com -->
 	 <meta itemprop="name" content="Title of the Article" />
 	 <meta itemprop="url" content="http://fulllink.example.com/seo-optimized-article/" />
@@ -76,6 +71,11 @@ Require PHP at least 5.3
 There are no questions for now! [Ask!](http://simplemediacode.com/wordpress-pugins/itemprop-wp/)
 
 ## Changelog
+
+### 3.2.0
+
+* updated: admin interface for options
+* new: CSS class for wrapper
 
 ### 3.1.4
 
