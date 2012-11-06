@@ -65,7 +65,7 @@ new itempropwp;
  * @version 1.0
 */
 			if(!is_admin()):	
-				wp_register_style('itempropwp', SMCIPWPURL.'/assets/css/itempropwp.css', array(), SMCIPWPV, 'all');
+				wp_register_style('itempropwp', SMCIPWPURL.'assets/css/itempropwp.css', array(), SMCIPWPV, 'all');
 				wp_enqueue_style('itempropwp');
 			endif;
 		} 
@@ -160,8 +160,7 @@ new itempropwp;
 					$ipwp_datemodified= "\n\t".'<meta itemprop="dateModified" content="'.esc_attr($thisipwp_post->post_modified).'" />';
 				}
 
-				$content = $content.'
-<span itemscope itemtype="http://schema.org/Article" class="itempropwp-wrap">
+				$content = $content.'<span itemscope itemtype="http://schema.org/Article" class="itempropwp-wrap">
 <!-- ItemProp WP '.SMCIPWPV.' by Rolands Umbrovskis http://umbrovskis.com -->
 	<meta itemprop="name" content="'.esc_attr($thisipwp_post->post_title).'" />
 	<meta itemprop="url" content="'.esc_url(get_permalink()).'" />'
@@ -172,8 +171,7 @@ new itempropwp;
 	.$ipwp_datemodified
 	.$showcommcount.'
 <!-- ItemProp WP '.SMCIPWPV.' by Rolands Umbrovskis http://umbrovskis.com end -->
-</span>
-';
+</span>';
 				return $content;
 			}
 			return $content;
