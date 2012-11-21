@@ -1,8 +1,6 @@
 <?php 
 /*
 itempropwp itemprom review
-*/
-?>
 
 <div itemprop="review" itemscope itemtype="http://schema.org/Review">
 	<meta itemprop="name" content="Item Title is greate!" />
@@ -27,3 +25,4 @@ itempropwp itemprom review
 	</div>
 	<meta itemprop="description" content="Great Item Title for the price." />
 </div>
+*/
