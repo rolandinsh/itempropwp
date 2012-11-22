@@ -3,7 +3,7 @@
 Plugin Name: itemprop WP for SERP/SEO Rich snippets
 Plugin URI: http://simplemediacode.com/wordpress-pugins/itemprop-wp/?utm_source=wordpress&utm_medium=wpplugin&utm_campaign=itempropWP&utm_content=v-3.2.1-itempropWP_load_widgets
 Description: Add human invisible schema.org itemprop code to images
-Version: 3.2.1
+Version: 3.2.2
 Requires at least: 3.3
 Tested up to: 3.5
 Author: Rolands Umbrovskis
@@ -14,7 +14,7 @@ License URI: http://simplemediacode.com/license/gpl/
 Copyright (C) 2008-2012, Rolands Umbrovskis - rolands@simplemediacode.com
 
 */
-	define('SMCIPWPV','3.2.1'); // location general @since 1.0
+	define('SMCIPWPV','3.2.2'); // location general @since 1.0
 	define('SMCIPWPM',dirname(__FILE__)); // location general @since 1.0
 	define('SMCIPWPF','itempropwp'); // location folder @since 1.0 
 	define('IPWPT',__('itemprop WP for SERP/SEO Rich snippets','itempropwp')); // Name @since 1.1
@@ -159,12 +159,22 @@ new itempropwp;
 				if($ipwpdatemodified=='on'){
 					$ipwp_datemodified= '<meta itemprop="dateModified" content="'.esc_attr($thisipwp_post->post_modified).'" />';
 				}
-
-				$content = $content.'<span itemscope itemtype="http://schema.org/Article" class="itempropwp-wrap"><!-- ItemProp WP '.SMCIPWPV.' by Rolands Umbrovskis http://umbrovskis.com -->
+				
+				//$xfactorer = apply_filters('article_content_before');
+				$xfactorer = apply_filters('article_content_before','<span itemscope itemtype="http://schema.org/Article" class="itempropwp-wrap"><!-- ItemProp WP '.SMCIPWPV.' by Rolands Umbrovskis http://umbrovskis.com -->
 	<meta itemprop="name" content="'.esc_attr($thisipwp_post->post_title).'" /><meta itemprop="url" content="'.esc_url(get_permalink()).'" />'
-	.$ipwp_image.'<meta itemprop="author" content="'.get_author_posts_url($thisipwp_post-> post_author).'" /><meta itemprop="description" content="'.strip_tags(str_replace(array("\r\n", "\n", "\r", "\t"), "", $ipwp_post_dsc)).'"/><meta itemprop="datePublished" content="'.esc_attr($thisipwp_post->post_date).'" />'
+	.$ipwp_image.'<meta itemprop="author" content="'.get_author_posts_url($thisipwp_post->post_author).'" /><meta itemprop="description" content="'.strip_tags(str_replace(array("\r\n", "\n", "\r", "\t"), "", $ipwp_post_dsc)).'"/><meta itemprop="datePublished" content="'.esc_attr($thisipwp_post->post_date).'" />'
 	.$ipwp_datemodified
-	.$showcommcount.'<!-- ItemProp WP '.SMCIPWPV.' by Rolands Umbrovskis http://umbrovskis.com end --></span>';
+	.$showcommcount.'<!-- ItemProp WP '.SMCIPWPV.' by Rolands Umbrovskis http://umbrovskis.com end --></span>');
+				
+				
+
+				$content = $content.$xfactorer;
+	
+	//$content = $content.$xfactorer;
+
+				$content = apply_filters('article_content', $content);
+				
 				return $content;
 			}
 			return $content;
@@ -172,3 +182,5 @@ new itempropwp;
 	
 	}
 //}
+
+include_once(SMCIPWPM.'/itemprop_review.php');
