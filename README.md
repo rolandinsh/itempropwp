@@ -12,7 +12,7 @@ Very simple WordPress plugin, that uses built in function to filter element attr
 ### Example:
 
 	<span itemscope itemtype="http://schema.org/Article" class="itempropwp-wrap">
-	<!-- Itemprop WP 3.2.1 by Rolands Umbrovskis http://umbrovskis.com -->
+	<!-- Itemprop WP 3.3.0 by Rolands Umbrovskis http://umbrovskis.com -->
 	 <meta itemprop="name" content="Title of the Article" />
 	 <meta itemprop="url" content="http://fulllink.example.com/seo-optimized-article/" />
 	 <meta itemprop="image" content="http://fulllink.example.com/seo-optimized-article/example.jpg" />
@@ -21,17 +21,16 @@ Very simple WordPress plugin, that uses built in function to filter element attr
 	 <meta itemprop="datePublished" content="2012-09-13 19:17:21"/>
 	 <meta itemprop="dateModified" content="2012-09-29 13:33:25" />
 	 <meta itemprop="interactionCount" content="UserComments:356"/>
-	<!-- Itemprop WP 3.2.1 by Rolands Umbrovskis http://umbrovskis.com end -->
+	<!-- Itemprop WP 3.3.0 by Rolands Umbrovskis http://umbrovskis.com end -->
 	</span>
 
 ### How does it work?
 
-There are no options. yet!
-
-This asumes that Yout page is not fully integrated with HTML5's data properties for microdata. This plugin will create small code inside Your full content, with extra microdata from schema.org. This will be ONLY on singular pages - post, page or your custom post type.
+This asumes that Your page is not fully integrated with HTML5's data properties for microdata. This plugin will create small code inside Your `full content`, with extra microdata from schema.org. This will be ONLY on singular pages - post, page or your custom post type.
 
 Once we are on singular page:
 
+* NEW in 3.3.0 itemprop="review".
 * we will extract from it EXCERPT.
 * If You haven't provided excerpt, plugin will look-up for post content, and downsize it to 170 symbols up to full word.
 * If your content consist ONLY of shortcode, it will strip it out, and leave empty content. :(
@@ -50,6 +49,7 @@ Other options, like `datePublished`, `UserComments`, `url` are taken from post
 * itemprop="author" (since 3.0)
 * itemprop="datePublished" (since 3.0)
 * "UserComments:325" itemprop="interactionCount" (since 3.0)
+* itemprop="review" (since 3.3.0)
 
 ### Links
 

@@ -34,3 +34,31 @@ msgstr ""
 
 msgid "Save Changes"
 msgstr ""
+
+msgid "Author link"
+msgstr ""
+
+msgid "if there is only 1 author and You would like to link to another author page in itemprop"
+msgstr ""
+
+msgid "Leave empty and we will use default author page link %s"
+msgstr ""
+
+msgid "%s Review"
+msgstr ""
+
+msgid "Support for version %s"
+msgstr ""
+
+msgid "Name of item"
+msgstr ""
+
+msgid "Price of item"
+msgstr ""
+
+msgid "Currency of item"
+msgstr ""
+
+msgid "Rating of item"
+msgstr ""
+

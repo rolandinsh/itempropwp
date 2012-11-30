@@ -14,6 +14,7 @@ function smc_ipwp_admin_menu() {
 	register_setting( 'smcipwp-settings', 'smcipwp_showcommcount' );
 	register_setting( 'smcipwp-settings', 'smcipwp_datemodified' );
 	register_setting( 'smcipwp-settings', 'smcipwp_perpostopt' ); /* Per post options @since 1.5.0 */
+	register_setting( 'smcipwp-settings', 'smcipwp_author_link' ); /* Per post options @since 3.3.0 */
 }
 
 function smcipwp_settings(){ ?><div class="wrap"><img src="<?php echo SMCIPWPURL;?>assets/img/itempropwp-icon-64.jpg" alt="itempropWP" style="float: left; display:inline; margin-right:10px;" />
@@ -27,6 +28,8 @@ $smcipwp_maxlenght = get_option('smcipwp_maxlenght');
 $smcipwp_showcommcount = get_option('smcipwp_showcommcount');
 $smcipwp_datemodified = get_option('smcipwp_datemodified');
 $smcipwp_perpostopt=  get_option('smcipwp_perpostopt'); /* Per post options @since 1.5.0 */
+$smcipwp_author_link=  get_option('smcipwp_author_link'); /* Per post options @since 3.3.0 */
+
 
 if(!$smcipwp_maxlenght||$smcipwp_maxlenght==''){
 	$smcipwp_maxlenght = '170'; /* well, we need some value anyway */
@@ -45,6 +48,27 @@ if(!$smcipwp_maxlenght||$smcipwp_maxlenght==''){
 	<tr>
 		<th valign="top"><?php _e('Show dateModified?','itempropwp');?></th>
 		<td valign="top"><input type="checkbox" id="smcipwp_datemodified" name="smcipwp_datemodified" <?php checked($smcipwp_datemodified,'on') ?> /></td>
+	</tr>
+<?php 
+/* 
+Single author link
+@since 3.3.0
+*/
+$iareuserdata = wp_get_current_user(); /* I.R. :) */
+$iareuser = $iareuserdata->user_login; /* I.R. Baboon :) */
+?>
+	<tr>
+		<th valign="top"><?php _e('Author link','itempropwp');?></th>
+		<td valign="top">
+			<input type="text" id="smcipwp_author_link" name="smcipwp_author_link" value="<?php echo $smcipwp_author_link;?>" /><br />
+			<?php _e("if there is only 1 author and You would like to link to another author page in itemprop","itempropwp");?>. 
+			<?php 
+			printf(
+				__( 'Leave empty and we will use default author page link %s','itempropwp' ),
+				'<strong>'.get_home_url().'/author/'.$iareuser.'</strong>'
+			);
+			?>
+		</td>
 	</tr>
 <?php 
 /* 

@@ -1,9 +1,9 @@
 <?php 
 /**
 Plugin Name: itemprop WP for SERP/SEO Rich snippets
-Plugin URI: http://simplemediacode.com/wordpress-pugins/itemprop-wp/?utm_source=wordpress&utm_medium=wpplugin&utm_campaign=itempropWP&utm_content=v-3.2.1-itempropWP_load_widgets
+Plugin URI: http://simplemediacode.com/wordpress-pugins/itemprop-wp/?utm_source=wordpress&utm_medium=wpplugin&utm_campaign=itempropWP&utm_content=v-3.3.0-itempropWP_load_widgets
 Description: Add human invisible schema.org itemprop code to images
-Version: 3.2.2
+Version: 3.3.0
 Requires at least: 3.3
 Tested up to: 3.5
 Author: Rolands Umbrovskis
@@ -14,10 +14,11 @@ License URI: http://simplemediacode.com/license/gpl/
 Copyright (C) 2008-2012, Rolands Umbrovskis - rolands@simplemediacode.com
 
 */
-	define('SMCIPWPV','3.2.2'); // location general @since 1.0
+	define('SMCIPWPV','3.3.0'); // location general @since 1.0
 	define('SMCIPWPM',dirname(__FILE__)); // location general @since 1.0
 	define('SMCIPWPF','itempropwp'); // location folder @since 1.0 
 	define('IPWPT',__('itemprop WP for SERP/SEO Rich snippets','itempropwp')); // Name @since 1.1
+	define('IPWPTSN',__('itemprop WP','itempropwp')); // Name @since 3.3.0
 	define('SMCIPWPURL', plugin_dir_url(__FILE__)); // Plugin URI @since 1.0
 	define('SMCIPWPDIR',dirname( plugin_basename( __FILE__ ) ));/* @since 3.2.0 */
 	$smcipwp_url = SMCIPWPURL; // @since 3.1 Use of undefined constant SMCIPWPURL - assumed 'SMCIPWPURL' in 
@@ -29,16 +30,20 @@ Copyright (C) 2008-2012, Rolands Umbrovskis - rolands@simplemediacode.com
 /** Plugin homepage based on WP language
 * @since 3.1.4
 */
-	$plugref='?'.SMCIPWPF.'='.SMCIPWPV;
+	$plugref='?utm_campaign='.SMCIPWPF.'&utm_content='.SMCIPWPF.'-'.SMCIPWPV.'&utm_medium=link&utm_source='.get_home_url();
 	if(WPLANG=='lv'){ 
 		//define('IPWPT_HOMEPAGE','http://mediabox.lv/wordpress-pugins/itemprop-wp/'.$plugref); // Homepage @since 3.1
 		define('IPWPT_HOMEPAGE','http://simplemediacode.com/wordpress-pugins/itemprop-wp/'.$plugref); // Homepage @since 3.1.4
+		define('IPWPT_HOMEPAGEC','http://simplemediacode.com/wordpress-pugins/itemprop-wp/'); // Homepage @since 3.3.0
 	}else{
 		define('IPWPT_HOMEPAGE','http://simplemediacode.com/wordpress-pugins/itemprop-wp/'.$plugref); // Homepage @since 3.1
+		define('IPWPT_HOMEPAGEC','http://simplemediacode.com/wordpress-pugins/itemprop-wp/'); // Homepage @since 3.3.0
 	}
 	
-	define('IPWPT_GITHUB','https://github.com/rolandinsh/itempropwp'); // Homepage @since 3.1
-	define('IPWPT_BITBUCKET','https://bitbucket.org/simplemediacode/itempropwp'); // Homepage @since 3.1
+	define('IPWPT_GITHUB','https://github.com/rolandinsh/'.$smcipwp_f); // Homepage @since 3.1
+	define('IPWPT_BITBUCKET','https://bitbucket.org/simplemediacode/'.$smcipwp_f); // Homepage @since 3.1
+	define('IPWPT_VERSUPPORT','http://simplemediacode.org/forums/topic/itempropwp-3-3-0/'.$plugref); // Version specific support @since 3.3.0
+	
 /*
  * Starting itempropwp
 */
@@ -51,6 +56,8 @@ new itempropwp;
 	class itempropwp {
 		public function __construct(){
 			add_action('init', array( 'itempropwp', 'init' ),10);
+			add_action('plugin_row_meta', array( 'itempropwp', 'smcwpd_set_plugin_meta' ), 10, 2 );
+
 /*
  * itempropwp Admin interface
  * @since 3.1.4
@@ -75,6 +82,24 @@ new itempropwp;
 			add_filter('the_content', array( 'itempropwp', 'ipwp_the_content_filter' ), 10, 2 ); // Adding context @since 3.0
 			
 		}
+
+		function smcwpd_set_plugin_meta($links, $file) {
+			$plugin = plugin_basename(__FILE__);
+			// create link
+			if ($file == $plugin) {
+				return array_merge( $links, array( 
+		
+					'<a href="http://simplemediacode.org/groups/itempropwp-plugin/forum/">' . __("Support Forum","itempropwp") . '</a>',
+					'<a href="'.IPWPT_VERSUPPORT.'">' . sprintf(__("Support for version %s","itempropwp"),SMCIPWPV) . '</a>',
+					'<a href="http://simplemediacode.org/groups/itempropwp-plugin/forum/topic/suggestions-for-more-options/">' . __('Feature request') . '</a>',
+					'<a href="http://simplemediacode.org/groups/itempropwp-plugin/">' . __("Join Members group","itempropwp") . '</a>',
+					//'<a href="http://darbi.mediabox.lv/draugiem-lvlapas-fanu-wordpress-spraudnis/">www</a>',
+					// ,'<a href="http://umbrovskis.com/">Umbrovskis.com</a>'
+				));
+			}
+			return $links;
+		}
+
 		/* 3.0 drop */
 		public function ipwp_img_attr($attr) {
 			$attr['itemprop'] = 'image';
@@ -160,20 +185,20 @@ new itempropwp;
 					$ipwp_datemodified= '<meta itemprop="dateModified" content="'.esc_attr($thisipwp_post->post_modified).'" />';
 				}
 				
-				//$xfactorer = apply_filters('article_content_before');
-				$xfactorer = apply_filters('article_content_before','<span itemscope itemtype="http://schema.org/Article" class="itempropwp-wrap"><!-- ItemProp WP '.SMCIPWPV.' by Rolands Umbrovskis http://umbrovskis.com -->
+				$smcipwp_author_link = get_option('smcipwp_author_link'); /* Per post options @since 3.3.0 */
+				if($smcipwp_author_link==''){
+					$smcipwp_author_link = get_author_posts_url($thisipwp_post->post_author);
+				}
+				$postauthoris = esc_url($smcipwp_author_link);
+				
+				$xfactorer = apply_filters('itempropwp_article_content_before','<span itemscope itemtype="http://schema.org/Article" class="itempropwp-wrap"><!-- ItemProp WP '.SMCIPWPV.' by Rolands Umbrovskis http://umbrovskis.com -->
 	<meta itemprop="name" content="'.esc_attr($thisipwp_post->post_title).'" /><meta itemprop="url" content="'.esc_url(get_permalink()).'" />'
-	.$ipwp_image.'<meta itemprop="author" content="'.get_author_posts_url($thisipwp_post->post_author).'" /><meta itemprop="description" content="'.strip_tags(str_replace(array("\r\n", "\n", "\r", "\t"), "", $ipwp_post_dsc)).'"/><meta itemprop="datePublished" content="'.esc_attr($thisipwp_post->post_date).'" />'
+	.$ipwp_image.'<meta itemprop="author" content="'.$postauthoris.'" /><meta itemprop="description" content="'.strip_tags(str_replace(array("\r\n", "\n", "\r", "\t"), "", $ipwp_post_dsc)).'"/><meta itemprop="datePublished" content="'.esc_attr($thisipwp_post->post_date).'" />'
 	.$ipwp_datemodified
 	.$showcommcount.'<!-- ItemProp WP '.SMCIPWPV.' by Rolands Umbrovskis http://umbrovskis.com end --></span>');
-				
-				
 
 				$content = $content.$xfactorer;
-	
-	//$content = $content.$xfactorer;
-
-				$content = apply_filters('article_content', $content);
+				$content = apply_filters('itempropwp_article_content', $content);
 				
 				return $content;
 			}

@@ -18,7 +18,7 @@ Example output:
 
 `
 <span itemscope itemtype="http://schema.org/Article" class="itempropwp-wrap">
-<!-- Itemprop WP 3.2.1 by Rolands Umbrovskis http://umbrovskis.com -->
+<!-- Itemprop WP 3.3.0 by Rolands Umbrovskis http://umbrovskis.com -->
  <meta itemprop="name" content="Title of the Article" />
  <meta itemprop="url" content="http://example.com/seo-optimized-article/" />
  <meta itemprop="image" content="http://example.com/images/example.jpg" />
@@ -27,7 +27,7 @@ Example output:
  <meta itemprop="datePublished" content="2012-09-13 19:17:21" />
  <meta itemprop="dateModified" content="2012-09-29 13:33:25" />
  <meta itemprop="interactionCount" content="UserComments:356" />
-<!-- Itemprop WP 3.2.1 by Rolands Umbrovskis http://umbrovskis.com end -->
+<!-- Itemprop WP 3.3.0 by Rolands Umbrovskis http://umbrovskis.com end -->
 </span>
 `
 
@@ -37,6 +37,7 @@ This asumes that Your page is not fully integrated with HTML5's data properties 
 
 Once we are on singular page:
 
+# NEW in 3.3.0 Review.
 # we will extract from it EXCERPT.
 # If You haven't provided excerpt, plugin will look-up for post content, and downsize it to 170 symbols up to full word.
 # If your content consist ONLY of shortcode, it will strip it out, and leave empty content. :(
@@ -66,11 +67,15 @@ There are no questions for now! [Ask!](http://simplemediacode.com/wordpress-pugi
 
 == Changelog ==
 
+= 3.3.0  =
+
+* new: itemprop="review"
+* updated: admin interface for options
+
 = 3.2.0  =
 
 * updated: admin interface for options
 * new: CSS class for wrapper
-
 
 = 3.1.4 =
 
@@ -112,27 +117,16 @@ There are no questions for now! [Ask!](http://simplemediacode.com/wordpress-pugi
 
 == Upgrade Notice ==
 
-= 3.1.4 =
+= 3.3.0  =
 
-* updated: itemprop="description"
-* Admin interface for options: description lenght (if excerpt not provided),show/hide UserComments:325,  show/hide dateModified 
+* new: itemprop="review"
+* updated: admin interface for options
 
-= 3.1.3 =
+= 3.2.0  =
 
-* new: itemprop="description"
-
-= 3.0 =
-* new: context
-* new: itemprop="name"
-* new: itemprop="url"
-* new: itemprop="image"
-* new: itemprop="author"
-* new: itemprop="datePublished"
-* new: "UserComments:325" itemprop="interactionCount"
-
-= 2.0 =
-* new: as extendable class function
-* new: using WordPress filter for image attributed on thumbnails
+* updated: admin interface for options
+* new: CSS class for wrapper
 
 == Screenshots ==
 1. 3.0 Full futured example http://simplemediacode.com/wordpress-pugins/itemprop-wp/
+3. 3.3.0 Full futured Review example http://simplemediacode.com/wordpress-pugins/itemprop-wp/
