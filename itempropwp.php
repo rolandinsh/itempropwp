@@ -30,7 +30,7 @@ Copyright (C) 2008-2012, Rolands Umbrovskis - rolands@simplemediacode.com
 /** Plugin homepage based on WP language
 * @since 3.1.4
 */
-	$plugref='?utm_campaign='.SMCIPWPF.'&utm_content='.SMCIPWPF.'-'.SMCIPWPV.'&utm_medium=link&utm_source='.get_home_url();
+	$plugref='?utm_campaign='.SMCIPWPF.'&utm_content='.SMCIPWPF.'-'.SMCIPWPV.'&utm_medium=link&utm_source='.SMCIPWPF.'-plugin';
 	if(WPLANG=='lv'){ 
 		//define('IPWPT_HOMEPAGE','http://mediabox.lv/wordpress-pugins/itemprop-wp/'.$plugref); // Homepage @since 3.1
 		define('IPWPT_HOMEPAGE','http://simplemediacode.com/wordpress-pugins/itemprop-wp/'.$plugref); // Homepage @since 3.1.4
@@ -88,13 +88,10 @@ new itempropwp;
 			// create link
 			if ($file == $plugin) {
 				return array_merge( $links, array( 
-		
-					'<a href="http://simplemediacode.org/groups/itempropwp-plugin/forum/">' . __("Support Forum","itempropwp") . '</a>',
+					'<a href="http://simplemediacode.org/forums/forum/itempropwp-plugin/">' . __("Support Forum","itempropwp") . '</a>',
 					'<a href="'.IPWPT_VERSUPPORT.'">' . sprintf(__("Support for version %s","itempropwp"),SMCIPWPV) . '</a>',
-					'<a href="http://simplemediacode.org/groups/itempropwp-plugin/forum/topic/suggestions-for-more-options/">' . __('Feature request') . '</a>',
-					'<a href="http://simplemediacode.org/groups/itempropwp-plugin/">' . __("Join Members group","itempropwp") . '</a>',
-					//'<a href="http://darbi.mediabox.lv/draugiem-lvlapas-fanu-wordpress-spraudnis/">www</a>',
-					// ,'<a href="http://umbrovskis.com/">Umbrovskis.com</a>'
+					'<a href="http://simplemediacode.org/forums/forum/itempropwp-plugin/suggestions-for-itempropwp/">' . __('Feature request') . '</a>',
+					//'<a href="http://simplemediacode.org/forums/forum/itempropwp-plugin/">' . __("Join Members group","itempropwp") . '</a>',
 				));
 			}
 			return $links;
@@ -164,10 +161,13 @@ new itempropwp;
 				$ipwpdatemodified = get_option('smcipwp_datemodified');
 
 				$ipwp_post_dsc = apply_filters('ipwp_post_dsc', $thisipwp_post->post_excerpt);
-				if ( has_post_thumbnail($post->ID)) {
-					$ipwp_post_imga = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full'); // all other sizes are not permanent :| 
-					$ipwp_posth = apply_filters('ipwp_post_imguri', $ipwp_post_imga[0]); // image link + Extending @since 3.1
+				if (function_exists('has_post_thumbnail')) {
+					if ( has_post_thumbnail($post->ID)) {
+						$ipwp_post_imga = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full'); // all other sizes are not permanent :| 
+						$ipwp_posth = apply_filters('ipwp_post_imguri', $ipwp_post_imga[0]); // image link + Extending @since 3.1
+					}
 				}
+				
 				
 				if($ipwp_posth){
 					$ipwp_image = '<meta itemprop="image" content="'.esc_url($ipwp_posth).'" />'."\n\t";
@@ -191,9 +191,8 @@ new itempropwp;
 				}
 				$postauthoris = esc_url($smcipwp_author_link);
 				
-				$xfactorer = apply_filters('itempropwp_article_content_before','<span itemscope itemtype="http://schema.org/Article" class="itempropwp-wrap"><!-- ItemProp WP '.SMCIPWPV.' by Rolands Umbrovskis http://umbrovskis.com -->
-	<meta itemprop="name" content="'.esc_attr($thisipwp_post->post_title).'" /><meta itemprop="url" content="'.esc_url(get_permalink()).'" />'
-	.$ipwp_image.'<meta itemprop="author" content="'.$postauthoris.'" /><meta itemprop="description" content="'.strip_tags(str_replace(array("\r\n", "\n", "\r", "\t"), "", $ipwp_post_dsc)).'"/><meta itemprop="datePublished" content="'.esc_attr($thisipwp_post->post_date).'" />'
+				$xfactorer = apply_filters('itempropwp_article_content_before','<span itemscope itemtype="http://schema.org/Article" class="itempropwp-wrap"><!-- ItemProp WP '.SMCIPWPV.' by Rolands Umbrovskis http://umbrovskis.com --><meta itemprop="name" content="'.esc_attr($thisipwp_post->post_title).'"><meta itemprop="url" content="'.esc_url(get_permalink()).'">'
+	.$ipwp_image.'<meta itemprop="author" content="'.$postauthoris.'"><meta itemprop="description" content="'.strip_tags(str_replace(array("\r\n", "\n", "\r", "\t"), "", $ipwp_post_dsc)).'"><meta itemprop="datePublished" content="'.esc_attr($thisipwp_post->post_date).'">'
 	.$ipwp_datemodified
 	.$showcommcount.'<!-- ItemProp WP '.SMCIPWPV.' by Rolands Umbrovskis http://umbrovskis.com end --></span>');
 

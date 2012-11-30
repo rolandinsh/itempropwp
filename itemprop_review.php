@@ -68,17 +68,16 @@ class itempropwp_review extends itempropwp  {
 			if($reviewonoff['onoff']=="on"){
 				if(!$reviewname){$reviewname = $reviewpost->post_title;}
 				if($reviewprice && $reviewcurrency){
-					$pricerows = '<span itemprop="offers" itemscope itemtype="http://schema.org/Offer"><meta itemprop="price" content="'.$reviewprice.'" /><meta itemprop="priceCurrency" content="'.$reviewcurrency.'" /><link itemprop="availability" href="http://schema.org/InStock" /></span>';
+					$pricerows = '<span itemprop="offers" itemscope itemtype="http://schema.org/Offer"><meta itemprop="price" content="'.$reviewprice.'"><meta itemprop="priceCurrency" content="'.$reviewcurrency.'"><link itemprop="availability" href="http://schema.org/InStock"></span>';
 				}
 				
 				if($reviewrating){
-					$reviewratingrow = '<span itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating"><meta itemprop="worstRating" content = "1"/><meta itemprop="ratingValue" content="'.$itemrating.'" /><meta itemprop="bestRating" content="5" /></span>';
+					$reviewratingrow = '<span itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating"><meta itemprop="worstRating" content = "1"><meta itemprop="ratingValue" content="'.$itemrating.'"><meta itemprop="bestRating" content="5"></span>';
 				}
-	
 				
-				$newcontent .= '<span itemprop="review" itemscope itemtype="http://schema.org/Review"><meta itemprop="name" content="'.esc_attr($reviewpost->post_title).'" /><meta itemprop="author" content="'.esc_attr(get_the_author_meta( 'display_name', $reviewpost->post_author )).'" /><meta itemprop="datePublished" content="'.esc_attr($reviewpost->post_date).'" />'
-				.$reviewratingrow.'<span itemprop="itemReviewed" itemscope itemtype="http://schema.org/Product"><meta itemprop="name" content="'.esc_attr($reviewname).'" />'
-				.$pricerows.'</span><meta itemprop="description" content="'.esc_attr($reviewpost->post_excerpt).'" /></span>';
+				$newcontent .= '<span itemprop="review" itemscope itemtype="http://schema.org/Review"><meta itemprop="name" content="'.esc_attr($reviewpost->post_title).'"><meta itemprop="author" content="'.esc_attr(get_the_author_meta( 'display_name', $reviewpost->post_author )).'"><meta itemprop="datePublished" content="'.esc_attr($reviewpost->post_date).'">'
+				.$reviewratingrow.'<span itemprop="itemReviewed" itemscope itemtype="http://schema.org/Product"><meta itemprop="name" content="'.esc_attr($reviewname).'">'
+				.$pricerows.'</span><meta itemprop="description" content="'.esc_attr($reviewpost->post_excerpt).'"></span>';
 
 				$content = "\n".'<!-- '.IPWPTSN.' '.SMCIPWPV.'/ Review '.$reviewv.' by Rolands Umbrovskis '.IPWPT_HOMEPAGEC.' -->'.$newcontent.'<!-- '.IPWPTSN.' '.SMCIPWPV.'/ Review '.$reviewv.' end -->'."\n";
 			}
