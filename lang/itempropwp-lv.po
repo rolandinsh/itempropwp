@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: itempropwp\n"
 "Report-Msgid-Bugs-To: webapp@mediabox.lv\n"
 "POT-Creation-Date: 2010-03-10 06:11+0000\n"
-"PO-Revision-Date: 2012-11-30 01:06+0200\n"
+"PO-Revision-Date: 2013-01-18 18:55+0200\n"
 "Last-Translator: rolandinsh <rolands@mediabox.lv>\n"
 "Language-Team: Latvian <rolands@mediabox.lv>\n"
 "Language: lv\n"
@@ -49,5 +49,23 @@ msgstr ""
 msgid "Leave empty and we will use default author page link %s"
 msgstr "Atstāj tukšu un izmantosim noklusēto autora saiti %s"
 
+msgid "%s Review"
+msgstr "%s Atsauksmes"
+
 msgid "Support for version %s"
 msgstr "%s versijas atbalsts"
+
+msgid "Name of item"
+msgstr "Produkta nosaukums"
+
+msgid "Price of item"
+msgstr "Cena"
+
+msgid "Currency of item"
+msgstr "Valūta"
+
+msgid "Rating of item"
+msgstr "Preces novērtējums"
+
+msgid "Turn On/Off review mode"
+msgstr "Ieslēgt/izslēgts atsauksmes iespējas"

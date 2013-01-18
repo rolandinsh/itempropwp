@@ -3,7 +3,7 @@
 Plugin Name: itemprop WP for SERP/SEO Rich snippets
 Plugin URI: http://simplemediacode.com/wordpress-pugins/itemprop-wp/?utm_source=wordpress&utm_medium=wpplugin&utm_campaign=itempropWP&utm_content=v-3.3.0-itempropWP_load_widgets
 Description: Add human invisible schema.org itemprop code to images
-Version: 3.3.0
+Version: 3.3.1
 Requires at least: 3.3
 Tested up to: 3.5
 Author: Rolands Umbrovskis
@@ -14,7 +14,7 @@ License URI: http://simplemediacode.com/license/gpl/
 Copyright (C) 2008-2012, Rolands Umbrovskis - rolands@simplemediacode.com
 
 */
-	define('SMCIPWPV','3.3.0'); // location general @since 1.0
+	define('SMCIPWPV','3.3.1'); // location general @since 1.0
 	define('SMCIPWPM',dirname(__FILE__)); // location general @since 1.0
 	define('SMCIPWPF','itempropwp'); // location folder @since 1.0 
 	define('IPWPT',__('itemprop WP for SERP/SEO Rich snippets','itempropwp')); // Name @since 1.1
@@ -174,8 +174,8 @@ new itempropwp;
 				}
 	
 				if(!$ipwp_post_dsc){
-		$ipwp_n = new itempropwp;
-		$ipwp_post_dsc = apply_filters('ipwp_post_dsc', $ipwp_n->ipwp_excerpt_maxchr(get_option('smcipwp_maxlenght'), strip_shortcodes($thisipwp_post->post_content) )); // Extending @since 3.1
+					$ipwp_n = new itempropwp;
+					$ipwp_post_dsc = apply_filters('ipwp_post_dsc', $ipwp_n->ipwp_excerpt_maxchr(get_option('smcipwp_maxlenght'), strip_shortcodes($thisipwp_post->post_content) )); // Extending @since 3.1
 				}
 				
 				if(get_option('smcipwp_showcommcount')=='on'){

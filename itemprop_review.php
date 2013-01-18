@@ -34,7 +34,7 @@ class itempropwp_review extends itempropwp  {
 	}
 	
 	private function reviewvers(){
-		return '1.0.0';
+		return '1.1.0';
 	}
 
 	public function reviewinit() {
@@ -75,9 +75,22 @@ class itempropwp_review extends itempropwp  {
 					$reviewratingrow = '<span itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating"><meta itemprop="worstRating" content = "1"><meta itemprop="ratingValue" content="'.$itemrating.'"><meta itemprop="bestRating" content="5"></span>';
 				}
 				
+				
+				$review_descr = apply_filters('ipwp_reviewpost_dsc', $reviewpost->post_excerpt); // Extending @since 3.3.1
+				
+				if(!$review_descr){
+					$ipwrp_n = new itempropwp;
+					$review_descr = apply_filters(
+						'ipwp_reviewpost_dsc',
+						$ipwrp_n->ipwp_excerpt_maxchr(
+							get_option('smcipwp_maxlenght'),
+							strip_shortcodes($reviewpost->post_content)
+						)
+					); // Extending @since 3.3.1
+				}
 				$newcontent .= '<span itemprop="review" itemscope itemtype="http://schema.org/Review"><meta itemprop="name" content="'.esc_attr($reviewpost->post_title).'"><meta itemprop="author" content="'.esc_attr(get_the_author_meta( 'display_name', $reviewpost->post_author )).'"><meta itemprop="datePublished" content="'.esc_attr($reviewpost->post_date).'">'
 				.$reviewratingrow.'<span itemprop="itemReviewed" itemscope itemtype="http://schema.org/Product"><meta itemprop="name" content="'.esc_attr($reviewname).'">'
-				.$pricerows.'</span><meta itemprop="description" content="'.esc_attr($reviewpost->post_excerpt).'"></span>';
+				.$pricerows.'</span><meta itemprop="description" content="'.strip_tags(str_replace(array("\r\n", "\n", "\r", "\t"), "", $review_descr)).'"></span>';
 
 				$content = "\n".'<!-- '.IPWPTSN.' '.SMCIPWPV.'/ Review '.$reviewv.' by Rolands Umbrovskis '.IPWPT_HOMEPAGEC.' -->'.$newcontent.'<!-- '.IPWPTSN.' '.SMCIPWPV.'/ Review '.$reviewv.' end -->'."\n";
 			}
@@ -103,13 +116,13 @@ class itempropwp_review extends itempropwp  {
 
 		echo '<tr>';
 		echo '<th scope="row"><div class="'.$ipwprprefix.'postcbox-label">';
-		echo '<label for="'.$ipwprprefix.'reviewonoff">'.__("On/Off of item","itempropwp" ).'</label> ';
+			echo '<label for="'.$ipwprprefix.'reviewonoff">'.__("Turn On/Off review mode","itempropwp" ).'</label> ';
 		echo '</div></th>';
 			echo '<td>';
 				echo '<div class="'.$ipwprprefix.'postcbox-input">';
 					echo '<select name="'.$ipwprprefix.'reviewonoff[onoff]" id="'.$ipwprprefix.'reviewonoff">';
-						echo '<option value="on" '.selected($reviewonoff['onoff'], "on", false).'>On</option>';
 						echo '<option value="off" '.selected($reviewonoff['onoff'], "off", false).'>Off</option>';
+						echo '<option value="on" '.selected($reviewonoff['onoff'], "on", false).'>On</option>';
 					echo '</select>';
 				echo '</div>';
 			echo '</td>';

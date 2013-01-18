@@ -62,3 +62,6 @@ msgstr ""
 msgid "Rating of item"
 msgstr ""
 
+msgid "Turn On/Off review mode"
+msgstr ""
+

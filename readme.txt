@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=Z4ALL
 Tags: SEO, schema, schema.org, itemprop, schema.org itemprop, images, microdata, rich snippets, richsnippets, SERP, html5, structured data
 Requires at least: 3.3
 Tested up to: 3.5
-Stable tag: 3.2.1
+Stable tag: 3.3.1
 License: simplemediacode
 License URI: http://simplemediacode.com/license/gpl/
 
@@ -18,7 +18,7 @@ Example output:
 
 `
 <span itemscope itemtype="http://schema.org/Article" class="itempropwp-wrap">
-<!-- Itemprop WP 3.3.0 by Rolands Umbrovskis http://umbrovskis.com -->
+<!-- Itemprop WP 3.3.1 by Rolands Umbrovskis http://umbrovskis.com -->
  <meta itemprop="name" content="Title of the Article" />
  <meta itemprop="url" content="http://example.com/seo-optimized-article/" />
  <meta itemprop="image" content="http://example.com/images/example.jpg" />
@@ -27,7 +27,7 @@ Example output:
  <meta itemprop="datePublished" content="2012-09-13 19:17:21" />
  <meta itemprop="dateModified" content="2012-09-29 13:33:25" />
  <meta itemprop="interactionCount" content="UserComments:356" />
-<!-- Itemprop WP 3.3.0 by Rolands Umbrovskis http://umbrovskis.com end -->
+<!-- Itemprop WP 3.3.1 by Rolands Umbrovskis http://umbrovskis.com end -->
 </span>
 `
 
@@ -35,9 +35,9 @@ How does it work?
 
 This asumes that Your page is not fully integrated with HTML5's data properties for microdata. This plugin will create small code inside Your `full content`, with extra microdata from schema.org. This will be ONLY on singular pages - post, page or your custom post type.
 
+
 Once we are on singular page:
 
-# NEW in 3.3.0 Review.
 # we will extract from it EXCERPT.
 # If You haven't provided excerpt, plugin will look-up for post content, and downsize it to 170 symbols up to full word.
 # If your content consist ONLY of shortcode, it will strip it out, and leave empty content. :(
@@ -66,6 +66,12 @@ Require PHP at least 5.3
 There are no questions for now! [Ask!](http://simplemediacode.com/wordpress-pugins/itemprop-wp/)
 
 == Changelog ==
+
+= 3.3.1  =
+
+* Review summary fix
+* updated: better naming
+* updated: review On/Off positions 
 
 = 3.3.0  =
 
@@ -117,15 +123,17 @@ There are no questions for now! [Ask!](http://simplemediacode.com/wordpress-pugi
 
 == Upgrade Notice ==
 
+= 3.3.1  =
+
+* Review summary fix
+* updated: better naming
+* updated: review On/Off positions 
+
 = 3.3.0  =
 
 * new: itemprop="review"
 * updated: admin interface for options
 
-= 3.2.0  =
-
-* updated: admin interface for options
-* new: CSS class for wrapper
 
 == Screenshots ==
 1. 3.0 Full futured example http://simplemediacode.com/wordpress-pugins/itemprop-wp/
