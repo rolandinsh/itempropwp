@@ -63,9 +63,12 @@ class itempropwp_review extends itempropwp  {
 			$pricerows='';
 			$reviewratingrow='';
 			
-			$itemrating = $reviewrating['rate'];
-			
-			if($reviewonoff['onoff']=="on"){
+			if(isset($reviewrating['rate'])){
+				$itemrating = $reviewrating['rate'];
+			}else{
+				$itemrating = 0;
+			}
+			if(isset($reviewonoff['onoff'])=="on"){
 				if(!$reviewname){$reviewname = $reviewpost->post_title;}
 				if($reviewprice && $reviewcurrency){
 					$pricerows = '<span itemprop="offers" itemscope itemtype="http://schema.org/Offer"><meta itemprop="price" content="'.$reviewprice.'"><meta itemprop="priceCurrency" content="'.$reviewcurrency.'"><link itemprop="availability" href="http://schema.org/InStock"></span>';
@@ -158,6 +161,9 @@ class itempropwp_review extends itempropwp  {
 		echo '<tr><th scope="row"><div class="'.$ipwprprefix.'postcbox-label">';
 			echo '<label for="'.$ipwprprefix.'rating">'.__("Rating of item","itempropwp" ).'</label> ';
 		echo '</div></th>';
+		if(!isset($rating['rate'])){
+			$rating['rate'] = 0;
+		}
 		echo '<td><div class="'.$ipwprprefix.'postcbox-input">
 		<select name="'.$ipwprprefix.'rating[rate]" id="'.$ipwprprefix.'reviewonoff">
 			<option value="0"	'.selected($rating['rate'], "0",	false).'>0.0</option>
