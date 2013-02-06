@@ -91,4 +91,8 @@ Per post options
 	<a href="http://twitter.com/SimpleMediaCode" target="_blank">Follow @SimpleMediaCode</a> | 
 	Freelance WordPress developer <a href="http://umbrovskis.com/" target="_blank">Rolands Umbrovskis</a>
 </p>
+
+
+<p>Coming soon: <strong>itempropWP theme</strong> (free and paid versions)! <a href="http://simplemediacode.org/forums/forum/itempropwp-wordpress-theme-support/itempropwp-wordpress-theme-feature-requests/?utm_source=<?php echo esc_url(get_home_url());?>&utm_medium=link&utm_campaign=itempropWP-WordPress-theme-feature-requests-<?php echo SMCIPWPV;?>&utm_content=<?php echo 'WordPress-plugin-'.SMCIPWPF.'-'.SMCIPWPV;?>">itempropWP WordPress theme feature requests</a></p>
+
 </div><?php } // smcwpd_settings()
