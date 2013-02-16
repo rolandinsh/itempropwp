@@ -14,7 +14,7 @@ Add human invisible schema.org itemprop code to post content
 
 This plugin is very simple. Using WordPress built in function to filter element attributes and adding < meta > tags with schema.org item properties.
 
-Coming soon: **itempropWP theme** (free and paid versions)! (itempropWP WordPress theme feature requests)[http://simplemediacode.org/forums/forum/itempropwp-wordpress-theme-support/itempropwp-wordpress-theme-feature-requests/?utm_source=http://wordpress.org/extend/plugins/itempropwp/&utm_medium=link&utm_campaign=itempropWP-WordPress-theme-feature-requests-3.3.3&utm_content=WordPress-plugin-itempropwp-3.3.3]
+Coming soon: **itempropWP theme** (free and paid versions)! [itempropWP WordPress theme feature requests](http://simplemediacode.org/forums/forum/itempropwp-wordpress-theme-support/itempropwp-wordpress-theme-feature-requests/?utm_source=http://wordpress.org/extend/plugins/itempropwp/&utm_medium=link&utm_campaign=itempropWP-WordPress-theme-feature-requests-3.3.3&utm_content=WordPress-plugin-itempropwp-3.3.3)
 
 Example output:
 
