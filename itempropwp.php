@@ -218,32 +218,39 @@ Now, the $ipwp_contentx is loading just one time and not multiple time if you ha
 					$showcommcount = '<meta itemprop="interactionCount" content="UserComments:'.esc_attr($thisipwp_post->comment_count).'" />';
 				}
 				if($ipwpdatemodified=='on'){
-					$ipwp_datemodified= '<meta itemprop="dateModified" content="'.esc_attr($thisipwp_post->post_modified).'" />';
+					$ipwp_datemodified= '<meta itemprop="dateModified" content="'.esc_attr(apply_filters('itempropwp_article_post_modified', $thisipwp_post->post_modified)).'" />'; /* @since 3.3.4 */
 				}
 				
 				$smcipwp_author_link = get_option('smcipwp_author_link'); /* Per post options @since 3.3.0 */
 				if($smcipwp_author_link==''){
-					$smcipwp_author_link = get_author_posts_url($thisipwp_post->post_author);
+					$smcipwp_author_link = get_author_posts_url(apply_filters('itempropwp_article_post_author', $thisipwp_post->post_author)); /* @since 3.3.4 */
 				}
 				$postauthoris = esc_url($smcipwp_author_link);
 				
 				$ipwp_contentx = apply_filters('itempropwp_article_content_before','<span itemscope itemtype="http://schema.org/Article" class="itempropwp-wrap"><!-- ItemProp WP '.SMCIPWPV.' by Rolands Umbrovskis http://umbrovskis.com/ --><meta itemprop="name" content="'.esc_attr($thisipwp_post->post_title).'"><meta itemprop="url" content="'.esc_url(get_permalink()).'">'
-	.$ipwp_image.'<meta itemprop="author" content="'.$postauthoris.'"><meta itemprop="description" content="'.strip_tags(str_replace(array("\r\n", "\n", "\r", "\t"), "", $ipwp_post_dsc)).'"><meta itemprop="datePublished" content="'.esc_attr($thisipwp_post->post_date).'">'
-	.$ipwp_datemodified
-	.$showcommcount.'<!-- ItemProp WP '.SMCIPWPV.' by Rolands Umbrovskis http://umbrovskis.com/ end --></span>');
+				.$ipwp_image.'<meta itemprop="author" content="'.$postauthoris.'"><meta itemprop="description" content="'.strip_tags(str_replace(array("\r\n", "\n", "\r", "\t"), "", $ipwp_post_dsc)).'"><meta itemprop="datePublished" content="'.esc_attr($thisipwp_post->post_date).'">'
+				.$ipwp_datemodified
+				.$showcommcount.'<!-- ItemProp WP '.SMCIPWPV.' by Rolands Umbrovskis http://umbrovskis.com/ end --></span>');
 
 				if ( $done_ipwp_post ){ /* @since 3.3.4 */
 					return $content;
 				}else{
 					$content = $content.$ipwp_contentx;
-					$content = apply_filters('itempropwp_article_content', $content);
+					$content = apply_filters('itempropwp_article_content', $content);  /* @since 3.3.4 */
 					$done_ipwp_post = TRUE;
 				}
-				return $content;
+				
+				do_action('ipwp_post_before_content_end'); /* @since 3.3.4 */
+				//return $content;
+				return apply_filters('itempropwp_article_content_distilled', $content); /* @since 3.3.4 */
+				do_action('ipwp_post_after_content_end'); /* @since 3.3.4 */
 			}
 			
+			do_action('ipwp_post_before_end'); /* @since 3.3.4 */
 			$done_ipwp_post = TRUE; /* @since 3.3.4 */
-			return $content;
+			//return $content;
+			return apply_filters('itempropwp_article_content_undistilled', $content); /* @since 3.3.4 */
+			do_action('ipwp_post_after_end'); /* @since 3.3.4 */
 		}
 	
 	}
