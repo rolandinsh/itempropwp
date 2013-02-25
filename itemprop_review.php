@@ -49,8 +49,7 @@ class itempropwp_review extends itempropwp  {
 			
 			$reviewinit = new itempropwp_review;
 			$reviewv = $reviewinit->reviewvers();
-			
-			
+
 			$ipwprprefix = 'ipwp_';
 			$reviewid = $post->ID;
 			$reviewpost = get_post($post->ID);
@@ -68,35 +67,37 @@ class itempropwp_review extends itempropwp  {
 			}else{
 				$itemrating = 0;
 			}
-			if(isset($reviewonoff['onoff'])=="on"){
-				if(!$reviewname){$reviewname = $reviewpost->post_title;}
-				if($reviewprice && $reviewcurrency){
-					$pricerows = '<span itemprop="offers" itemscope itemtype="http://schema.org/Offer"><meta itemprop="price" content="'.$reviewprice.'"><meta itemprop="priceCurrency" content="'.$reviewcurrency.'"><link itemprop="availability" href="http://schema.org/InStock"></span>';
+			if(isset($reviewonoff['onoff'])){
+				if($reviewonoff['onoff']=="on"){
+					if(!$reviewname){$reviewname = $reviewpost->post_title;}
+					if($reviewprice && $reviewcurrency){
+						$pricerows = '<span itemprop="offers" itemscope itemtype="http://schema.org/Offer"><meta itemprop="price" content="'.$reviewprice.'"><meta itemprop="priceCurrency" content="'.$reviewcurrency.'"><link itemprop="availability" href="http://schema.org/InStock"></span>';
+					}
+					
+					if($reviewrating){
+						$reviewratingrow = '<span itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating"><meta itemprop="worstRating" content = "1"><meta itemprop="ratingValue" content="'.$itemrating.'"><meta itemprop="bestRating" content="5"></span>';
+					}
+					
+					
+					$review_descr = apply_filters('ipwp_reviewpost_dsc', $reviewpost->post_excerpt); // Extending @since 3.3.1
+					
+					if(!$review_descr){
+						$ipwrp_n = new itempropwp;
+						$review_descr = apply_filters(
+							'ipwp_reviewpost_dsc',
+							$ipwrp_n->ipwp_excerpt_maxchr(
+								get_option('smcipwp_maxlenght'),
+								strip_shortcodes($reviewpost->post_content)
+							)
+						); // Extending @since 3.3.1
+					}
+					$newcontent .= '<span itemprop="review" itemscope itemtype="http://schema.org/Review"><meta itemprop="name" content="'.esc_attr($reviewpost->post_title).'"><meta itemprop="author" content="'.esc_attr(get_the_author_meta( 'display_name', $reviewpost->post_author )).'"><meta itemprop="datePublished" content="'.esc_attr($reviewpost->post_date).'">'
+					.$reviewratingrow.'<span itemprop="itemReviewed" itemscope itemtype="http://schema.org/Product"><meta itemprop="name" content="'.esc_attr($reviewname).'">'
+					.$pricerows.'</span><meta itemprop="description" content="'.strip_tags(str_replace(array("\r\n", "\n", "\r", "\t"), "", $review_descr)).'"></span>';
+	
+					$content = "\n".'<!-- '.IPWPTSN.' '.SMCIPWPV.'/ Review '.$reviewv.' by Rolands Umbrovskis '.IPWPT_HOMEPAGEC.' -->'.$newcontent.'<!-- '.IPWPTSN.' '.SMCIPWPV.'/ Review '.$reviewv.' end -->'."\n";
 				}
-				
-				if($reviewrating){
-					$reviewratingrow = '<span itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating"><meta itemprop="worstRating" content = "1"><meta itemprop="ratingValue" content="'.$itemrating.'"><meta itemprop="bestRating" content="5"></span>';
-				}
-				
-				
-				$review_descr = apply_filters('ipwp_reviewpost_dsc', $reviewpost->post_excerpt); // Extending @since 3.3.1
-				
-				if(!$review_descr){
-					$ipwrp_n = new itempropwp;
-					$review_descr = apply_filters(
-						'ipwp_reviewpost_dsc',
-						$ipwrp_n->ipwp_excerpt_maxchr(
-							get_option('smcipwp_maxlenght'),
-							strip_shortcodes($reviewpost->post_content)
-						)
-					); // Extending @since 3.3.1
-				}
-				$newcontent .= '<span itemprop="review" itemscope itemtype="http://schema.org/Review"><meta itemprop="name" content="'.esc_attr($reviewpost->post_title).'"><meta itemprop="author" content="'.esc_attr(get_the_author_meta( 'display_name', $reviewpost->post_author )).'"><meta itemprop="datePublished" content="'.esc_attr($reviewpost->post_date).'">'
-				.$reviewratingrow.'<span itemprop="itemReviewed" itemscope itemtype="http://schema.org/Product"><meta itemprop="name" content="'.esc_attr($reviewname).'">'
-				.$pricerows.'</span><meta itemprop="description" content="'.strip_tags(str_replace(array("\r\n", "\n", "\r", "\t"), "", $review_descr)).'"></span>';
-
-				$content = "\n".'<!-- '.IPWPTSN.' '.SMCIPWPV.'/ Review '.$reviewv.' by Rolands Umbrovskis '.IPWPT_HOMEPAGEC.' -->'.$newcontent.'<!-- '.IPWPTSN.' '.SMCIPWPV.'/ Review '.$reviewv.' end -->'."\n";
-			}
+			}// isset($reviewonoff['onoff'])
 
 				return $content;
 			}
@@ -114,6 +115,7 @@ class itempropwp_review extends itempropwp  {
 		wp_nonce_field( plugin_basename( __FILE__ ), $ipwprprefix.'pt_post_nonce' );
 
 		echo '<table class="form-table"><tbody>';
+		$reviewonoff['onoff']='off';
 		$reviewonoff = get_post_meta( $post->ID, $ipwprprefix.'reviewonoff', true);
 		$rating = get_post_meta( $post->ID, $ipwprprefix.'rating', true);
 
