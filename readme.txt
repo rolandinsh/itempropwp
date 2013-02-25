@@ -3,8 +3,8 @@ Contributors: rolandinsh
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=Z4ALL9WUMY3CL&lc=LV&item_name=Umbrovskis%2e%20WordPress%20plugins&item_number=002&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted
 Tags: SEO, schema, schema.org, itemprop, schema.org itemprop, images, microdata, rich snippets, richsnippets, SERP, html5, structured data
 Requires at least: 3.3
-Tested up to: 3.5
-Stable tag: 3.3.4
+Tested up to: 3.5.1
+Stable tag: 3.3.5
 License: simplemediacode
 License URI: http://simplemediacode.com/license/gpl/
 
@@ -14,13 +14,13 @@ Add human invisible schema.org itemprop code to post content
 
 This plugin is very simple. Using WordPress built in function to filter element attributes and adding < meta > tags with schema.org item properties.
 
-Coming soon: **itempropWP theme** (free and paid versions)! [itempropWP WordPress theme feature requests](http://simplemediacode.org/forums/forum/itempropwp-wordpress-theme-support/itempropwp-wordpress-theme-feature-requests/?utm_source=http://wordpress.org/extend/plugins/itempropwp/&utm_medium=link&utm_campaign=itempropWP-WordPress-theme-feature-requests-3.3.4&utm_content=WordPress-plugin-itempropwp-3.3.4)
+[Project itempropWP homepage](http://simplemediacode.com/wordpress-pugins/itemprop-wp/?utm_source=http://wordpress.org/extend/plugins/itempropwp/&utm_medium=link&utm_campaign=itempropWP-WordPress-theme-feature-requests-3.3.5&utm_content=WordPress-plugin-itempropwp-3.3.5)
 
 Example output:
 
 `
 <span itemscope itemtype="http://schema.org/Article" class="itempropwp-wrap">
-<!-- Itemprop WP 3.3.4 by Rolands Umbrovskis http://umbrovskis.com -->
+<!-- Itemprop WP 3.3.5 by Rolands Umbrovskis http://umbrovskis.com -->
  <meta itemprop="name" content="Title of the Article" />
  <meta itemprop="url" content="http://example.com/seo-optimized-article/" />
  <meta itemprop="image" content="http://example.com/images/example.jpg" />
@@ -29,7 +29,7 @@ Example output:
  <meta itemprop="datePublished" content="2012-09-13 19:17:21" />
  <meta itemprop="dateModified" content="2012-09-29 13:33:25" />
  <meta itemprop="interactionCount" content="UserComments:356" />
-<!-- Itemprop WP 3.3.4 by Rolands Umbrovskis http://umbrovskis.com end -->
+<!-- Itemprop WP 3.3.5 by Rolands Umbrovskis http://umbrovskis.com end -->
 </span>
 `
 
@@ -48,7 +48,6 @@ Once we are on singular page:
 
 Other options, like `datePublished`, `dateModified` (if enabled), `UserComments` (if enabled), `url` are taken from post
 
-* [Project Page](http://simplemediacode.com/wordpress-pugins/itemprop-wp/)
 * [SMC Facebook](http://www.facebook.com/pages/SimpleMediaCode/125547717479727)
 
 Development: [Git at bitbucket](https://bitbucket.org/simplemediacode/itempropwp) | [Github](https://github.com/rolandinsh/itempropwp)
@@ -68,6 +67,10 @@ Require PHP at least 5.3
 There are no questions for now! [Ask!](http://simplemediacode.com/wordpress-pugins/itemprop-wp/)
 
 == Changelog ==
+
+= 3.3.5 = 
+
+* small bugfix in rare cases: "For some reason all blog articles now have Type: http://schema.org/Review;", thanks to [indevd bugreport](http://wordpress.org/support/topic/schemaorgreview?replies=4#post-3882462) 
 
 = 3.3.4 = 
 
@@ -137,6 +140,10 @@ There are no questions for now! [Ask!](http://simplemediacode.com/wordpress-pugi
 
 == Upgrade Notice ==
 
+= 3.3.5 = 
+
+* small bugfix in rare cases: "For some reason all blog articles now have Type: http://schema.org/Review;", thanks to [indevd bugreport](http://wordpress.org/support/topic/schemaorgreview?replies=4#post-3882462) 
+
 = 3.3.4 = 
 
 * small bugfix in rare cases: "loading content multiple times if more than one the_content()", thanks to [sirene's commit on SimpleMediaCode.org](http://simplemediacode.org/forums/topic/schema-display-3-times/#post-97) 
@@ -145,17 +152,6 @@ There are no questions for now! [Ask!](http://simplemediacode.com/wordpress-pugi
 = 3.3.3 = 
 
 * small bugfix "Fixing undeclared variables", thanks to [semplon's commit on github](https://github.com/rolandinsh/itempropwp/commit/d4e18904329faabb84f6c47a7011a261c973b6bf) 
-
-= 3.3.2 =
-
-* Compatibility with NextGen gallery. Thanks to [indevd](http://wordpress.org/support/topic/mod-for-nextgen-gallery-users?replies=2#post-3807567)
-
-= 3.3.1  =
-
-* Review summary fix
-* updated: better naming
-* updated: review On/Off positions 
-
 
 == Screenshots ==
 1. 3.0 Full futured example http://simplemediacode.com/wordpress-pugins/itemprop-wp/
