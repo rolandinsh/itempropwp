@@ -12,7 +12,7 @@ Very simple WordPress plugin, that uses built in function to filter element attr
 ### Example:
 
 	<span itemscope itemtype="http://schema.org/Article" class="itempropwp-wrap">
-	<!-- Itemprop WP 3.3.0 by Rolands Umbrovskis http://umbrovskis.com -->
+	<!-- Itemprop WP 3.3.6 by Rolands Umbrovskis http://umbrovskis.com -->
 	 <meta itemprop="name" content="Title of the Article" />
 	 <meta itemprop="url" content="http://fulllink.example.com/seo-optimized-article/" />
 	 <meta itemprop="image" content="http://fulllink.example.com/seo-optimized-article/example.jpg" />
@@ -21,7 +21,7 @@ Very simple WordPress plugin, that uses built in function to filter element attr
 	 <meta itemprop="datePublished" content="2012-09-13 19:17:21"/>
 	 <meta itemprop="dateModified" content="2012-09-29 13:33:25" />
 	 <meta itemprop="interactionCount" content="UserComments:356"/>
-	<!-- Itemprop WP 3.3.0 by Rolands Umbrovskis http://umbrovskis.com end -->
+	<!-- Itemprop WP 3.3.6 by Rolands Umbrovskis http://umbrovskis.com end -->
 	</span>
 
 ### How does it work?
@@ -71,6 +71,10 @@ Require PHP at least 5.3
 There are no questions for now! [Ask!](http://simplemediacode.com/wordpress-pugins/itemprop-wp/)
 
 ## Changelog
+
+### 3.3.6
+
+* fixed: wp_register_style was called incorrectly. More info [bitbucket.org/simplemediacode/itempropwp](http://xh.lv/20). Reported RFT Group.
 
 ### 3.2.1
 

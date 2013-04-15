@@ -3,9 +3,9 @@
 Plugin Name: itemprop WP for SERP (and SEO) Rich snippets
 Plugin URI: http://simplemediacode.com/wordpress-pugins/itemprop-wp/?utm_source=wordpress&utm_medium=wpplugin&utm_campaign=itempropWP&utm_content=v-3.3.4-itempropWP_load_widgets
 Description: Add human invisible schema.org code to conent
-Version: 3.3.5
+Version: 3.3.6
 Requires at least: 3.3
-Tested up to: 3.5,1
+Tested up to: 3.6
 Author: Rolands Umbrovskis
 Author URI: http://umbrovskis.com
 License: simplemediacode
@@ -14,7 +14,7 @@ License URI: http://simplemediacode.com/license/gpl/
 Copyright (C) 2008-2013, Rolands Umbrovskis - rolands@simplemediacode.com
 
 */
-	define('SMCIPWPV','3.3.4'); // location general @since 1.0
+	define('SMCIPWPV','3.3.6'); // location general @since 1.0
 	define('SMCIPWPM',dirname(__FILE__)); // location general @since 1.0
 	define('SMCIPWPF','itempropwp'); // location folder @since 1.0 
 	define('IPWPT',__('itemprop WP for SERP/SEO Rich snippets','itempropwp')); // Name @since 1.1
@@ -56,6 +56,9 @@ new itempropwp;
 		public function __construct(){
 			add_action('init', array( 'itempropwp', 'init' ),10);
 			add_action('plugin_row_meta', array( 'itempropwp', 'smcwpd_set_plugin_meta' ), 10, 2 );
+		} 
+		// Initialize
+		public function init() {
 
 /*
  * itempropwp Admin interface
@@ -74,9 +77,7 @@ new itempropwp;
 				wp_register_style('itempropwp', SMCIPWPURL.'assets/css/itempropwp.css', array(), SMCIPWPV, 'all');
 				wp_enqueue_style('itempropwp');
 			endif;
-		} 
-		// Initialize
-		public function init() {
+			
 			load_plugin_textdomain( 'itempropwp', false, SMCIPWPDIR. '/lang/');
 			add_filter('the_content', array( 'itempropwp', 'ipwp_the_content_filter' ), 10, 2 ); // Adding context @since 3.0
 			
