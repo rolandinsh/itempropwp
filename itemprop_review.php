@@ -34,7 +34,7 @@ class itempropwp_review extends itempropwp  {
 	}
 	
 	private function reviewvers(){
-		return '1.1.0';
+		return '1.2.0';
 	}
 
 	public function reviewinit() {
@@ -70,7 +70,7 @@ class itempropwp_review extends itempropwp  {
 			if(isset($reviewonoff['onoff'])){
 				if($reviewonoff['onoff']=="on"){
 					if(!$reviewname){$reviewname = $reviewpost->post_title;}
-					if($reviewprice && $reviewcurrency){
+					if($reviewprice || $reviewcurrency){ // @since 1.2.0 with || not &&
 						$pricerows = '<span itemprop="offers" itemscope itemtype="http://schema.org/Offer"><meta itemprop="price" content="'.$reviewprice.'"><meta itemprop="priceCurrency" content="'.$reviewcurrency.'"><link itemprop="availability" href="http://schema.org/InStock"></span>';
 					}
 					
@@ -205,9 +205,14 @@ class itempropwp_review extends itempropwp  {
 		$currency = $_POST[$ipwprprefix.'currency'];
 		$rating = $_POST[$ipwprprefix.'rating'];
 		$reviewonoff = $_POST[$ipwprprefix.'reviewonoff'];
-		
-		if(!$product_price||$product_price==''){$product_price = '0.00';}
-		if(!$currency||$currency==''){$currency = 'USD';}
+		// Default price
+		if(!$product_price||$product_price==''){
+			$product_price = apply_filters('ipwp_reviewpost_noprice', '0.00'); // @since 1.2.0 apply_filters
+		}
+		// Default currency
+		if(!$currency||$currency==''){
+			$currency = apply_filters('ipwp_reviewpost_nocurrency', 'USD'); // @since 1.2.0 apply_filters
+		}
 		
 		update_post_meta($post_id, $ipwprprefix.'product_name', $product_name);
 		update_post_meta($post_id, $ipwprprefix.'product_price', $product_price);
