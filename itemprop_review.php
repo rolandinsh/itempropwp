@@ -87,7 +87,7 @@ class itempropwp_review extends itempropwp  {
 							'ipwp_reviewpost_dsc',
 							$ipwrp_n->ipwp_excerpt_maxchr(
 								get_option('smcipwp_maxlenght'),
-								strip_shortcodes($reviewpost->post_content)
+								strip_tags( strip_shortcodes($reviewpost->post_content) )
 							)
 						); // Extending @since 3.3.1
 					}

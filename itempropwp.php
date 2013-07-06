@@ -212,7 +212,11 @@ Now, the $ipwp_contentx is loading just one time and not multiple time if you ha
 	
 				if(!$ipwp_post_dsc){
 					$ipwp_n = new itempropwp;
-					$ipwp_post_dsc = apply_filters('ipwp_post_dsc', $ipwp_n->ipwp_excerpt_maxchr(get_option('smcipwp_maxlenght'), strip_shortcodes($thisipwp_post->post_content) )); // Extending @since 3.1
+					$ipwp_post_dsc = apply_filters(
+						'ipwp_post_dsc',
+						$ipwp_n->ipwp_excerpt_maxchr(get_option('smcipwp_maxlenght'),
+						strip_tags( strip_shortcodes( $thisipwp_post->post_content) ) )
+					); // Extending @since 3.1
 				}
 				
 				if(get_option('smcipwp_showcommcount')=='on'){
