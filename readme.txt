@@ -1,26 +1,26 @@
 === itemprop WP for SERP/SEO Rich snippets ===
 Contributors: rolandinsh
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=Z4ALL9WUMY3CL&lc=LV&item_name=Umbrovskis%2e%20WordPress%20plugins&item_number=002&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted
-Tags: SEO, schema, schema.org, itemprop, schema.org itemprop, images, microdata, rich snippets, richsnippets, SERP, html5, structured data
+Tags: SEO, schema, schema.org, itemprop, schema.org itemprop, images, microdata, rich snippets, richsnippets, SERP, html5, structured data, itemprop article, itemprop review
 Requires at least: 3.3
 Tested up to: 3.6
-Stable tag: 3.3.6
+Stable tag: 3.4.0
 License: simplemediacode
 License URI: http://simplemediacode.com/license/gpl/
 
-Add human invisible schema.org itemprop code to post content
+Add human invisible schema.org itemprop code to post content for search engines and bots for better SERP results
 
 == Description ==
 
 This plugin is very simple. Using WordPress built in function to filter element attributes and adding < meta > tags with schema.org item properties.
 
-[Project itempropWP homepage](http://simplemediacode.com/wordpress-pugins/itemprop-wp/?utm_source=http://wordpress.org/extend/plugins/itempropwp/&utm_medium=link&utm_campaign=itempropWP-WordPress-theme-feature-requests-3.3.6&utm_content=WordPress-plugin-itempropwp-3.3.6)
+[Project itempropWP homepage](http://simplemediacode.com/wordpress-pugins/itemprop-wp/?utm_source=http://wordpress.org/extend/plugins/itempropwp/&utm_medium=link&utm_campaign=itempropWP-WordPress-theme-feature-requests-3.4.0&utm_content=WordPress-plugin-itempropwp-3.4.0)
 
 Example output:
 
 `
 <span itemscope itemtype="http://schema.org/Article" class="itempropwp-wrap">
-<!-- Itemprop WP 3.3.6 by Rolands Umbrovskis http://umbrovskis.com -->
+<!-- Itemprop WP 3.4.0 by Rolands Umbrovskis http://umbrovskis.com -->
  <meta itemprop="name" content="Title of the Article" />
  <meta itemprop="url" content="http://example.com/seo-optimized-article/" />
  <meta itemprop="image" content="http://example.com/images/example.jpg" />
@@ -29,8 +29,36 @@ Example output:
  <meta itemprop="datePublished" content="2012-09-13 19:17:21" />
  <meta itemprop="dateModified" content="2012-09-29 13:33:25" />
  <meta itemprop="interactionCount" content="UserComments:356" />
-<!-- Itemprop WP 3.3.6 by Rolands Umbrovskis http://umbrovskis.com end -->
+<!-- Itemprop WP 3.4.0 by Rolands Umbrovskis http://umbrovskis.com end -->
 </span>
+`
+
+Review
+
+`
+<div itemprop="review" itemscope itemtype="http://schema.org/Review">
+  <meta itemprop="name" content="Item Title is greate!" />
+  <meta itemprop="author" content="Rolands Umbrovskis" />
+  <meta itemprop="datePublished" content="2011-03-25" />
+    <span itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+      <meta itemprop="worstRating" content = "1"/>
+      <meta itemprop="ratingValue" content="4.5" />
+      <meta itemprop="bestRating" content="5" />
+    </span>
+    <span itemprop="itemReviewed" itemscope itemtype="http://schema.org/Thing">
+      <meta itemprop="name" content="Item Title" />
+    </span>
+	
+   <div itemscope itemtype="http://schema.org/Product">
+      <meta itemprop="name" content="Item Title" />
+      <span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+        <meta itemprop="price" content="55.36" />
+        <meta itemprop="priceCurrency" content="USD" />
+        <link itemprop="availability" href="http://schema.org/InStock" />
+      </span>
+    </div>
+    <meta itemprop="description" content="Great Item Title for the price." />
+</div>
 `
 
 How does it work?
@@ -67,6 +95,11 @@ Require PHP at least 5.3
 There are no questions for now! [Ask!](http://simplemediacode.com/wordpress-pugins/itemprop-wp/)
 
 == Changelog ==
+
+= 3.4.0 = 
+
+* updated: in Review - default price now with filter
+* updated: in Review - default currency now with filter
 
 = 3.3.6 = 
 
@@ -143,6 +176,11 @@ There are no questions for now! [Ask!](http://simplemediacode.com/wordpress-pugi
 * init
 
 == Upgrade Notice ==
+
+= 3.4.0 = 
+
+* updated: in Review - default price now with filter
+* updated: in Review - default currency now with filter
 
 = 3.3.6 = 
 

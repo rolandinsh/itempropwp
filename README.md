@@ -11,8 +11,10 @@ Very simple WordPress plugin, that uses built in function to filter element attr
 
 ### Example:
 
+Article
+
 	<span itemscope itemtype="http://schema.org/Article" class="itempropwp-wrap">
-	<!-- Itemprop WP 3.3.6 by Rolands Umbrovskis http://umbrovskis.com -->
+	<!-- Itemprop WP 3.4.0 by Rolands Umbrovskis http://umbrovskis.com -->
 	 <meta itemprop="name" content="Title of the Article" />
 	 <meta itemprop="url" content="http://fulllink.example.com/seo-optimized-article/" />
 	 <meta itemprop="image" content="http://fulllink.example.com/seo-optimized-article/example.jpg" />
@@ -21,8 +23,34 @@ Very simple WordPress plugin, that uses built in function to filter element attr
 	 <meta itemprop="datePublished" content="2012-09-13 19:17:21"/>
 	 <meta itemprop="dateModified" content="2012-09-29 13:33:25" />
 	 <meta itemprop="interactionCount" content="UserComments:356"/>
-	<!-- Itemprop WP 3.3.6 by Rolands Umbrovskis http://umbrovskis.com end -->
+	<!-- Itemprop WP 3.4.0 by Rolands Umbrovskis http://umbrovskis.com end -->
 	</span>
+
+Review
+
+	<div itemprop="review" itemscope itemtype="http://schema.org/Review">
+		<meta itemprop="name" content="Item Title is greate!" />
+		<meta itemprop="author" content="Rolands Umbrovskis" />
+		<meta itemprop="datePublished" content="2011-03-25" />
+		<span itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+			<meta itemprop="worstRating" content = "1"/>
+			<meta itemprop="ratingValue" content="4.5" />
+			<meta itemprop="bestRating" content="5" />
+		</span>
+		<span itemprop="itemReviewed" itemscope itemtype="http://schema.org/Thing">
+			<meta itemprop="name" content="Item Title" />
+		</span>
+		
+		<div itemscope itemtype="http://schema.org/Product">
+			<meta itemprop="name" content="Item Title" />
+			<span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+				<meta itemprop="price" content="55.36" />
+				<meta itemprop="priceCurrency" content="USD" />
+				<link itemprop="availability" href="http://schema.org/InStock" />
+			</span>
+		</div>
+		<meta itemprop="description" content="Great Item Title for the price." />
+	</div>
 
 ### How does it work?
 
@@ -71,6 +99,12 @@ Require PHP at least 5.3
 There are no questions for now! [Ask!](http://simplemediacode.com/wordpress-pugins/itemprop-wp/)
 
 ## Changelog
+
+
+### 3.4.0
+
+* updated: in Review - default price now with filter
+* updated: in Review - default currency now with filter
 
 ### 3.3.6
 
