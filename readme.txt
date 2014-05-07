@@ -3,7 +3,7 @@ Contributors: rolandinsh
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=Z4ALL9WUMY3CL&lc=LV&item_name=Umbrovskis%2e%20WordPress%20plugins&item_number=002&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted
 Tags: SEO, schema, schema.org, itemprop, schema.org itemprop, images, microdata, rich snippets, richsnippets, SERP, html5, structured data, itemprop article, itemprop review
 Requires at least: 3.3
-Tested up to: 3.6
+Tested up to: 3.9
 Stable tag: 3.4.0
 License: simplemediacode
 License URI: http://simplemediacode.com/license/gpl/
