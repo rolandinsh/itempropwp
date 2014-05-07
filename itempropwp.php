@@ -14,7 +14,7 @@ License URI: http://simplemediacode.com/license/gpl/
 Copyright (C) 2008-2013, Rolands Umbrovskis - rolands@simplemediacode.com
 
 */
-	define('SMCIPWPV','3.4.0'); // location general @since 1.0
+	define('SMCIPWPV','3.4.1'); // location general @since 1.0
 	define('SMCIPWPM',dirname(__FILE__)); // location general @since 1.0
 	define('SMCIPWPF','itempropwp'); // location folder @since 1.0 
 	define('IPWPT',__('itemprop WP for SERP/SEO Rich snippets','itempropwp')); // Name @since 1.1
@@ -54,8 +54,8 @@ new itempropwp;
 //if (!class_exists('itempropwp')) {
 	class itempropwp {
 		public function __construct(){
-			add_action('init', array( 'itempropwp', 'init' ),10);
-			add_action('plugin_row_meta', array( 'itempropwp', 'smcwpd_set_plugin_meta' ), 10, 2 );
+			add_action('init', array($this, 'init' ),10);
+			add_action('plugin_row_meta', array( $this, 'smcwpd_set_plugin_meta' ), 10, 2 );
 		} 
 		// Initialize
 		public function init() {
@@ -79,7 +79,7 @@ new itempropwp;
 			endif;
 			
 			load_plugin_textdomain( 'itempropwp', false, SMCIPWPDIR. '/lang/');
-			add_filter('the_content', array( 'itempropwp', 'ipwp_the_content_filter' ), 10, 2 ); // Adding context @since 3.0
+			add_filter('the_content', array( $this, 'ipwp_the_content_filter' ), 10, 2 ); // Adding context @since 3.0
 			
 		}
 
