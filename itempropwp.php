@@ -32,13 +32,62 @@ class itempropwp
 
     const VERSION = '3.5.0';
     const SMCIPWPF = 'itempropwp';
-    const IPWPT_HOMEPAGE = 'http://simplemediacode.com/wordpress-pugins/itemprop-wp/';
-    const IPWPT_GITHUB = 'https://github.com/rolandinsh/itempropwp';
 
     public function __construct()
     {
         add_action('init', array($this, 'init'), 10);
         add_action('plugin_row_meta', array($this, 'smcwpd_set_plugin_meta'), 10, 2);
+    }
+    
+    public function directoriesloc($type = 'ipwpm')
+    {
+        switch ($type) {
+            case 'ipwpurl':
+                return plugin_dir_url(__FILE__);
+                break;
+
+            case 'ipwpdir':
+                return dirname(plugin_basename(__FILE__));
+                break;
+
+            case 'ipwpi':
+                return trailingslashit($this->directoriesloc('ipwpurl') . '/img');
+                break;
+
+            case 'ipwpf':
+                return self::SMCIPWPF;
+                break;
+
+            case 'ipwpm':
+            default:
+                return dirname(__FILE__);
+                break;
+        }
+    }
+    public function links($type = 'wporg')
+    {
+        $link = '';
+        switch ($type) {
+            case 'support':
+                $link = 'http://simplemediacode.org/forums/topic/itempropwp-3-3-0/';
+                break;
+            case 'homepage':
+                $link = 'http://simplemediacode.com/wordpress-pugins/itemprop-wp/';
+                break;
+            case 'github':
+                $link = 'https://github.com/rolandinsh/'.$this->directoriesloc('ipwpf');
+                break;
+            case 'bitbucket':
+                $link = 'https://bitbucket.org/simplemediacode/'.$this->directoriesloc('ipwpf');
+                break;
+            case 'wporg':
+                $link = 'http://wordpress.org/extend/plugins/'.trailingslashit($this->directoriesloc('ipwpf'));
+                break;
+            default:
+                $link = '';
+                break;
+        }
+        return $link;
     }
 
     // Initialize
@@ -51,7 +100,7 @@ class itempropwp
          * @version 1.0
          */
         if (is_admin()):
-            include_once(SMCIPWPM . '/admin/adminipwp.php');
+            include_once($this->directoriesloc('ipwpm') . '/admin/adminipwp.php');
         endif;
         /*
          * itempropwp CSS
@@ -59,11 +108,11 @@ class itempropwp
          * @version 1.0
          */
         if (!is_admin()):
-            wp_register_style('itempropwp', SMCIPWPURL . 'assets/css/itempropwp.css', array(), SMCIPWPV, 'all');
+            wp_register_style('itempropwp', $this->directoriesloc('ipwpurl') . 'assets/css/itempropwp.css', array(), self::VERSION, 'all');
             wp_enqueue_style('itempropwp');
         endif;
 
-        load_plugin_textdomain('itempropwp', false, SMCIPWPDIR . '/lang/');
+        load_plugin_textdomain('itempropwp', false, $this->directoriesloc('ipwpdir') . '/lang/');
         add_filter('the_content', array($this, 'ipwp_the_content_filter'), 10, 2); // Adding context @since 3.0
     }
 
@@ -74,7 +123,7 @@ class itempropwp
         if ($file == $plugin) {
             return array_merge($links, array(
                 '<a href="http://simplemediacode.org/forums/forum/itempropwp-plugin/">' . __("Support Forum", "itempropwp") . '</a>',
-                '<a href="' . IPWPT_VERSUPPORT . '">' . sprintf(__("Support for version %s", "itempropwp"), SMCIPWPV) . '</a>',
+                '<a href="' . $this->links('support') . '">' . sprintf(__("Support for version %s", "itempropwp"), self::VERSION) . '</a>',
                 '<a href="http://simplemediacode.org/forums/forum/itempropwp-plugin/suggestions-for-itempropwp/">' . __('Feature request') . '</a>',
                     // '<a href="http://simplemediacode.org/forums/forum/itempropwp-plugin/">' . __("Join Members group","itempropwp") . '</a>',
             ));
@@ -220,10 +269,10 @@ class itempropwp
             }
             $postauthoris = esc_url($smcipwp_author_link);
 
-            $ipwp_contentx = apply_filters('itempropwp_article_content_before', '<span itemscope itemtype="http://schema.org/Article" class="itempropwp-wrap"><!-- ItemProp WP ' . SMCIPWPV . ' by Rolands Umbrovskis http://umbrovskis.com/ --><meta itemprop="name" content="' . esc_attr($thisipwp_post->post_title) . '"><meta itemprop="url" content="' . esc_url(get_permalink()) . '">'
+            $ipwp_contentx = apply_filters('itempropwp_article_content_before', '<span itemscope itemtype="http://schema.org/Article" class="itempropwp-wrap"><!-- ItemProp WP ' . self::VERSION . ' by Rolands Umbrovskis http://umbrovskis.com/ --><meta itemprop="name" content="' . esc_attr($thisipwp_post->post_title) . '"><meta itemprop="url" content="' . esc_url(get_permalink()) . '">'
                     . $ipwp_image . '<meta itemprop="author" content="' . $postauthoris . '"><meta itemprop="description" content="' . strip_tags(str_replace(array("\r\n", "\n", "\r", "\t"), "", $ipwp_post_dsc)) . '"><meta itemprop="datePublished" content="' . esc_attr($thisipwp_post->post_date) . '">'
                     . $ipwp_datemodified
-                    . $showcommcount . '<!-- ItemProp WP ' . SMCIPWPV . ' by Rolands Umbrovskis http://umbrovskis.com/ end --></span>');
+                    . $showcommcount . '<!-- ItemProp WP ' . self::VERSION . ' by Rolands Umbrovskis http://umbrovskis.com/ end --></span>');
 
             if ($done_ipwp_post) { /* @since 3.3.4 */
                 return $content;
@@ -250,7 +299,7 @@ class itempropwp
 
 //}
 /* itemprop Review */
-include_once(SMCIPWPM . '/itemprop_review.php');
+include_once($this->directoriesloc('ipwpm') . '/itemprop_review.php');
 /* itemprop Person */
 /* itemprop LocalBusiness */
 /* itemprop RealEstateAgent */

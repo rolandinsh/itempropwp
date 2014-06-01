@@ -4,6 +4,7 @@
  * @since 3.1.4
  * @version 1.1.0
 */
+class itempropwp_admin extends itempropwp  {}
 add_action('admin_menu', 'smc_ipwp_admin_menu');
 
 function smc_ipwp_admin_menu() {
