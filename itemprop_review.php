@@ -30,17 +30,17 @@ itempropwp itemprom review
 class itempropwp_review extends itempropwp  {  
 	public function __construct(){
 		parent::__construct();
-		add_action('init', array( $this, 'reviewinit' ),10);	
+		add_action('init', array( 'itempropwp_review', 'reviewinit' ),10);	
 	}
 	
 	private function reviewvers(){
-		return '1.2.1';
+		return '1.2.0';
 	}
 
 	public function reviewinit() {
-		add_filter('itempropwp_article_content_before', array( $this, 'review' ), 11); // Adding context @since 3.0
-		add_filter('add_meta_boxes', array( $this, 'itempropwp_review_metabox' ), 11); // Adding context @since 3.3.0
-		add_filter('save_post', array( $this, 'itempropwp_review_save' ), 11); // Adding context @since 3.3.0
+		add_filter('itempropwp_article_content_before', array( 'itempropwp_review', 'review' ), 11); // Adding context @since 3.0
+		add_filter('add_meta_boxes', array( 'itempropwp_review', 'itempropwp_review_metabox' ), 11); // Adding context @since 3.3.0
+		add_filter('save_post', array( 'itempropwp_review', 'itempropwp_review_save' ), 11); // Adding context @since 3.3.0
 	}
 	
 	public function review($content){
@@ -107,16 +107,16 @@ class itempropwp_review extends itempropwp  {
 	public function itempropwp_review_metabox(){
 		$ipwprprefix = 'ipwp_';
 
-		add_meta_box($ipwprprefix.'postbox_review', sprintf(__( "%s Review","itempropwp" ),IPWPTSN), array( $this, 'ipwp_cpbox' ),'post', 'normal', 'high');
-		add_meta_box($ipwprprefix.'pagebox_review', sprintf(__( "%s Review","itempropwp" ),IPWPTSN), array( $this, 'ipwp_cpbox' ),'page', 'normal', 'high');
+		add_meta_box($ipwprprefix.'postbox_review', sprintf(__( "%s Review","itempropwp" ),IPWPTSN), array( 'itempropwp_review', 'ipwp_cpbox' ),'post', 'normal', 'high');
+		add_meta_box($ipwprprefix.'pagebox_review', sprintf(__( "%s Review","itempropwp" ),IPWPTSN), array( 'itempropwp_review', 'ipwp_cpbox' ),'page', 'normal', 'high');
 	}
 	function ipwp_cpbox( $post ) {
 		$ipwprprefix = 'ipwp_';
 		wp_nonce_field( plugin_basename( __FILE__ ), $ipwprprefix.'pt_post_nonce' );
 
 		echo '<table class="form-table"><tbody>';
-		//$reviewonoff = array("onoff" => "off"); // Issue #10 https://github.com/rolandinsh/itempropwp/issues/10 
-		$reviewonoff = get_post_meta( $post->ID, $ipwprprefix.'reviewonoff', true) ? get_post_meta( $post->ID, $ipwprprefix.'reviewonoff', true):array("onoff" => "off");
+		$reviewonoff['onoff']='off';
+		$reviewonoff = get_post_meta( $post->ID, $ipwprprefix.'reviewonoff', true);
 		$rating = get_post_meta( $post->ID, $ipwprprefix.'rating', true);
 
 		echo '<tr>';

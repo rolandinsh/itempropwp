@@ -3,8 +3,8 @@ Contributors: rolandinsh
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=Z4ALL9WUMY3CL&lc=LV&item_name=Umbrovskis%2e%20WordPress%20plugins&item_number=002&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted
 Tags: SEO, schema, schema.org, itemprop, schema.org itemprop, images, microdata, rich snippets, richsnippets, SERP, html5, structured data, itemprop article, itemprop review
 Requires at least: 3.3
-Tested up to: 3.9
-Stable tag: 3.4.1
+Tested up to: 3.9.2
+Stable tag: 3.4.2
 License: simplemediacode
 License URI: http://simplemediacode.com/license/gpl/
 
@@ -14,13 +14,13 @@ Add human invisible schema.org itemprop code to post content for search engines 
 
 This plugin is very simple. Using WordPress built in function to filter element attributes and adding < meta > tags with schema.org item properties.
 
-[Project itempropWP homepage](http://simplemediacode.com/wordpress-pugins/itemprop-wp/?utm_source=http://wordpress.org/extend/plugins/itempropwp/&utm_medium=link&utm_campaign=itempropWP-WordPress-theme-feature-requests-3.4.1&utm_content=WordPress-plugin-itempropwp-3.4.1)
+[Project itempropWP homepage](http://simplemediacode.com/wordpress-pugins/itemprop-wp/?utm_source=http://wordpress.org/extend/plugins/itempropwp/&utm_medium=link&utm_campaign=itempropWP-WordPress-theme-feature-requests-3.4.2&utm_content=WordPress-plugin-itempropwp-3.4.2)
 
 Example output:
 
 `
 <span itemscope itemtype="http://schema.org/Article" class="itempropwp-wrap">
-<!-- Itemprop WP 3.4.1 by Rolands Umbrovskis http://umbrovskis.com -->
+<!-- Itemprop WP 3.4.0 by Rolands Umbrovskis http://umbrovskis.com -->
  <meta itemprop="name" content="Title of the Article" />
  <meta itemprop="url" content="http://example.com/seo-optimized-article/" />
  <meta itemprop="image" content="http://example.com/images/example.jpg" />
@@ -29,7 +29,7 @@ Example output:
  <meta itemprop="datePublished" content="2012-09-13 19:17:21" />
  <meta itemprop="dateModified" content="2012-09-29 13:33:25" />
  <meta itemprop="interactionCount" content="UserComments:356" />
-<!-- Itemprop WP 3.4.1 by Rolands Umbrovskis http://umbrovskis.com end -->
+<!-- Itemprop WP 3.4.0 by Rolands Umbrovskis http://umbrovskis.com end -->
 </span>
 `
 
@@ -78,9 +78,9 @@ Other options, like `datePublished`, `dateModified` (if enabled), `UserComments`
 
 * [SMC Facebook](http://www.facebook.com/pages/SimpleMediaCode/125547717479727)
 
-Development: [Github](https://github.com/rolandinsh/itempropwp)
+Development: [Git at bitbucket](https://bitbucket.org/simplemediacode/itempropwp) | [Github](https://github.com/rolandinsh/itempropwp)
 
-Developer on twitter [@UmbrovskisCom](http://twitter.com/UmbrovskisCom) / [@SimpleMediaCode](http://twitter.com/SimpleMediaCode)
+Developer on twitter [@UmbrovskisCom](http://twitter.com/UmbrovskisCom)  /  [@SimpleMediaCode](http://twitter.com/SimpleMediaCode)
 
 Require PHP at least 5.3
 
@@ -96,7 +96,11 @@ There are no questions for now! [Ask!](http://simplemediacode.com/wordpress-pugi
 
 == Changelog ==
 
-= 3.4.1 = 
+= 3.4.2 =
+
+* revert back to 3.4.0 as version 3.4.1 [itemprops showing multiple times](http://wordpress.org/support/topic/itemprops-showing-multiple-times#post-5992354)
+
+= 3.4.1 =
 
 * fixed: Illegal string offset 'onoff'. [Issue #10](https://github.com/rolandinsh/itempropwp/issues/10) Thanks for report to [Arthur Lutz](http://wordpress.org/support/profile/arthurlutz)
 * tested: PHP 5.2.10 & Apache 2.2 / 5.5.9 & apache 2.4
@@ -182,14 +186,27 @@ There are no questions for now! [Ask!](http://simplemediacode.com/wordpress-pugi
 
 == Upgrade Notice ==
 
-= 3.4.1 = 
-
-* fixed: Illegal string offset 'onoff'. [Issue #10](https://github.com/rolandinsh/itempropwp/issues/10) 
-
 = 3.4.0 = 
 
 * updated: in Review - default price now with filter
 * updated: in Review - default currency now with filter
+
+= 3.3.6 = 
+
+* fixed: wp_register_style was called incorrectly. More info [bitbucket.org/simplemediacode/itempropwp](http://xh.lv/20). Reported RFT Group.
+
+= 3.3.5 = 
+
+* small bugfix in rare cases: "For some reason all blog articles now have Type: http://schema.org/Review;", thanks to [indevd bugreport](http://wordpress.org/support/topic/schemaorgreview?replies=4#post-3882462) 
+
+= 3.3.4 = 
+
+* small bugfix in rare cases: "loading content multiple times if more than one the_content()", thanks to [sirene's commit on SimpleMediaCode.org](http://simplemediacode.org/forums/topic/schema-display-3-times/#post-97) 
+
+
+= 3.3.3 = 
+
+* small bugfix "Fixing undeclared variables", thanks to [semplon's commit on github](https://github.com/rolandinsh/itempropwp/commit/d4e18904329faabb84f6c47a7011a261c973b6bf) 
 
 == Screenshots ==
 1. 3.0 Full futured example http://simplemediacode.com/wordpress-pugins/itemprop-wp/
