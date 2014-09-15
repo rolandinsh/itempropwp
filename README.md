@@ -100,6 +100,10 @@ There are no questions for now! [Ask!](http://simplemediacode.com/wordpress-pugi
 
 ## Changelog
 
+### 3.4.3
+
+* fixed: Illegal string offset 'onoff'. [Issue #10](https://github.com/rolandinsh/itempropwp/issues/10)
+
 ### 3.4.2
 
 * `evert back` to 3.4.0 as version 3.4.1 [itemprops showing multiple times](http://wordpress.org/support/topic/itemprops-showing-multiple-times#post-5992354)

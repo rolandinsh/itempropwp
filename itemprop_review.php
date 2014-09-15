@@ -39,7 +39,7 @@ class itempropwp_review extends itempropwp
 
     private function reviewvers()
     {
-        return '1.2.0';
+        return '1.2.1';
     }
 
     public function reviewinit()
@@ -125,7 +125,7 @@ class itempropwp_review extends itempropwp
         wp_nonce_field(plugin_basename(__FILE__), $ipwprprefix . 'pt_post_nonce');
 
         echo '<table class="form-table"><tbody>';
-        $reviewonoff['onoff'] = 'off';
+        $reviewonoff = array("onoff" => "off");
         $reviewonoff = get_post_meta($post->ID, $ipwprprefix . 'reviewonoff', true);
         $rating = get_post_meta($post->ID, $ipwprprefix . 'rating', true);
 

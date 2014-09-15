@@ -4,7 +4,8 @@ wp-config.php
 .cache
 .maintenance
 cache/**/* 
-cache/*
+cache/* 
+nbproject/*
 
 profile
 
