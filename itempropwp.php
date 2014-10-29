@@ -38,7 +38,7 @@ class itempropwp
         add_action('init', array($this, 'init'), 10);
         add_action('plugin_row_meta', array($this, 'smcwpd_set_plugin_meta'), 10, 2);
     }
-    
+
     public function directoriesloc($type = 'ipwpm')
     {
         switch ($type) {
@@ -64,6 +64,7 @@ class itempropwp
                 break;
         }
     }
+
     public function links($type = 'wporg')
     {
         $link = '';
@@ -75,13 +76,13 @@ class itempropwp
                 $link = 'http://simplemediacode.com/wordpress-pugins/itemprop-wp/';
                 break;
             case 'github':
-                $link = 'https://github.com/rolandinsh/'.$this->directoriesloc('ipwpf');
+                $link = 'https://github.com/rolandinsh/' . $this->directoriesloc('ipwpf');
                 break;
             case 'bitbucket':
-                $link = 'https://bitbucket.org/simplemediacode/'.$this->directoriesloc('ipwpf');
+                $link = 'https://bitbucket.org/simplemediacode/' . $this->directoriesloc('ipwpf');
                 break;
             case 'wporg':
-                $link = 'http://wordpress.org/extend/plugins/'.trailingslashit($this->directoriesloc('ipwpf'));
+                $link = 'http://wordpress.org/extend/plugins/' . trailingslashit($this->directoriesloc('ipwpf'));
                 break;
             default:
                 $link = '';
