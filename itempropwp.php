@@ -39,7 +39,7 @@ class itempropwp
         add_action('plugin_row_meta', array($this, 'smcwpd_set_plugin_meta'), 10, 2);
     }
 
-    public function directoriesloc($type = 'ipwpm')
+    public static function directoriesloc($type = 'ipwpm')
     {
         switch ($type) {
             case 'ipwpurl':
@@ -65,7 +65,7 @@ class itempropwp
         }
     }
 
-    public function links($type = 'wporg')
+    public static function links($type = 'wporg')
     {
         $link = '';
         switch ($type) {
@@ -92,7 +92,7 @@ class itempropwp
     }
 
     // Initialize
-    public function init()
+    public static function init()
     {
 
         /*
@@ -117,7 +117,7 @@ class itempropwp
         add_filter('the_content', array($this, 'ipwp_the_content_filter'), 10, 2); // Adding context @since 3.0
     }
 
-    function smcwpd_set_plugin_meta($links, $file)
+    public static function smcwpd_set_plugin_meta($links, $file)
     {
         $plugin = plugin_basename(__FILE__);
         // create link
@@ -134,7 +134,7 @@ class itempropwp
 
     /* 3.0 drop */
 
-    public function ipwp_img_attr($attr)
+    public static function ipwp_img_attr($attr)
     {
         $attr['itemprop'] = 'image';
         return apply_filters('ipwp_img_attr_filter', $attr); // Extending @since 3.1
@@ -146,7 +146,7 @@ class itempropwp
      * @since 3.1
      */
 
-    public function ipwp_excerpt_maxchr($charlength = 170, $ipwp_content = '')
+    public static function ipwp_excerpt_maxchr($charlength = 170, $ipwp_content = '')
     {
         /* did we get content? No, let's make it from post */
         if ($ipwp_content == '') {
@@ -190,7 +190,7 @@ class itempropwp
      * @author indevd
      * @date 2013-02-06
      */
-    public function itempropwp_get_image_path($post_id)
+    public static function itempropwp_get_image_path($post_id)
     {
         if (!$post_id || $post_id == '') {
             global $post;
@@ -214,7 +214,7 @@ class itempropwp
         return apply_filters('ipwp_post_imguri', $theimage);
     }
 
-    public function ipwp_the_content_filter($content)
+    public static function ipwp_the_content_filter($content)
     {
 
         /*

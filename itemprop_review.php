@@ -44,14 +44,14 @@ class itempropwp_review extends itempropwp
         return self::VERSIONR;
     }
 
-    public function reviewinit()
+    public static function reviewinit()
     {
         add_filter('itempropwp_article_content_before', array($this, 'review'), 11); // Adding context @since 3.0
         add_filter('add_meta_boxes', array($this, 'itempropwp_review_metabox'), 11); // Adding context @since 3.3.0
         add_filter('save_post', array($this, 'itempropwp_review_save'), 11); // Adding context @since 3.3.0
     }
 
-    public function review($content)
+    public static function review($content)
     {
         if (is_singular() && !is_feed()) {
             global $post;
@@ -117,7 +117,7 @@ class itempropwp_review extends itempropwp
         return $content;
     }
 
-    public function itempropwp_review_metabox()
+    public static function itempropwp_review_metabox()
     {
         $ipwprprefix = 'ipwp_';
 
@@ -200,7 +200,7 @@ class itempropwp_review extends itempropwp
         echo '</tbody></table>';
     }
 
-    function itempropwp_review_save($post_id)
+    public static function itempropwp_review_save($post_id)
     {
         $ipwprprefix = 'ipwp_';
         if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE)
