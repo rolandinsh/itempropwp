@@ -31,31 +31,37 @@
 class itempropwp_review extends itempropwp
 {
 
+    const VERSIONR = '1.2.1';
+
     public function __construct()
     {
         parent::__construct();
-        add_action('init', array('itempropwp_review', 'reviewinit'), 10);
+        add_action('init', array($this, 'reviewinit'), 10);
     }
 
     private function reviewvers()
     {
-        return '1.2.1';
+        return self::VERSIONR;
     }
 
-    public function reviewinit()
+    public static function reviewinit()
     {
-        add_filter('itempropwp_article_content_before', array('itempropwp_review', 'review'), 11); // Adding context @since 3.0
-        add_filter('add_meta_boxes', array('itempropwp_review', 'itempropwp_review_metabox'), 11); // Adding context @since 3.3.0
-        add_filter('save_post', array('itempropwp_review', 'itempropwp_review_save'), 11); // Adding context @since 3.3.0
+$itempropwp_reviewn = new itempropwp_review;
+        add_filter('itempropwp_article_content_before', array($itempropwp_reviewn, 'review'), 11); // Adding context @since 3.0
+        add_filter('add_meta_boxes', array($itempropwp_reviewn, 'itempropwp_review_metabox'), 11); // Adding context @since 3.3.0
+        add_filter('save_post', array($itempropwp_reviewn, 'itempropwp_review_save'), 11); // Adding context @since 3.3.0
     }
 
-    public function review($content)
+    public static function review($content)
     {
         if (is_singular() && !is_feed()) {
             global $post;
 
             $reviewinit = new itempropwp_review;
             $reviewv = $reviewinit->reviewvers();
+
+            $veriong = self::VERSION;
+            $homepagelink = $this->links('homepage');
 
             $ipwprprefix = 'ipwp_';
             $reviewid = $post->ID;
@@ -98,11 +104,12 @@ class itempropwp_review extends itempropwp
                                 )
                         ); // Extending @since 3.3.1
                     }
+
                     $newcontent .= '<span itemprop="review" itemscope itemtype="http://schema.org/Review"><meta itemprop="name" content="' . esc_attr($reviewpost->post_title) . '"><meta itemprop="author" content="' . esc_attr(get_the_author_meta('display_name', $reviewpost->post_author)) . '"><meta itemprop="datePublished" content="' . esc_attr($reviewpost->post_date) . '">'
                             . $reviewratingrow . '<span itemprop="itemReviewed" itemscope itemtype="http://schema.org/Product"><meta itemprop="name" content="' . esc_attr($reviewname) . '">'
                             . $pricerows . '</span><meta itemprop="description" content="' . strip_tags(str_replace(array("\r\n", "\n", "\r", "\t"), "", $review_descr)) . '"></span>';
 
-                    $content = "\n" . '<!-- ' . IPWPTSN . ' ' . SMCIPWPV . '/ Review ' . $reviewv . ' by Rolands Umbrovskis ' . IPWPT_HOMEPAGEC . ' -->' . $newcontent . '<!-- ' . IPWPTSN . ' ' . SMCIPWPV . '/ Review ' . $reviewv . ' end -->' . "\n";
+                    $content = "\n" . '<!-- ' . __('itemprop WP', 'itempropwp') . ' ' . $veriong . '/ Review ' . $reviewv . ' by Rolands Umbrovskis ' . $homepagelink . ' -->' . $newcontent . '<!-- ' . __('itemprop WP', 'itempropwp') . ' ' . $veriong . '/ Review ' . $reviewv . ' end -->' . "\n";
                 }
             }// isset($reviewonoff['onoff'])
 
@@ -111,12 +118,12 @@ class itempropwp_review extends itempropwp
         return $content;
     }
 
-    public function itempropwp_review_metabox()
+    public static function itempropwp_review_metabox()
     {
         $ipwprprefix = 'ipwp_';
 
-        add_meta_box($ipwprprefix . 'postbox_review', sprintf(__("%s Review", "itempropwp"), IPWPTSN), array('itempropwp_review', 'ipwp_cpbox'), 'post', 'normal', 'high');
-        add_meta_box($ipwprprefix . 'pagebox_review', sprintf(__("%s Review", "itempropwp"), IPWPTSN), array('itempropwp_review', 'ipwp_cpbox'), 'page', 'normal', 'high');
+        add_meta_box($ipwprprefix . 'postbox_review', sprintf(__("%s Review", "itempropwp"), __('itemprop WP', 'itempropwp')), array($this, 'ipwp_cpbox'), 'post', 'normal', 'high');
+        add_meta_box($ipwprprefix . 'pagebox_review', sprintf(__("%s Review", "itempropwp"), __('itemprop WP', 'itempropwp')), array($this, 'ipwp_cpbox'), 'page', 'normal', 'high');
     }
 
     function ipwp_cpbox($post)
@@ -125,8 +132,8 @@ class itempropwp_review extends itempropwp
         wp_nonce_field(plugin_basename(__FILE__), $ipwprprefix . 'pt_post_nonce');
 
         echo '<table class="form-table"><tbody>';
-        $reviewonoff = array("onoff" => "off");
-        $reviewonoff = get_post_meta($post->ID, $ipwprprefix . 'reviewonoff', true);
+        //$reviewonoff = array("onoff" => "off"); // Issue #10 https://github.com/rolandinsh/itempropwp/issues/10 
+        $reviewonoff = get_post_meta($post->ID, $ipwprprefix . 'reviewonoff', true) ? get_post_meta($post->ID, $ipwprprefix . 'reviewonoff', true) : array("onoff" => "off");
         $rating = get_post_meta($post->ID, $ipwprprefix . 'rating', true);
 
         echo '<tr>';
@@ -194,7 +201,7 @@ class itempropwp_review extends itempropwp
         echo '</tbody></table>';
     }
 
-    function itempropwp_review_save($post_id)
+    public static function itempropwp_review_save($post_id)
     {
         $ipwprprefix = 'ipwp_';
         if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE)
