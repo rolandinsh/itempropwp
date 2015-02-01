@@ -1,5 +1,7 @@
 # itemprop WP for SERP/SEO Rich snippets
 
+[![Build Status](https://travis-ci.org/rolandinsh/itempropwp.svg)](https://travis-ci.org/rolandinsh/itempropwp)
+
 Add human invisible schema.org itemprop code to post content
 
 * [Donate](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=Z4ALL9WUMY3CL&lc=LV&item_name=Umbrovskis%2e%20WordPress%20plugins&item_number=002&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted) or promote this work 
