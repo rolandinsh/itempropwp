@@ -1,11 +1,11 @@
 <?php 
-	define('SMCIPWPV','3.5.0'); // location general @since 1.0
+
 	define('SMCIPWPM',dirname(__FILE__)); // location general @since 1.0
 	define('SMCIPWPF','itempropwp'); // location folder @since 1.0 
 	define('IPWPT',__('itemprop WP for SERP/SEO Rich snippets','itempropwp')); // Name @since 1.1
 	define('IPWPTSN',__('itemprop WP','itempropwp')); // Name @since 3.3.0
 	define('SMCIPWPURL', plugin_dir_url(__FILE__)); // Plugin URI @since 1.0
-	define('SMCIPWPDIR',dirname( plugin_basename( __FILE__ ) ));/* @since 3.2.0 */
+
 	$smcipwp_url = SMCIPWPURL; // @since 3.1 Use of undefined constant SMCIPWPURL - assumed 'SMCIPWPURL' in 
 	$smcipwp_f = SMCIPWPF; // @since 3.1 Use of undefined constant SMCIPWPF - assumed 'SMCIPWPF' in 
 	

@@ -1,26 +1,32 @@
 <?php
-
 /**
   Plugin Name: itemprop WP - Rich snippets (better SEO and SERP)
   Plugin URI: http://simplemediacode.com/wordpress-pugins/itemprop-wp/?utm_source=wordpress&utm_medium=wpplugin&utm_campaign=itempropWP&utm_content=v-3.4.3-itempropWP_load_widgets
   Description: Add schema.org code to WordPress content
   Version: 3.4.3
   Requires at least: 3.3
-  Tested up to: 4.0.1
+  Tested up to: 4.1
   Author: Rolands Umbrovskis
   Author URI: http://umbrovskis.com
   License: simplemediacode
   License URI: http://simplemediacode.com/license/gpl/
 
-  Copyright (C) 2008-2014, Rolands Umbrovskis - rolands@simplemediacode.com
+  Copyright (C) 2008-2015, Rolands Umbrovskis - rolands@simplemediacode.com
 
  */
+if ( ! defined( 'WPINC' ) ) {
+    die;
+}
+// real version number
+define('SMCIPWPV','3.5.0'); // location general @since 1.0
+
+define('SMCIPWPDIR',dirname( plugin_basename( __FILE__ ) ));/* @since 3.2.0 */
 include_once '_depr/old_data.php';
 
 /*
  * Starting itempropwp
  */
-new itempropwp;
+new itempropwp();
 /*
  * itempropwp class
  * @since 2.0
@@ -29,73 +35,24 @@ new itempropwp;
 //if (!class_exists('itempropwp')) {
 class itempropwp
 {
-
+    protected $version;
     const VERSION = '3.4.3';
     const SMCIPWPF = 'itempropwp';
 
     public function __construct()
     {
-        add_action('init', array($this, 'init'), 10);
-        add_action('plugin_row_meta', array($this, 'smcwpd_set_plugin_meta'), 10, 2);
+        $this->version = self::VERSION;
+        add_action('init', array(&$this, 'init'), 10);
+        //add_action('plugin_row_meta', array($this, 'smcwpd_set_plugin_meta'), 10, 2);
     }
-
-    public static function directoriesloc($type = 'ipwpm')
-    {
-        switch ($type) {
-            case 'ipwpurl':
-                return plugin_dir_url(__FILE__);
-                break;
-
-            case 'ipwpdir':
-                return dirname(plugin_basename(__FILE__));
-                break;
-
-            case 'ipwpi':
-                return trailingslashit($this->directoriesloc('ipwpurl') . '/img');
-                break;
-
-            case 'ipwpf':
-                return self::SMCIPWPF;
-                break;
-
-            case 'ipwpm':
-            default:
-                return dirname(__FILE__);
-                break;
-        }
+    public function get_version() {
+        return $this->version;
     }
-
-    public static function links($type = 'wporg')
-    {
-        $link = '';
-        switch ($type) {
-            case 'support':
-                $link = 'http://simplemediacode.org/forums/topic/itempropwp-3-3-0/';
-                break;
-            case 'homepage':
-                $link = 'http://simplemediacode.com/wordpress-pugins/itemprop-wp/';
-                break;
-            case 'github':
-                $link = 'https://github.com/rolandinsh/' . $this->directoriesloc('ipwpf');
-                break;
-            case 'bitbucket':
-                $link = 'https://bitbucket.org/simplemediacode/' . $this->directoriesloc('ipwpf');
-                break;
-            case 'wporg':
-                $link = 'http://wordpress.org/extend/plugins/' . trailingslashit($this->directoriesloc('ipwpf'));
-                break;
-            default:
-                $link = '';
-                break;
-        }
-        return $link;
-    }
-
     // Initialize
     public static function init()
     {
 
-$itempropwpn = new itempropwp;
+        $itempropwpn = new itempropwp;
         /*
          * itempropwp Admin interface
          * @since 3.1.4
@@ -120,12 +77,14 @@ $itempropwpn = new itempropwp;
 
     public static function smcwpd_set_plugin_meta($links, $file)
     {
+        $itempropwpn = new itempropwp();
+        //$itempropwpn = new itempropwp;
         $plugin = plugin_basename(__FILE__);
         // create link
         if ($file == $plugin) {
             return array_merge($links, array(
                 '<a href="http://simplemediacode.org/forums/forum/itempropwp-plugin/">' . __("Support Forum", "itempropwp") . '</a>',
-                '<a href="' . $this->links('support') . '">' . sprintf(__("Support for version %s", "itempropwp"), self::VERSION) . '</a>',
+                '<a href="' . $itempropwpn->links('support') . '">' . sprintf(__("Support for version %s", "itempropwp"), self::VERSION) . '</a>',
                 '<a href="http://simplemediacode.org/forums/forum/itempropwp-plugin/suggestions-for-itempropwp/">' . __('Feature request') . '</a>',
                     // '<a href="http://simplemediacode.org/forums/forum/itempropwp-plugin/">' . __("Join Members group","itempropwp") . '</a>',
             ));
@@ -272,10 +231,10 @@ $itempropwpn = new itempropwp;
             $postauthoris = esc_url($smcipwp_author_link);
 
             $ipwp_contentx = apply_filters('itempropwp_article_content_before', '<span itemscope itemtype="http://schema.org/Article" class="itempropwp-wrap"><!-- ItemProp WP ' . self::VERSION . ' by Rolands Umbrovskis http://umbrovskis.com/ --><meta itemprop="name" content="' . esc_attr($thisipwp_post->post_title) . '"><meta itemprop="url" content="' . esc_url(get_permalink()) . '">'
-                    . $ipwp_image 
+                    . $ipwp_image
                     . '<meta itemprop="author" content="' . $postauthoris . '" /><meta itemprop="description" content="' . strip_tags(str_replace(array("\r\n", "\n", "\r", "\t"), "", apply_filters('itempropwp_post_description', $ipwp_post_dsc))) . '" /><meta itemprop="datePublished" content="' . esc_attr($thisipwp_post->post_date) . '" />'
                     . $ipwp_datemodified
-                    . $showcommcount 
+                    . $showcommcount
                     . '<!-- ItemProp WP ' . self::VERSION . ' by Rolands Umbrovskis http://umbrovskis.com/ end --></span>');
 
             if ($done_ipwp_post) { /* @since 3.3.4 */
@@ -299,12 +258,64 @@ $itempropwpn = new itempropwp;
         do_action('ipwp_post_after_end'); /* @since 3.3.4 */
     }
 
+
+    public static function directoriesloc($type = 'ipwpm')
+    {
+        switch ($type) {
+            case 'ipwpurl':
+                return plugin_dir_url(__FILE__);
+                break;
+
+            case 'ipwpdir':
+                return dirname(plugin_basename(__FILE__));
+                break;
+
+            case 'ipwpi':
+                return trailingslashit($this->directoriesloc('ipwpurl') . '/img');
+                break;
+
+            case 'ipwpf':
+                return self::SMCIPWPF;
+                break;
+
+            case 'ipwpm':
+            default:
+                return dirname(__FILE__);
+                break;
+        }
+    }
+
+    public function links($type = 'wporg')
+    {
+        $link = '';
+        switch ($type) {
+            case 'support':
+                $link = 'http://simplemediacode.org/forums/topic/itempropwp-3-3-0/';
+                break;
+            case 'homepage':
+                $link = 'http://simplemediacode.com/wordpress-pugins/itemprop-wp/';
+                break;
+            case 'github':
+                $link = 'https://github.com/rolandinsh/' . $this->directoriesloc('ipwpf');
+                break;
+            case 'bitbucket':
+                $link = 'https://bitbucket.org/simplemediacode/' . $this->directoriesloc('ipwpf');
+                break;
+            case 'wporg':
+                $link = 'http://wordpress.org/extend/plugins/' . trailingslashit($this->directoriesloc('ipwpf'));
+                break;
+            default:
+                $link = '';
+                break;
+        }
+        return $link;
+    }
 }
 
 //}
 /* itemprop Review */
-$smcwpip = new itempropwp;
-include_once($smcwpip->directoriesloc('ipwpm') . '/itemprop_review.php');
+
+include_once('itemprop_review.php');
 /* itemprop Person */
 /* itemprop LocalBusiness */
 /* itemprop RealEstateAgent */

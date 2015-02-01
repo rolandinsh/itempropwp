@@ -36,7 +36,7 @@ class itempropwp_review extends itempropwp
     public function __construct()
     {
         parent::__construct();
-        add_action('init', array($this, 'reviewinit'), 10);
+        add_action('init', array(&$this, 'reviewinit'), 10);
     }
 
     private function reviewvers()
@@ -47,13 +47,14 @@ class itempropwp_review extends itempropwp
     public static function reviewinit()
     {
 $itempropwp_reviewn = new itempropwp_review;
-        add_filter('itempropwp_article_content_before', array($itempropwp_reviewn, 'review'), 11); // Adding context @since 3.0
-        add_filter('add_meta_boxes', array($itempropwp_reviewn, 'itempropwp_review_metabox'), 11); // Adding context @since 3.3.0
-        add_filter('save_post', array($itempropwp_reviewn, 'itempropwp_review_save'), 11); // Adding context @since 3.3.0
+        add_filter('itempropwp_article_content_before', array(&$this, 'review'), 11); // Adding context @since 3.0
+        add_filter('add_meta_boxes', array(&$this, 'itempropwp_review_metabox'), 11); // Adding context @since 3.3.0
+        add_filter('save_post', array(&$this, 'itempropwp_review_save'), 11); // Adding context @since 3.3.0
     }
 
     public static function review($content)
     {
+$itempropwp_reviewn = new itempropwp_review;
         if (is_singular() && !is_feed()) {
             global $post;
 
@@ -61,7 +62,7 @@ $itempropwp_reviewn = new itempropwp_review;
             $reviewv = $reviewinit->reviewvers();
 
             $veriong = self::VERSION;
-            $homepagelink = $this->links('homepage');
+            $homepagelink = $itempropwp_reviewn->links('homepage');
 
             $ipwprprefix = 'ipwp_';
             $reviewid = $post->ID;
