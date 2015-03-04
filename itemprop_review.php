@@ -128,9 +128,8 @@ class itempropwp_review
     {
         $ipwprprefix = 'ipwp_';
         wp_nonce_field(plugin_basename(__FILE__), $ipwprprefix . 'pt_post_nonce');
-        $reviewonoff = array();
         echo '<table class="form-table"><tbody>';
-        $reviewonoff['onoff'] = 'off';
+        $reviewonoff = array("onoff" => "off");
         $reviewonoff = get_post_meta($post->ID, $ipwprprefix . 'reviewonoff', true);
         $rating = get_post_meta($post->ID, $ipwprprefix . 'rating', true);
 
