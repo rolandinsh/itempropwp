@@ -180,7 +180,7 @@ new itempropwp();
 			$theimage = str_replace('?uamfiletype=nggImage','',$theimage);
 			return apply_filters('ipwp_post_imguri', $theimage);
 		}
-		public static function ipwp_the_content_filter($content) {
+		public function ipwp_the_content_filter($content) {
 
 /*
 Content loading multiple times. patch by sirene http://simplemediacode.org/forums/topic/schema-display-3-times/#post-97

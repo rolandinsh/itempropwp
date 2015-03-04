@@ -45,7 +45,7 @@ class itempropwp_review {
 		add_filter('save_post', array($this, 'itempropwp_review_save' ), 11); // Adding context @since 3.3.0
 	}
 	
-	public static function review($content){
+	public function review($content){
 		if (is_singular() && !is_feed()){
 			global $post;
 			
