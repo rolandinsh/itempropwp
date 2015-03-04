@@ -41,7 +41,7 @@ class itempropwp_review
 
     private function reviewvers()
     {
-        return '1.2.0';
+        return '1.2.1';
     }
 
     public function reviewinit()
@@ -105,7 +105,7 @@ class itempropwp_review
                     }
                     $newcontent .= '<span itemprop="review" itemscope itemtype="http://schema.org/Review"><meta itemprop="name" content="' . esc_html($reviewpost->post_title) . '"><meta itemprop="author" content="' . esc_html(get_the_author_meta('display_name', $reviewpost->post_author)) . '"><meta itemprop="datePublished" content="' . esc_html($reviewpost->post_date) . '">'
                             . $reviewratingrow . '<span itemprop="itemReviewed" itemscope itemtype="http://schema.org/Product"><meta itemprop="name" content="' . esc_html($reviewname) . '">'
-                            . $pricerows . '</span><meta itemprop="description" content="' . strip_tags(str_replace(array("\r\n", "\n", "\r", "\t"), "", $review_descr)) . '"></span>';
+                            . $pricerows . '</span><meta itemprop="description" content="' . esc_html(str_replace(array("\r\n", "\n", "\r", "\t"), "", $review_descr)) . '"></span>';
 
                     $content = "\n" . '<!-- ' . IPWPTSN . ' ' . SMCIPWPV . '/ Review ' . $reviewv . ' by Rolands Umbrovskis ' . IPWPT_HOMEPAGEC . ' -->' . $newcontent . '<!-- ' . IPWPTSN . ' ' . SMCIPWPV . '/ Review ' . $reviewv . ' end -->' . "\n";
                 }
@@ -128,7 +128,7 @@ class itempropwp_review
     {
         $ipwprprefix = 'ipwp_';
         wp_nonce_field(plugin_basename(__FILE__), $ipwprprefix . 'pt_post_nonce');
-
+        $reviewonoff = array();
         echo '<table class="form-table"><tbody>';
         $reviewonoff['onoff'] = 'off';
         $reviewonoff = get_post_meta($post->ID, $ipwprprefix . 'reviewonoff', true);
