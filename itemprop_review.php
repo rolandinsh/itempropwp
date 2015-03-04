@@ -40,12 +40,15 @@ class itempropwp_review {
 	}
 
 	public function reviewinit() {
+
 		add_filter('itempropwp_article_content_before', array($this, 'review' ), 11); // Adding context @since 3.0
 		add_filter('add_meta_boxes', array( $this , 'itempropwp_review_metabox' ), 11); // Adding context @since 3.3.0
 		add_filter('save_post', array($this, 'itempropwp_review_save' ), 11); // Adding context @since 3.3.0
 	}
 	
 	public function review($content){
+            
+
 		if (is_singular() && !is_feed()){
 			global $post;
 			

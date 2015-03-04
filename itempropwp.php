@@ -49,10 +49,6 @@ define('IPWPT_GITHUB','https://github.com/rolandinsh/'.$smcipwp_f); // Homepage 
 	define('IPWPT_VERSUPPORT','http://simplemediacode.org/forums/topic/itempropwp-3-3-0/'.$plugref); // Version specific support @since 3.3.0
 	
 /*
- * Starting itempropwp
-*/
-new itempropwp();
-/*
  * itempropwp class
  * @since 2.0
 */
@@ -182,6 +178,7 @@ new itempropwp();
 		}
 		public function ipwp_the_content_filter($content) {
 
+
 /*
 Content loading multiple times. patch by sirene http://simplemediacode.org/forums/topic/schema-display-3-times/#post-97
 Now, the $ipwp_contentx is loading just one time and not multiple time if you have more than one the_content(); in your page
@@ -262,12 +259,30 @@ Now, the $ipwp_contentx is loading just one time and not multiple time if you ha
 			//return $content;
 			return apply_filters('itempropwp_article_content_undistilled', $content); /* @since 3.3.4 */
 			do_action('ipwp_post_after_end'); /* @since 3.3.4 */
-		}
+
+        } 
 	
 	}
+    
+/*
+Disable Itemprop on Woocommerce #8 
 
+@author rolandinsh
+@date 2015-03-04
+@since 3.4.3
+@url https://github.com/rolandinsh/itempropwp/issues/8
+
+@TODO: Optimize
+ */
+// dummy way to test via http://docs.woothemes.com/document/create-a-plugin/#section-1
+if(!in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) )){ 
+/*
+ * Starting itempropwp
+*/
+new itempropwp();
 /* itemprop Review */
 include_once(SMCIPWPM.'/itemprop_review.php');
 /* itemprop Person */
 /* itemprop LocalBusiness */
 /* itemprop RealEstateAgent */
+}
