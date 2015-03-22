@@ -1,10 +1,9 @@
 <?php
-
 /**
   Plugin Name: itemprop WP for SERP (and SEO) Rich snippets
-  Plugin URI: http://simplemediacode.com/wordpress-pugins/itemprop-wp/?utm_source=wordpress&utm_medium=wpplugin&utm_campaign=itempropWP&utm_content=v-3.4.3-itempropWP_load_widgets
+  Plugin URI: http://simplemediacode.com/wordpress-pugins/itemprop-wp/?utm_source=wordpress&utm_medium=wpplugin&utm_campaign=itempropWP&utm_content=v-3.4.4-itempropWP_load_widgets
   Description: Add human invisible schema.org code to content
-  Version: 3.4.3
+  Version: 3.4.4
   Requires at least: 3.3
   Tested up to: 4.1.1
   Author: Rolands Umbrovskis
@@ -15,7 +14,7 @@
   Copyright (C) 2008-2015, Rolands Umbrovskis - rolands@simplemediacode.com
 
  */
-define('SMCIPWPV', '3.4.3'); // location general @since 1.0
+define('SMCIPWPV', '3.4.4'); // location general @since 1.0
 define('SMCIPWPM', dirname(__FILE__)); // location general @since 1.0
 define('SMCIPWPF', 'itempropwp'); // location folder @since 1.0 
 define('IPWPT', __('itemprop WP for SERP/SEO Rich snippets', 'itempropwp')); // Name @since 1.1
@@ -43,7 +42,6 @@ switch (WPLANG) {
         define('IPWPT_HOMEPAGEC', 'http://simplemediacode.com/wordpress-pugins/itemprop-wp/'); // Homepage @since 3.3.0
         break;
 }
-
 
 define('IPWPT_GITHUB', 'https://github.com/rolandinsh/' . $smcipwp_f); // Homepage @since 3.1
 define('IPWPT_BITBUCKET', 'https://bitbucket.org/simplemediacode/' . $smcipwp_f); // Homepage @since 3.1
@@ -188,8 +186,6 @@ class itempropwp
 
     public function ipwp_the_content_filter($content)
     {
-
-
         /*
           Content loading multiple times. patch by sirene http://simplemediacode.org/forums/topic/schema-display-3-times/#post-97
           Now, the $ipwp_contentx is loading just one time and not multiple time if you have more than one the_content(); in your page
@@ -198,14 +194,14 @@ class itempropwp
           @version 1.0.0
           @since 3.3.4
          */
-        static $done_ipwp_post = FALSE; /* @since 3.3.4 */
+        static $done_ipwp_post = FALSE; 
 
         if (is_singular() && !is_feed()) {
             global $post;
             $post_id = $post->ID;
 
             $thisipwp_post = get_post($post_id);
-            $ipwp_posth = '';
+            $ipwp_posth = FALSE;
             $ipwp_image = '';
             $showcommcount = '';
             $ipwp_datemodified = '';
@@ -258,14 +254,12 @@ class itempropwp
             }
 
             do_action('ipwp_post_before_content_end'); /* @since 3.3.4 */
-            //return $content;
             return apply_filters('itempropwp_article_content_distilled', $content); /* @since 3.3.4 */
             do_action('ipwp_post_after_content_end'); /* @since 3.3.4 */
         }
 
         do_action('ipwp_post_before_end'); /* @since 3.3.4 */
         $done_ipwp_post = TRUE; /* @since 3.3.4 */
-        //return $content;
         return apply_filters('itempropwp_article_content_undistilled', $content); /* @since 3.3.4 */
         do_action('ipwp_post_after_end'); /* @since 3.3.4 */
     }

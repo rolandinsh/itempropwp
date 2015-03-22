@@ -1,35 +1,35 @@
 === itemprop WP for SERP/SEO Rich snippets ===
 Contributors: rolandinsh
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=Z4ALL9WUMY3CL&lc=LV&item_name=Umbrovskis%2e%20WordPress%20plugins&item_number=002&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted
+Donate link: http://go.mediabox.lv/itempropwpdonatepaypal
 Tags: SEO, schema, schema.org, itemprop, schema.org itemprop, images, microdata, rich snippets, richsnippets, SERP, html5, structured data, itemprop article, itemprop review
 Requires at least: 3.3
-Tested up to: 3.9.2
-Stable tag: 3.4.2
+Tested up to: 4.1.1
+Stable tag: 3.4.4
 License: simplemediacode
 License URI: http://simplemediacode.com/license/gpl/
 
-Add human invisible schema.org itemprop code to post content for search engines and bots for better SERP results
+Add schema.org itemprop code to the (custom) post content for search engines and bots for better SERP results
 
 == Description ==
 
 This plugin is very simple. Using WordPress built in function to filter element attributes and adding < meta > tags with schema.org item properties.
 
-[Project itempropWP homepage](http://simplemediacode.com/wordpress-pugins/itemprop-wp/?utm_source=http://wordpress.org/extend/plugins/itempropwp/&utm_medium=link&utm_campaign=itempropWP-WordPress-theme-feature-requests-3.4.2&utm_content=WordPress-plugin-itempropwp-3.4.2)
+[Project itempropWP homepage](http://simplemediacode.com/?utm_source=http://wordpress.org/extend/plugins/itempropwp/&utm_medium=link&utm_campaign=itempropWP-WordPress-theme-feature-requests-3.4.4&utm_content=WordPress-plugin-itempropwp-3.4.4)
 
 Example output:
 
 `
 <span itemscope itemtype="http://schema.org/Article" class="itempropwp-wrap">
-<!-- Itemprop WP 3.4.0 by Rolands Umbrovskis http://umbrovskis.com -->
+<!-- Itemprop WP 3.4.4 by Rolands Umbrovskis http://umbrovskis.com -->
  <meta itemprop="name" content="Title of the Article" />
  <meta itemprop="url" content="http://example.com/seo-optimized-article/" />
  <meta itemprop="image" content="http://example.com/images/example.jpg" />
  <meta itemprop="author" content="http://example.com/author/authorusername/"/>
  <meta itemprop="description" content="excerpt from post" />
- <meta itemprop="datePublished" content="2012-09-13 19:17:21" />
- <meta itemprop="dateModified" content="2012-09-29 13:33:25" />
+ <meta itemprop="datePublished" content="2014-09-13 19:17:21" />
+ <meta itemprop="dateModified" content="2015-01-29 13:33:25" />
  <meta itemprop="interactionCount" content="UserComments:356" />
-<!-- Itemprop WP 3.4.0 by Rolands Umbrovskis http://umbrovskis.com end -->
+<!-- Itemprop WP 3.4.4 by Rolands Umbrovskis http://umbrovskis.com end -->
 </span>
 `
 
@@ -63,7 +63,7 @@ Review
 
 How does it work?
 
-This asumes that Your page is not fully integrated with HTML5's data properties for microdata. This plugin will create small code inside Your `full content`, with extra microdata from schema.org. This will be ONLY on singular pages - post, page or your custom post type.
+This assumes that Your page is not fully integrated with HTML5's data properties for microdata. This plugin will create small code inside Your `full content`, with extra microdata from schema.org. This will be ONLY on singular pages - post, page or your custom post type.
 
 
 Once we are on singular page:
@@ -71,16 +71,16 @@ Once we are on singular page:
 # we will extract from it EXCERPT.
 # If You haven't provided excerpt, plugin will look-up for post content, and downsize it to 170 symbols up to full word.
 # If your content consist ONLY of shortcode, it will strip it out, and leave empty content. :(
-# If we have empty content, from previous step, we will use post title. Not best choise, but at least we have some `description`.
-# If Your post do not have even title, plugin will giveup and your description will be ampty. (This ir very bad :') )
+# If we have empty content, from previous step, we will use post title. Not best choice, but at least we have some `description`.
+# If Your post do not have even title, plugin will give up and your description will be empty. (This is very bad :') )
 
 Other options, like `datePublished`, `dateModified` (if enabled), `UserComments` (if enabled), `url` are taken from post
 
-* [SMC Facebook](http://www.facebook.com/pages/SimpleMediaCode/125547717479727)
+* [SMC Facebook](https://www.facebook.com/simplemediacode)
 
-Development: [Git at bitbucket](https://bitbucket.org/simplemediacode/itempropwp) | [Github](https://github.com/rolandinsh/itempropwp)
+Development: [Github](https://github.com/rolandinsh/itempropwp)
 
-Developer on twitter [@UmbrovskisCom](http://twitter.com/UmbrovskisCom)  /  [@SimpleMediaCode](http://twitter.com/SimpleMediaCode)
+Developer on twitter [@UmbrovskisCom](http://twitter.com/UmbrovskisCom) / [@SimpleMediaCode](http://twitter.com/SimpleMediaCode)
 
 Require PHP at least 5.3
 
@@ -95,6 +95,14 @@ Require PHP at least 5.3
 There are no questions for now! [Ask!](http://simplemediacode.com/wordpress-pugins/itemprop-wp/)
 
 == Changelog ==
+
+= 3.4.4 =
+
+* Typo fix in plugin's description
+
+= 3.4.3 =
+
+* Many bug fixed. Issues [closed in 3.4.3](http://go.mediabox.lv/itempropwp343c)
 
 = 3.4.2 =
 
@@ -185,6 +193,14 @@ There are no questions for now! [Ask!](http://simplemediacode.com/wordpress-pugi
 * init
 
 == Upgrade Notice ==
+
+= 3.4.4 =
+
+* Typo fix in plugin's description
+
+= 3.4.3 =
+
+* Many bug fixed. Issues [closed in 3.4.3](http://go.mediabox.lv/itempropwp343c)
 
 = 3.4.0 = 
 
