@@ -9,7 +9,6 @@ Add human invisible schema.org itemprop code to post content
 
 Have a good idea for improvement? [Share it](https://github.com/rolandinsh/itempropwp/issues) | [BUG report](https://github.com/rolandinsh/itempropwp/issues) | 
 
-Example output:
 ### Example:
 
 Article
