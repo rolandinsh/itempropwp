@@ -7,8 +7,9 @@ Add human invisible schema.org itemprop code to post content
 
 ## Description
 
-Very simple WordPress plugin, that uses built in function to filter element attributes. It will add human invisible / search engine visible schema.org `itemprop` code to content (via META tags).
+Have a good idea for improvement? [Share it](https://github.com/rolandinsh/itempropwp/issues) | [BUG report](https://github.com/rolandinsh/itempropwp/issues) | 
 
+Example output:
 ### Example:
 
 Article
@@ -82,8 +83,8 @@ Other options, like `datePublished`, `UserComments`, `url` are taken from post
 ### Links
 
 * [Project Page](http://simplemediacode.com/wordpress-pugins/itemprop-wp/)
-* [SMC Facebook](http://www.facebook.com/pages/SimpleMediaCode/125547717479727)
-* Development: [Git at bitbucket](https://bitbucket.org/simplemediacode/itempropwp) | [Github](https://github.com/rolandinsh/itempropwp)
+* [SMC Facebook](http://www.facebook.com/SimpleMediaCode/)
+* Development: [Github](https://github.com/rolandinsh/itempropwp)
 
 ## Installation
 
@@ -97,68 +98,3 @@ Require PHP at least 5.3
 ## Frequently Asked Questions
 
 There are no questions for now! [Ask!](http://simplemediacode.com/wordpress-pugins/itemprop-wp/)
-
-## Changelog
-
-### 3.4.3
-
-* `evert back` to 3.4.0 as version 3.4.1 [itemprops showing multiple times](http://wordpress.org/support/topic/itemprops-showing-multiple-times#post-5992354)
-
-### 3.4.1
-
-* fixed: Illegal string offset 'onoff'. [Issue #10](https://github.com/rolandinsh/itempropwp/issues/10) Thanks for report to [Arthur Lutz](http://wordpress.org/support/profile/arthurlutz)
-* tested: PHP 5.2.10 & Apache 2.2 / 5.5.9 & apache 2.4
-
-### 3.4.0
-
-* updated: in Review - default price now with filter
-* updated: in Review - default currency now with filter
-
-### 3.3.6
-
-* fixed: wp_register_style was called incorrectly. More info [bitbucket.org/simplemediacode/itempropwp](http://xh.lv/20). Reported RFT Group.
-
-### 3.2.1
-
-* updated: whitespaces in code removed
-
-### 3.2.0
-
-* updated: admin interface for options
-* new: CSS class for wrapper
-
-### 3.1.4
-
-* updated: itemprop="description"
-* Admin interface for options: description lenght (if excerpt not provided),show/hide UserComments:325,  show/hide dateModified 
-
-### 3.1.2
-
-* fix: itemprop="description" 
-
-### 3.1.1
-
-* new: itemprop="description" 
-
-### 3.0
-
-* new: context
-* new: itemprop="name"
-* new: itemprop="url"
-* new: itemprop="image"
-* new: itemprop="author"
-* new: itemprop="datePublished"
-* new: "UserComments:325" itemprop="interactionCount"
-
-### 2.0
-
-* new code
-* now as extendable class function
-* new: using WordPress filter for image attributed on thumbnails
-
-### 1.1
-* fix: SMCIPWPURL
-
-### 1.0
-
-* init
