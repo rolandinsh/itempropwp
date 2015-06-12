@@ -3,7 +3,7 @@ Contributors: rolandinsh
 Donate link: http://go.mediabox.lv/itempropwpdonatepaypal
 Tags: SEO, schema, schema.org, itemprop, schema.org itemprop, images, microdata, rich snippets, richsnippets, SERP, html5, structured data, itemprop article, itemprop review
 Requires at least: 3.3
-Tested up to: 4.2.1
+Tested up to: 4.2.2
 Stable tag: 3.4.5
 License: simplemediacode
 License URI: http://simplemediacode.com/license/gpl/
@@ -14,15 +14,15 @@ Add schema.org itemprop code to the (custom) post content for search engines and
 
 This plugin is very simple. Using WordPress built in function to filter element attributes and adding < meta > tags with schema.org item properties.
 
-[Project itempropWP homepage](http://simplemediacode.com/?utm_source=http://wordpress.org/extend/plugins/itempropwp/&utm_medium=link&utm_campaign=itempropWP-WordPress-theme-feature-requests-3.4.5&utm_content=WordPress-plugin-itempropwp-3.4.5)
+[Project itempropWP homepage](http://simplemediacode.com/?utm_source=http://wordpress.org/extend/plugins/itempropwp/&utm_medium=link&utm_campaign=itempropWP-WordPress-theme-feature-requests-3.4.6-dev&utm_content=WordPress-plugin-itempropwp-3.4.6-dev)
 
-Have a good idea for improvement? [Share it](https://github.com/rolandinsh/itempropwp/issues) | [BUG report](https://github.com/rolandinsh/itempropwp/issues) | 
+Have a good idea for improvement? [Share it](https://github.com/rolandinsh/itempropwp/issues) | [BUG report](https://github.com/rolandinsh/itempropwp/issues) 
 
 Example output:
 
 `
 <span itemscope itemtype="http://schema.org/Article" class="itempropwp-wrap">
-<!-- Itemprop WP 3.4.5 by Rolands Umbrovskis http://umbrovskis.com -->
+<!-- Itemprop WP 3.4.6-dev by Rolands Umbrovskis http://umbrovskis.com -->
  <meta itemprop="name" content="Title of the Article" />
  <meta itemprop="url" content="http://example.com/seo-optimized-article/" />
  <meta itemprop="image" content="http://example.com/images/example.jpg" />
@@ -31,7 +31,7 @@ Example output:
  <meta itemprop="datePublished" content="2014-09-13 19:17:21" />
  <meta itemprop="dateModified" content="2015-01-29 13:33:25" />
  <meta itemprop="interactionCount" content="UserComments:356" />
-<!-- Itemprop WP 3.4.5 by Rolands Umbrovskis http://umbrovskis.com end -->
+<!-- Itemprop WP 3.4.6-dev by Rolands Umbrovskis http://umbrovskis.com end -->
 </span>
 `
 
@@ -98,6 +98,10 @@ There are no questions for now! [Ask!](http://simplemediacode.com/wordpress-pugi
 
 == Changelog ==
 
+= 3.4.6 =
+
+* Simple check for WordPress. Make sure we don't expose any info if called directly [Issue #18](https://github.com/rolandinsh/itempropwp/issues/18)
+
 = 3.4.5 =
 
 * compatible with WordPress 4.2.*
@@ -126,7 +130,7 @@ There are no questions for now! [Ask!](http://simplemediacode.com/wordpress-pugi
 
 = 3.3.6 = 
 
-* fixed: wp_register_style was called incorrectly. More info [bitbucket.org/simplemediacode/itempropwp](http://xh.lv/20). Reported RFT Group.
+* fixed: wp_register_style was called incorrectly. Reported RFT Group.
 
 = 3.3.5 = 
 
@@ -200,6 +204,10 @@ There are no questions for now! [Ask!](http://simplemediacode.com/wordpress-pugi
 
 == Upgrade Notice ==
 
+= 3.4.6 =
+
+* Simple check for WordPress. Make sure we don't expose any info if called directly [Issue #18](https://github.com/rolandinsh/itempropwp/issues/18)
+
 = 3.4.5 =
 
 * compatible with WordPress 4.2.*
@@ -219,7 +227,7 @@ There are no questions for now! [Ask!](http://simplemediacode.com/wordpress-pugi
 
 = 3.3.6 = 
 
-* fixed: wp_register_style was called incorrectly. More info [bitbucket.org/simplemediacode/itempropwp](http://xh.lv/20). Reported RFT Group.
+* fixed: wp_register_style was called incorrectly. Reported RFT Group.
 
 = 3.3.5 = 
 
@@ -235,5 +243,5 @@ There are no questions for now! [Ask!](http://simplemediacode.com/wordpress-pugi
 * small bugfix "Fixing undeclared variables", thanks to [semplon's commit on github](https://github.com/rolandinsh/itempropwp/commit/d4e18904329faabb84f6c47a7011a261c973b6bf) 
 
 == Screenshots ==
-1. 3.0 Full futured example http://simplemediacode.com/wordpress-pugins/itemprop-wp/
-3. 3.3.0 Full futured Review example http://simplemediacode.com/wordpress-pugins/itemprop-wp/
+1. 3.0 Full featured example http://simplemediacode.com/wordpress-pugins/itemprop-wp/
+3. 3.3.0 Full featured Review example http://simplemediacode.com/wordpress-pugins/itemprop-wp/

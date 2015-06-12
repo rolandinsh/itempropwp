@@ -68,8 +68,8 @@ class itempropwp
 
     public function __construct()
     {
-        add_action('init', array($this, 'init'), 10);
-        add_action('plugin_row_meta', array($this, 'smcwpd_set_plugin_meta'), 10, 2);
+        add_action('init', array($this, 'init'), 11);
+        add_action('plugin_row_meta', array($this, 'smcwpd_set_plugin_meta'), 11, 2);
     }
 
     // Initialize
