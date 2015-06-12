@@ -25,7 +25,7 @@ $smcipwp_url = SMCIPWPURL; // @since 3.1 Use of undefined constant SMCIPWPURL - 
 $smcipwp_f = SMCIPWPF; // @since 3.1 Use of undefined constant SMCIPWPF - assumed 'SMCIPWPF' in 
 
 define('SMCIPWPI', trailingslashit($smcipwp_url . '/img')); // Image location @since 1.0
-define('SMCIPWPORG', 'http://wordpress.org/extend/plugins/' . trailingslashit($smcipwp_f)); // Plugin on WordPress.org @since 1.0
+define('SMCIPWPORG', 'https://wordpress.org/plugins/' . trailingslashit($smcipwp_f)); // Plugin on WordPress.org @since 1.0
 
 /** Plugin homepage based on WP language
  * @since 3.1.4
