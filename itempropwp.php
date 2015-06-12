@@ -3,9 +3,9 @@
   Plugin Name: itemprop WP for SERP (and SEO) Rich snippets
   Plugin URI: http://simplemediacode.com/?utm_source=wordpress&utm_medium=wpplugin&utm_campaign=itempropWP&utm_content=v-3.4.5-itempropWP_load_widgets
   Description: Add human invisible schema.org code to content
-  Version: 3.4.5
+  Version: 3.4.6-dev
   Requires at least: 3.3
-  Tested up to: 4.2.1
+  Tested up to: 4.2.2
   Author: Rolands Umbrovskis
   Author URI: http://umbrovskis.com
   License: simplemediacode
@@ -14,7 +14,19 @@
   Copyright (C) 2008-2015, Rolands Umbrovskis - rolands@simplemediacode.com
 
  */
-define('SMCIPWPV', '3.4.5'); // location general @since 1.0
+
+/* 
+ * Simple check for WordPress. Make sure we don't expose any info if called directly
+ * @since 3.4.6
+ * @version 1.0.0
+ */
+if ( !function_exists( 'add_action' ) ) {
+    header('Status: 403 Forbidden');
+    header('HTTP/1.1 403 Forbidden');
+    exit();
+}
+/* some old fashion constants */
+define('SMCIPWPV', '3.4.6-dev'); // location general @since 1.0
 define('SMCIPWPM', dirname(__FILE__)); // location general @since 1.0
 define('SMCIPWPF', 'itempropwp'); // location folder @since 1.0 
 define('IPWPT', __('itemprop WP for SERP/SEO Rich snippets', 'itempropwp')); // Name @since 1.1

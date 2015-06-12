@@ -1,4 +1,14 @@
 <?php
+/* 
+ * Simple check for WordPress. Make sure we don't expose any info if called directly
+ * @since 3.4.6
+ * @version 1.0.0
+ */
+if ( !function_exists( 'add_action' ) ) {
+    header('Status: 403 Forbidden');
+    header('HTTP/1.1 403 Forbidden');
+    exit();
+}
 /*
  * itempropwp Admin interface
  * @since 3.1.4
