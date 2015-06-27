@@ -14,6 +14,8 @@ Add schema.org itemprop code to the (custom) post content for search engines and
 
 This plugin is very simple. Using WordPress built in function to filter element attributes and adding < meta > tags with schema.org item properties.
 
+This plugin will NOT FIX BADly programmed WordPress sites!
+
 [Project itempropWP homepage](http://simplemediacode.com/?utm_source=http://wordpress.org/extend/plugins/itempropwp/&utm_medium=link&utm_campaign=itempropWP-WordPress-theme-feature-requests-3.4.6&utm_content=WordPress-plugin-itempropwp-3.4.6)
 
 Have a good idea for improvement? [Share it](https://github.com/rolandinsh/itempropwp/issues) | [BUG report](https://github.com/rolandinsh/itempropwp/issues) 

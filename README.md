@@ -7,7 +7,9 @@ Add human invisible schema.org itemprop code to post content
 
 ## Description
 
-Have a good idea for improvement? [Share it](https://github.com/rolandinsh/itempropwp/issues) | [BUG report](https://github.com/rolandinsh/itempropwp/issues) | 
+Have a good idea for improvement? [Share it](https://github.com/rolandinsh/itempropwp/issues) | [BUG report](https://github.com/rolandinsh/itempropwp/issues) 
+
+This plugin will NOT FIX BADly programmed WordPress sites!
 
 ### Example:
 
