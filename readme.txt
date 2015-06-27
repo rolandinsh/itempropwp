@@ -69,6 +69,8 @@ How does it work?
 
 This assumes that Your page is not fully integrated with HTML5's data properties for microdata. This plugin will create small code inside Your `full content`, with extra microdata from schema.org. This will be ONLY on singular pages - post, page or your custom post type.
 
+This plugin is disabled, if You use WooCommerce, because cause to creates double schema.org microdata - for article and product.
+
 
 Once we are on singular page:
 

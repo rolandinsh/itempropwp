@@ -9,7 +9,6 @@ Add human invisible schema.org itemprop code to post content
 
 Have a good idea for improvement? [Share it](https://github.com/rolandinsh/itempropwp/issues) | [BUG report](https://github.com/rolandinsh/itempropwp/issues) 
 
-This plugin will NOT FIX BADly programmed WordPress sites!
 
 ### Example:
 
@@ -57,6 +56,10 @@ Review
 ### How does it work?
 
 This asumes that Your page is not fully integrated with HTML5's data properties for microdata. This plugin will create small code inside Your `full content`, with extra microdata from schema.org. This will be ONLY on singular pages - post, page or your custom post type.
+
+This plugin will NOT FIX BADly programmed WordPress sites!
+
+This plugin is disabled, if You use WooCommerce, because cause to creates double schema.org microdata - for article and product.
 
 Once we are on singular page:
 
