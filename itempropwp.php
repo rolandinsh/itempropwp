@@ -120,7 +120,7 @@ class itempropwp
         // create link
         if ($file == $plugin) {
             return array_merge($links, array(
-                     '<a href="http://www.amazon.de/registry/wishlist/3ARHPQ1SLAMPV">' . __("My Amazon wishlist","itempropwp") . '</a>',
+                     '<a href="http://www.amazon.de/registry/wishlist/3ARHPQ1SLAMPV?tag=rolandinshde-21">' . __("My Amazon wishlist","itempropwp") . '</a>', 
                     // '<a href="' . IPWPT_VERSUPPORT . '">' . sprintf(__("Support for version %s", "itempropwp"), SMCIPWPV) . '</a>',
                     //'<a href="http://simplemediacode.org/forums/forum/itempropwp-plugin/suggestions-for-itempropwp/">' . __('Feature request') . '</a>',
                     // '<a href="http://simplemediacode.org/forums/forum/itempropwp-plugin/">' . __("Join Members group","itempropwp") . '</a>',
