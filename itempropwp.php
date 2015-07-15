@@ -2,14 +2,14 @@
 
 /**
   Plugin Name: itemprop WP for SERP (and SEO) Rich snippets
-  Plugin URI: http://simplemediacode.com/?utm_source=wordpress&utm_medium=wpplugin&utm_campaign=itempropWP&utm_content=v-3.4.7a-itempropWP_load_widgets
-  Description: Add human invisible schema.org code to content
-  Version: 3.4.7-alpha
+  Plugin URI: http://simplemediacode.com/?utm_source=wordpress&utm_medium=wpplugin&utm_campaign=itempropWP&utm_content=v-3.5.0a-itempropWP_load_widgets
+  Description: Add human invisible schema.org code to content.
+  Version: 3.5.0-alpha
   Requires at least: 3.3
   Tested up to: 4.2.2
   Author: Rolands Umbrovskis
   Author URI: http://umbrovskis.com
-  License: simplemediacode
+  License: SimpleMediaCode, GPL
   License URI: http://simplemediacode.com/license/gpl/
 
   Copyright (C) 2008-2015, Rolands Umbrovskis - rolands@simplemediacode.com
@@ -26,7 +26,7 @@ if (!function_exists('add_action')) {
     exit();
 }
 /* some old fashion constants */
-define('SMCIPWPV', '3.4.7-alpha'); // location general @since 1.0
+define('SMCIPWPV', '3.5.0-alpha'); // location general @since 1.0
 define('SMCIPWPM', dirname(__FILE__)); // location general @since 1.0
 define('SMCIPWPF', 'itempropwp'); // location folder @since 1.0 
 define('IPWPT', __('itemprop WP for SERP/SEO Rich snippets', 'itempropwp')); // Name @since 1.1
@@ -56,7 +56,6 @@ switch (WPLANG) {
 }
 
 define('IPWPT_GITHUB', 'https://github.com/rolandinsh/' . $smcipwp_f); // Homepage @since 3.1 
-//define('IPWPT_VERSUPPORT', 'http://simplemediacode.org/forums/topic/itempropwp-3-3-0/' . $plugref); // Version specific support @since 3.3.0
 
 /**
   Disable Itemprop on Woocommerce #8
@@ -80,10 +79,10 @@ if (!in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get
 
   @author rolandinsh
   @date 2015-07-15
-  @since 3.4.3
+  @since 3.5.0
   @url https://github.com/rolandinsh/itempropwp/issues/9
 
-  @TODO: Optimize
+  @TODO: Optimize, test
  */
  define('IPWPT_YSEO', false); 
 if (!in_array('wordpress-seo/wp-seo.php', apply_filters('active_plugins', get_option('active_plugins')))) {
@@ -124,7 +123,7 @@ class itempropwp
     public function load_styles(){
         /*
          * itempropwp CSS
-         * @since 3.2.0
+         * @since 3.5.0
          * @version 1.1
          */ 
             wp_register_style('itempropwp', SMCIPWPURL . 'assets/css/itempropwp.css', false, SMCIPWPV, 'all');

@@ -24,7 +24,7 @@ Example output:
 
 `
 <span itemscope itemtype="http://schema.org/Article" class="itempropwp-wrap">
-<!-- Itemprop WP 3.4.6 by Rolands Umbrovskis http://umbrovskis.com -->
+<!-- Itemprop WP 3.5.0 by Rolands Umbrovskis http://umbrovskis.com -->
  <meta itemprop="name" content="Title of the Article" />
  <meta itemprop="url" content="http://example.com/seo-optimized-article/" />
  <meta itemprop="image" content="http://example.com/images/example.jpg" />
@@ -33,7 +33,7 @@ Example output:
  <meta itemprop="datePublished" content="2014-09-13 19:17:21" />
  <meta itemprop="dateModified" content="2015-01-29 13:33:25" />
  <meta itemprop="interactionCount" content="UserComments:356" />
-<!-- Itemprop WP 3.4.6 by Rolands Umbrovskis http://umbrovskis.com end -->
+<!-- Itemprop WP 3.5.0 by Rolands Umbrovskis http://umbrovskis.com end -->
 </span>
 `
 
@@ -71,10 +71,11 @@ This assumes that Your page is not fully integrated with HTML5's data properties
 
 This plugin is disabled, if You use WooCommerce, because cause to creates double schema.org microdata - for article and product.
 
+Since 3.5 is integrated with WordPress SEO plugin and description come from Yoast's plugin if it is active.
 
 Once we are on singular page:
 
-# we will extract from it EXCERPT.
+# we will extract from it EXCERPT (or WordPress SEO meta description).
 # If You haven't provided excerpt, plugin will look-up for post content, and downsize it to 170 symbols up to full word.
 # If your content consist ONLY of shortcode, it will strip it out, and leave empty content. :(
 # If we have empty content, from previous step, we will use post title. Not best choice, but at least we have some `description`.
@@ -82,11 +83,13 @@ Once we are on singular page:
 
 Other options, like `datePublished`, `dateModified` (if enabled), `UserComments` (if enabled), `url` are taken from post
 
-* [SMC Facebook](https://www.facebook.com/simplemediacode)
+RECOMENDED: Fight with referrer spam (like semalt): [WP referrer spam blacklist](https://wordpress.org/plugins/wp-referrer-spam-blacklist/)
 
-Development: [Github](https://github.com/rolandinsh/itempropwp)
+LINKS:
 
-Developer on twitter [@UmbrovskisCom](http://twitter.com/UmbrovskisCom) / [@SimpleMediaCode](http://twitter.com/SimpleMediaCode)
+# [SMC Facebook](https://www.facebook.com/simplemediacode)
+# Development: [Github](https://github.com/rolandinsh/itempropwp)
+# Developer on twitter [@UmbrovskisCom](http://twitter.com/UmbrovskisCom) / [@SimpleMediaCode](http://twitter.com/SimpleMediaCode)
 
 Require PHP at least 5.3
 
@@ -101,6 +104,10 @@ Require PHP at least 5.3
 There are no questions for now! [Ask!](http://simplemediacode.com/wordpress-pugins/itemprop-wp/)
 
 == Changelog ==
+
+= 3.5.0 =
+
+* Integration with WordPress SEO plugin [Request #9](https://github.com/rolandinsh/itempropwp/issues/9)
 
 = 3.4.6 =
 
@@ -207,6 +214,10 @@ There are no questions for now! [Ask!](http://simplemediacode.com/wordpress-pugi
 * init
 
 == Upgrade Notice ==
+
+= 3.5.0 =
+
+* Integration with WordPress SEO plugin
 
 = 3.4.6 =
 

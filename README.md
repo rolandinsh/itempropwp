@@ -13,7 +13,10 @@ Thanks to [contributors](https://github.com/rolandinsh/itempropwp/graphs/contrib
 
 Have a good idea for improvement? [Share it](https://github.com/rolandinsh/itempropwp/issues) | [BUG report](https://github.com/rolandinsh/itempropwp/issues) 
 
+### Download
 
+* WordPress.org [itemprop WP for SERP/SEO Rich snippets](https://wordpress.org/plugins/itempropwp/)
+* GitHub [github.com/rolandinsh/itempropwp/archive/master.zip](https://github.com/rolandinsh/itempropwp/archive/master.zip)
 
 ### Example:
 
