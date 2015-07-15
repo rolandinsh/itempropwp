@@ -15,7 +15,7 @@
   Copyright (C) 2008-2015, Rolands Umbrovskis - rolands@simplemediacode.com
 
  */
-/*
+/**
  * Simple check for WordPress. Make sure we don't expose any info if called directly
  * @since 3.4.6
  * @version 1.0.0
@@ -58,7 +58,7 @@ switch (WPLANG) {
 define('IPWPT_GITHUB', 'https://github.com/rolandinsh/' . $smcipwp_f); // Homepage @since 3.1 
 //define('IPWPT_VERSUPPORT', 'http://simplemediacode.org/forums/topic/itempropwp-3-3-0/' . $plugref); // Version specific support @since 3.3.0
 
-/*
+/**
   Disable Itemprop on Woocommerce #8
 
   @author rolandinsh
@@ -74,7 +74,23 @@ if (!in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get
 
     define('IPWPT_WC', true);
 }
-/*
+
+/**
+   Itemprop and WordPress SEO plugin #9
+
+  @author rolandinsh
+  @date 2015-07-15
+  @since 3.4.3
+  @url https://github.com/rolandinsh/itempropwp/issues/9
+
+  @TODO: Optimize
+ */
+ define('IPWPT_YSEO', false); 
+if (!in_array('wordpress-seo/wp-seo.php', apply_filters('active_plugins', get_option('active_plugins')))) {
+
+    define('IPWPT_YSEO', true);
+}
+/**
  * itempropwp class
  * @since 2.0
  */
@@ -86,6 +102,7 @@ class itempropwp
     {
         add_action('init', array($this, 'init'), 11);
         add_action('plugin_row_meta', array($this, 'smcwpd_set_plugin_meta'), 11, 2);
+        add_action('wp_enqueue_scripts', array(&$this, 'load_styles'), 10);
     }
 
     // Initialize
@@ -100,20 +117,19 @@ class itempropwp
         if (is_admin()):
             include_once(SMCIPWPM . '/admin/adminipwp.php');
         endif;
-        /*
-         * itempropwp CSS
-         * @since 3.2.0
-         * @version 1.0
-         */
-        if (!is_admin()):
-            wp_register_style('itempropwp', SMCIPWPURL . 'assets/css/itempropwp.css', false, SMCIPWPV, 'all');
-            wp_enqueue_style('itempropwp');
-        endif;
 
         load_plugin_textdomain('itempropwp', false, SMCIPWPDIR . '/lang/');
         add_filter('the_content', array($this, 'ipwp_the_content_filter'), 10, 2); // Adding context @since 3.0
     }
-
+    public function load_styles(){
+        /*
+         * itempropwp CSS
+         * @since 3.2.0
+         * @version 1.1
+         */ 
+            wp_register_style('itempropwp', SMCIPWPURL . 'assets/css/itempropwp.css', false, SMCIPWPV, 'all');
+            wp_enqueue_style('itempropwp');
+    }
     function smcwpd_set_plugin_meta($links, $file)
     {
         $plugin = plugin_basename(__FILE__);
@@ -137,7 +153,7 @@ class itempropwp
         return apply_filters('ipwp_img_attr_filter', $attr); // Extending @since 3.1
     }
 
-    /*
+    /**
      * if post has no excerpt, we will use this
      * @Todo rewrite
      * @since 3.1
@@ -213,7 +229,7 @@ class itempropwp
 
     public function ipwp_the_content_filter($content)
     {
-        /*
+        /**
           Content loading multiple times. patch by sirene http://simplemediacode.org/forums/topic/schema-display-3-times/#post-97
           Now, the $ipwp_contentx is loading just one time and not multiple time if you have more than one the_content(); in your page
           @author sirene
@@ -233,8 +249,19 @@ class itempropwp
             $showcommcount = '';
             $ipwp_datemodified = '';
             $ipwpdatemodified = get_option('smcipwp_datemodified');
+            $thisPostDescription = $thisipwp_post->post_excerpt ;
+/**
+WordPpress SEO integration
+ * @since 3.5.0
+ * @author rolandinsh
+ * @todo TEST!!!!   
+ */
+            if(IPWPT_YSEO){
+                $wpseo = new WPSEO_Frontend();
+                $thisPostDescription = $wpseo->metadesc(false);
+            }
+            $ipwp_post_dsc = apply_filters('ipwp_post_dsc', $thisPostDescription);
 
-            $ipwp_post_dsc = apply_filters('ipwp_post_dsc', $thisipwp_post->post_excerpt);
             if (function_exists('has_post_thumbnail')) {
                 if (has_post_thumbnail($post_id)) {
                     $itempropwpimg = new itempropwp;
@@ -247,7 +274,7 @@ class itempropwp
             }
 
             if (!$ipwp_post_dsc) {
-                $ipwp_n = new itempropwp;
+                // weird, but not could be
                 $ipwp_post_dsc = apply_filters(
                         'ipwp_post_dsc', $this->ipwp_excerpt_maxchr(get_option('smcipwp_maxlenght'), strip_tags(strip_shortcodes($thisipwp_post->post_content)))
                 ); // Extending @since 3.1
@@ -257,48 +284,77 @@ class itempropwp
                 $showcommcount = '<meta itemprop="interactionCount" content="UserComments:' . esc_html($thisipwp_post->comment_count) . '" />';
             }
             if ($ipwpdatemodified == 'on') {
-                $ipwp_datemodified = '<meta itemprop="dateModified" content="' . esc_html(apply_filters('itempropwp_article_post_modified', $thisipwp_post->post_modified)) . '" />'; /* @since 3.3.4 */
+                 /** 
+                  * @since 3.3.4 
+                  */
+                $ipwp_datemodified = '<meta itemprop="dateModified" content="' . esc_html(apply_filters('itempropwp_article_post_modified', $thisipwp_post->post_modified)) . '" />';
             }
 
-            $smcipwp_author_link = get_option('smcipwp_author_link'); /* Per post options @since 3.3.0 */
+                 /**  
+                  * Per post options
+                  * @since 3.3.0 
+                  */
+            $smcipwp_author_link = get_option('smcipwp_author_link'); 
             if ($smcipwp_author_link == '') {
-                $smcipwp_author_link = get_author_posts_url(apply_filters('itempropwp_article_post_author', $thisipwp_post->post_author)); /* @since 3.3.4 */
+                
+                 /** 
+                  * @since 3.3.4 
+                  */
+                $smcipwp_author_link = get_author_posts_url(apply_filters('itempropwp_article_post_author', $thisipwp_post->post_author)); 
             }
             $postauthoris = esc_url($smcipwp_author_link);
 
-            $ipwp_contentx = apply_filters('itempropwp_article_content_before', '<span itemscope itemtype="http://schema.org/Article" class="itempropwp-wrap"><!-- ItemProp WP ' . SMCIPWPV . ' by Rolands Umbrovskis http://umbrovskis.com/ --><meta itemprop="name" content="' . esc_html($thisipwp_post->post_title) . '" /><meta itemprop="url" content="' . esc_url(get_permalink()) . '" />'
-                    . $ipwp_image . '<meta itemprop="author" content="' . $postauthoris . '" /><meta itemprop="description" content="' .
-                    esc_html(str_replace(array("\r\n", "\n", "\r", "\t"), "", $ipwp_post_dsc)) . '" /><meta itemprop="datePublished" content="' . esc_html($thisipwp_post->post_date) . '" />'
+            $ipwp_contentx = apply_filters('itempropwp_article_content_before', 
+                    '<span itemscope itemtype="http://schema.org/Article" class="itempropwp-wrap">'
+                    .'<!-- ItemProp WP ' . SMCIPWPV . ' by Rolands Umbrovskis http://umbrovskis.com/ -->'
+                    .'<meta itemprop="name" content="' . esc_html($thisipwp_post->post_title) . '" />'
+                    .'<meta itemprop="url" content="' . esc_url(get_permalink()) . '" />'
+                    . $ipwp_image 
+                    . '<meta itemprop="author" content="' . $postauthoris . '" />'
+                    .'<meta itemprop="description" content="' . esc_html(str_replace(array("\r\n", "\n", "\r", "\t"), "", $ipwp_post_dsc)) . '" />'
+                    .'<meta itemprop="datePublished" content="' . esc_html($thisipwp_post->post_date) . '" />'
                     . $ipwp_datemodified
                     . $showcommcount . '<!-- ItemProp WP ' . SMCIPWPV . ' by Rolands Umbrovskis http://umbrovskis.com/ end --></span>');
 
-            if ($done_ipwp_post) { /* @since 3.3.4 */
+            if ($done_ipwp_post) {
+                 /** 
+                  * @since 3.3.4 
+                  */
                 return $content;
             } else {
                 $content = $content . $ipwp_contentx;
-                $content = apply_filters('itempropwp_article_content', $content);  /* @since 3.3.4 */
+                 /** 
+                  * @since 3.3.4 
+                  */
+                $content = apply_filters('itempropwp_article_content', $content);
                 $done_ipwp_post = TRUE;
             }
 
-            do_action('ipwp_post_before_content_end'); /* @since 3.3.4 */
-            return apply_filters('itempropwp_article_content_distilled', $content); /* @since 3.3.4 */
-            do_action('ipwp_post_after_content_end'); /* @since 3.3.4 */
+                 /** 
+                  * @since 3.3.4 
+                  */
+            do_action('ipwp_post_before_content_end'); 
+            return apply_filters('itempropwp_article_content_distilled', $content); 
+            do_action('ipwp_post_after_content_end'); 
         }
 
-        do_action('ipwp_post_before_end'); /* @since 3.3.4 */
-        $done_ipwp_post = TRUE; /* @since 3.3.4 */
-        return apply_filters('itempropwp_article_content_undistilled', $content); /* @since 3.3.4 */
-        do_action('ipwp_post_after_end'); /* @since 3.3.4 */
+                 /** 
+                  * @since 3.3.4 
+                  */
+        do_action('ipwp_post_before_end'); 
+        $done_ipwp_post = TRUE; 
+        return apply_filters('itempropwp_article_content_undistilled', $content); 
+        do_action('ipwp_post_after_end'); 
     }
 
 }
 
- /*
- * TODO optimize 
+ /**
+ * @TODO optimize 
  */
 $iswcactive = IPWPT_WC;
 if (!$iswcactive) {
-    /*
+    /**
      * Starting itempropwp
      */
     new itempropwp();
