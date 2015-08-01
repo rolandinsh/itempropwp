@@ -41,7 +41,7 @@ Review
 
 `
 <div itemprop="review" itemscope itemtype="http://schema.org/Review">
-  <meta itemprop="name" content="Item Title is greate!" />
+  <meta itemprop="name" content="Title of the Item review." />
   <meta itemprop="author" content="Rolands Umbrovskis" />
   <meta itemprop="datePublished" content="2011-03-25" />
     <span itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
