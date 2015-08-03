@@ -4,7 +4,7 @@ Donate link: http://go.mediabox.lv/itempropwpdonatepaypal
 Tags: SEO, schema, schema.org, itemprop, schema.org itemprop, images, microdata, rich snippets, richsnippets, SERP, html5, structured data, itemprop article, itemprop review
 Requires at least: 3.3
 Tested up to: 4.2.2
-Stable tag: 3.4.6
+Stable tag: 3.4.7
 License: simplemediacode
 License URI: http://simplemediacode.com/license/gpl/
 
@@ -16,7 +16,7 @@ This plugin is very simple. Using WordPress built in function to filter element 
 
 This plugin will NOT FIX BADly programmed WordPress sites!
 
-[Project itempropWP homepage](http://simplemediacode.com/?utm_source=http://wordpress.org/extend/plugins/itempropwp/&utm_medium=link&utm_campaign=itempropWP-WordPress-theme-feature-requests-3.4.6&utm_content=WordPress-plugin-itempropwp-3.4.6)
+[Project itempropWP homepage](http://simplemediacode.com/?utm_source=http://wordpress.org/extend/plugins/itempropwp/&utm_medium=link&utm_campaign=itempropWP-WordPress-theme-feature-requests-3.4.7&utm_content=WordPress-plugin-itempropwp-3.4.7)
 
 Have a good idea for improvement? [Share it](https://github.com/rolandinsh/itempropwp/issues) | [BUG report](https://github.com/rolandinsh/itempropwp/issues) 
 
@@ -24,7 +24,8 @@ Example output:
 
 `
 <span itemscope itemtype="http://schema.org/Article" class="itempropwp-wrap">
-<!-- Itemprop WP 3.5.0 by Rolands Umbrovskis http://umbrovskis.com -->
+
+<!-- Itemprop WP 3.4.7 by Rolands Umbrovskis http://umbrovskis.com -->
  <meta itemprop="name" content="Title of the Article" />
  <meta itemprop="url" content="http://example.com/seo-optimized-article/" />
  <meta itemprop="image" content="http://example.com/images/example.jpg" />
@@ -33,7 +34,8 @@ Example output:
  <meta itemprop="datePublished" content="2014-09-13 19:17:21" />
  <meta itemprop="dateModified" content="2015-01-29 13:33:25" />
  <meta itemprop="interactionCount" content="UserComments:356" />
-<!-- Itemprop WP 3.5.0 by Rolands Umbrovskis http://umbrovskis.com end -->
+<!-- Itemprop WP 3.4.7 by Rolands Umbrovskis http://umbrovskis.com end -->
+
 </span>
 `
 
@@ -105,9 +107,10 @@ There are no questions for now! [Ask!](http://simplemediacode.com/wordpress-pugi
 
 == Changelog ==
 
-= 3.5.0 =
+= 3.4.7 =
 
-* Integration with WordPress SEO plugin [Request #9](https://github.com/rolandinsh/itempropwp/issues/9)
+* Missing headline [Issue #21](https://github.com/rolandinsh/itempropwp/issues/21)
+
 
 = 3.4.6 =
 
@@ -215,9 +218,9 @@ There are no questions for now! [Ask!](http://simplemediacode.com/wordpress-pugi
 
 == Upgrade Notice ==
 
-= 3.5.0 =
+= 3.4.7 =
 
-* Integration with WordPress SEO plugin
+* Missing headline [Issue #21](https://github.com/rolandinsh/itempropwp/issues/21)
 
 = 3.4.6 =
 
