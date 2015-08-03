@@ -1,9 +1,9 @@
 <?php
 /**
   Plugin Name: itemprop WP for SERP (and SEO) Rich snippets
-  Plugin URI: http://simplemediacode.com/?utm_source=wordpress&utm_medium=wpplugin&utm_campaign=itempropWP&utm_content=v-3.4.6-itempropWP_load_widgets
+  Plugin URI: http://simplemediacode.com/?utm_source=wordpress&utm_medium=wpplugin&utm_campaign=itempropWP&utm_content=v-3.4.7-itempropWP_load_widgets
   Description: Add human invisible schema.org code to content
-  Version: 3.4.6
+  Version: 3.4.7
   Requires at least: 3.3
   Tested up to: 4.2.2
   Author: Rolands Umbrovskis
@@ -17,7 +17,7 @@
 
 /* 
  * Simple check for WordPress. Make sure we don't expose any info if called directly
- * @since 3.4.6
+ * @since 3.4.7
  * @version 1.0.0
  */
 if ( !function_exists( 'add_action' ) ) {
@@ -26,7 +26,7 @@ if ( !function_exists( 'add_action' ) ) {
     exit();
 }
 /* some old fashion constants */
-define('SMCIPWPV', '3.4.6'); // location general @since 1.0
+define('SMCIPWPV', '3.4.7'); // location general @since 1.0
 define('SMCIPWPM', dirname(__FILE__)); // location general @since 1.0
 define('SMCIPWPF', 'itempropwp'); // location folder @since 1.0 
 define('IPWPT', __('itemprop WP for SERP/SEO Rich snippets', 'itempropwp')); // Name @since 1.1
@@ -250,7 +250,7 @@ class itempropwp
             }
             $postauthoris = esc_url($smcipwp_author_link);
 
-            $ipwp_contentx = apply_filters('itempropwp_article_content_before', '<span itemscope itemtype="http://schema.org/Article" class="itempropwp-wrap"><!-- ItemProp WP ' . SMCIPWPV . ' by Rolands Umbrovskis http://umbrovskis.com/ --><meta itemprop="name" content="' . esc_html($thisipwp_post->post_title) . '" /><meta itemprop="url" content="' . esc_url(get_permalink()) . '" />'
+            $ipwp_contentx = apply_filters('itempropwp_article_content_before', '<span itemscope itemtype="http://schema.org/Article" class="itempropwp-wrap"><!-- ItemProp WP ' . SMCIPWPV . ' by Rolands Umbrovskis http://umbrovskis.com/ --><meta itemprop="name" content="' . esc_html($thisipwp_post->post_title) . '" /><meta itemprop="headline" content="' . esc_html($thisipwp_post->post_title) . '" /><meta itemprop="url" content="' . esc_url(get_permalink()) . '" />'
                     . $ipwp_image . '<meta itemprop="author" content="' . $postauthoris . '" /><meta itemprop="description" content="' .
                     esc_html(str_replace(array("\r\n", "\n", "\r", "\t"), "", $ipwp_post_dsc)) . '" /><meta itemprop="datePublished" content="' . esc_html($thisipwp_post->post_date) . '" />'
                     . $ipwp_datemodified
