@@ -1,4 +1,5 @@
 <?php
+
 /**
   Plugin Name: itemprop WP for SERP (and SEO) Rich snippets
   Plugin URI: http://simplemediacode.com/?utm_source=wordpress&utm_medium=wpplugin&utm_campaign=itempropWP&utm_content=v-3.4.8-itempropWP_load_widgets
@@ -14,13 +15,12 @@
   Copyright (C) 2008-2015, Rolands Umbrovskis - rolands@simplemediacode.com
 
  */
-
-/* 
+/*
  * Simple check for WordPress. Make sure we don't expose any info if called directly
  * @since 3.4.7
  * @version 1.0.0
  */
-if ( !function_exists( 'add_action' ) ) {
+if (!function_exists('add_action')) {
     header('Status: 403 Forbidden');
     header('HTTP/1.1 403 Forbidden');
     exit();
@@ -104,8 +104,8 @@ class itempropwp
         // create link
         if ($file == $plugin) {
             return array_merge($links, array(
-                //'<a href="http://simplemediacode.org/forums/forum/itempropwp-plugin/">' . __("Support Forum","itempropwp") . '</a>',
-               // '<a href="' . IPWPT_VERSUPPORT . '">' . sprintf(__("Support for version %s", "itempropwp"), SMCIPWPV) . '</a>',
+                    //'<a href="http://simplemediacode.org/forums/forum/itempropwp-plugin/">' . __("Support Forum","itempropwp") . '</a>',
+                    // '<a href="' . IPWPT_VERSUPPORT . '">' . sprintf(__("Support for version %s", "itempropwp"), SMCIPWPV) . '</a>',
                     //'<a href="http://simplemediacode.org/forums/forum/itempropwp-plugin/suggestions-for-itempropwp/">' . __('Feature request') . '</a>',
                     // '<a href="http://simplemediacode.org/forums/forum/itempropwp-plugin/">' . __("Join Members group","itempropwp") . '</a>',
             ));
@@ -205,7 +205,7 @@ class itempropwp
           @version 1.0.0
           @since 3.3.4
          */
-        static $done_ipwp_post = FALSE; 
+        static $done_ipwp_post = FALSE;
 
         if (is_singular() && !is_feed()) {
             global $post;
