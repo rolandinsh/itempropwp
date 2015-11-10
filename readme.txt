@@ -24,7 +24,7 @@ Example output:
 
 `
 <span itemscope itemtype="http://schema.org/Article" class="itempropwp-wrap">
-<!-- Itemprop WP 3.4.8 by Rolands Umbrovskis http://umbrovskis.com -->
+<!-- Itemprop WP 3.4.9 by Rolands Umbrovskis http://umbrovskis.com -->
  <meta itemprop="name" content="Title of the Article" />
  <meta itemprop="url" content="http://example.com/seo-optimized-article/" />
  <meta itemprop="image" content="http://example.com/images/example.jpg" />
@@ -33,7 +33,7 @@ Example output:
  <meta itemprop="datePublished" content="2014-09-13 19:17:21" />
  <meta itemprop="dateModified" content="2015-01-29 13:33:25" />
  <meta itemprop="interactionCount" content="UserComments:356" />
-<!-- Itemprop WP 3.4.8 by Rolands Umbrovskis http://umbrovskis.com end -->
+<!-- Itemprop WP 3.4.9 by Rolands Umbrovskis http://umbrovskis.com end -->
 </span>
 `
 
