@@ -16,7 +16,7 @@ This plugin will NOT FIX BADly programmed WordPress sites!
 Article
 
 	<span itemscope itemtype="http://schema.org/Article" class="itempropwp-wrap">
-	<!-- Itemprop WP 3.4.0 by Rolands Umbrovskis http://umbrovskis.com -->
+	<!-- Itemprop WP 3.4.8 by Rolands Umbrovskis http://umbrovskis.com -->
 	 <meta itemprop="name" content="Title of the Article" />
 	 <meta itemprop="url" content="http://fulllink.example.com/seo-optimized-article/" />
 	 <meta itemprop="image" content="http://fulllink.example.com/seo-optimized-article/example.jpg" />
@@ -25,7 +25,7 @@ Article
 	 <meta itemprop="datePublished" content="2012-09-13 19:17:21"/>
 	 <meta itemprop="dateModified" content="2012-09-29 13:33:25" />
 	 <meta itemprop="interactionCount" content="UserComments:356"/>
-	<!-- Itemprop WP 3.4.0 by Rolands Umbrovskis http://umbrovskis.com end -->
+	<!-- Itemprop WP 3.4.8 by Rolands Umbrovskis http://umbrovskis.com end -->
 	</span>
 
 Review
