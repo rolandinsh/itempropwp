@@ -214,7 +214,7 @@ There are no questions for now! [Ask!](http://simplemediacode.com/wordpress-pugi
 
 == Upgrade Notice ==
 
-= 3.4.7 =
+= 3.4.8 =
 
 * Illegal string offset onoff [Issue #20](https://github.com/rolandinsh/itempropwp/issues/20)
 
