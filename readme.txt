@@ -24,7 +24,7 @@ Example output:
 
 `
 <span itemscope itemtype="http://schema.org/Article" class="itempropwp-wrap">
-<!-- Itemprop WP 3.4.9 by Rolands Umbrovskis http://umbrovskis.com -->
+<!-- Itemprop WP 3.4.10 by Rolands Umbrovskis http://umbrovskis.com -->
  <meta itemprop="name" content="Title of the Article" />
  <meta itemscope itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" itemid="http://fulllink.example.com/seo-optimized-article/"/>
  <meta itemprop="url" content="http://example.com/seo-optimized-article/" />
@@ -44,7 +44,7 @@ Example output:
   </span>
   <meta itemprop="name" content="Example Blog">
  </span>
-<!-- Itemprop WP 3.4.9 by Rolands Umbrovskis http://umbrovskis.com end -->
+<!-- Itemprop WP 3.4.10 by Rolands Umbrovskis http://umbrovskis.com end -->
 </span>
 `
 
