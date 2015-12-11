@@ -19,7 +19,11 @@ Article
 	<!-- Itemprop WP 3.4.8 by Rolands Umbrovskis http://umbrovskis.com -->
 	 <meta itemprop="name" content="Title of the Article" />
 	 <meta itemprop="url" content="http://fulllink.example.com/seo-optimized-article/" />
-	 <meta itemprop="image" content="http://fulllink.example.com/seo-optimized-article/example.jpg" />
+	 <span itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+	  <meta itemprop="url" content="http://fulllink.example.com/seo-optimized-article/example.jpg" />
+	  <meta itemprop="width" content="640"/>
+	  <meta itemprop="height" content="480"/>
+	 </span>
 	 <meta itemprop="author" content="http://fulllink.example.com/author/authorusername/"/>
 	 <meta itemprop="description" content="excerpt from post OR first 170 symbols (with full word), ..." />
 	 <meta itemprop="datePublished" content="2012-09-13 19:17:21"/>

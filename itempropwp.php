@@ -171,7 +171,7 @@ class itempropwp
      * @author indevd
      * @date 2013-02-06
      */
-    public function itempropwp_get_image_path($post_id)
+    public function itempropwp_get_image($post_id)
     {
         if (!$post_id || $post_id == '') {
             global $post;
@@ -182,7 +182,7 @@ class itempropwp
         if (stripos($id, 'ngg-') !== false && class_exists('nggdb')) {
             $nggImage = nggdb::find_image(str_replace('ngg-', '', $id));
             $thumbnail = array(
-                $nggImage->imageURL,
+                str_replace('?uamfiletype=nggImage', '', $nggImage->imageURL),
                 $nggImage->width,
                 $nggImage->height
             );
@@ -190,9 +190,7 @@ class itempropwp
             $thumbnail = wp_get_attachment_image_src($id, 'full');
             //$thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full');
         }
-        $theimage = $thumbnail[0];
-        $theimage = str_replace('?uamfiletype=nggImage', '', $theimage);
-        return apply_filters('ipwp_post_imguri', $theimage);
+        return apply_filters('ipwp_post_imguri', $thumbnail);
     }
 
     public function ipwp_the_content_filter($content)
@@ -222,12 +220,14 @@ class itempropwp
             if (function_exists('has_post_thumbnail')) {
                 if (has_post_thumbnail($post_id)) {
                     $itempropwpimg = new itempropwp;
-                    $ipwp_posth = $this->itempropwp_get_image_path($post_id);
-                }
-            }
+                    $ipwp_posth = $this->itempropwp_get_image($post_id);
 
-            if ($ipwp_posth) {
-                $ipwp_image = '<meta itemprop="image" content="' . esc_url($ipwp_posth) . '" />';
+                    $ipwp_image = '<span itemprop="image" itemscope itemtype="https://schema.org/ImageObject">' .
+                      '<meta itemprop="url" content="' . esc_url($ipwp_posth[0]) . '" />' .
+                      '<meta itemprop="width" content="' . $ipwp_posth[1] . '"/>' .
+                      '<meta itemprop="height" content="' . $ipwp_posth[2] . '"/>' .
+                    '</span>';
+                }
             }
 
             if (!$ipwp_post_dsc) {

@@ -27,7 +27,11 @@ Example output:
 <!-- Itemprop WP 3.4.9 by Rolands Umbrovskis http://umbrovskis.com -->
  <meta itemprop="name" content="Title of the Article" />
  <meta itemprop="url" content="http://example.com/seo-optimized-article/" />
- <meta itemprop="image" content="http://example.com/images/example.jpg" />
+ <span itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+  <meta itemprop="url" content="http://fulllink.example.com/seo-optimized-article/example.jpg" />
+  <meta itemprop="width" content="640"/>
+  <meta itemprop="height" content="480"/>
+ </span>
  <meta itemprop="author" content="http://example.com/author/authorusername/"/>
  <meta itemprop="description" content="excerpt from post" />
  <meta itemprop="datePublished" content="2014-09-13 19:17:21" />
