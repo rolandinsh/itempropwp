@@ -26,6 +26,7 @@ function smc_ipwp_admin_menu()
     register_setting('smcipwp-settings', 'smcipwp_datemodified');
     register_setting('smcipwp-settings', 'smcipwp_perpostopt'); /* Per post options @since 1.5.0 */
     register_setting('smcipwp-settings', 'smcipwp_author_link'); /* Per post options @since 3.3.0 */
+    register_setting('smcipwp-settings', 'smcipwp_logo_url');
 }
 
 function smcipwp_settings()
@@ -41,7 +42,7 @@ function smcipwp_settings()
           $smcipwp_datemodified = get_option('smcipwp_datemodified');
           $smcipwp_perpostopt = get_option('smcipwp_perpostopt'); /* Per post options @since 1.5.0 */
           $smcipwp_author_link = get_option('smcipwp_author_link'); /* Per post options @since 3.3.0 */
-
+          $smcipwp_logo_url = get_option('smcipwp_logo_url');
 
           if (!$smcipwp_maxlenght || $smcipwp_maxlenght == '') {
               $smcipwp_maxlenght = '170'; /* well, we need some value anyway */
@@ -78,6 +79,13 @@ function smcipwp_settings()
                       __('Leave empty and we will use default author page link %s', 'itempropwp'), '<strong>' . get_home_url() . '/author/' . $iareuser . '</strong>'
               );
               ?>
+            </td>
+          </tr>
+          <tr>
+            <th valign="top"><?php _e('Logo URL', 'itempropwp'); ?></th>
+            <td valign="top">
+              <input type="text" id="smcipwp_logo_url" name="smcipwp_logo_url" value="<?php echo $smcipwp_logo_url; ?>" /><br />
+              <?php _e("schema.org/Article will break without a logo", "itempropwp"); ?>. 
             </td>
           </tr>
           <?php

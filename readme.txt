@@ -38,6 +38,12 @@ Example output:
  <meta itemprop="datePublished" content="2014-09-13 19:17:21" />
  <meta itemprop="dateModified" content="2015-01-29 13:33:25" />
  <meta itemprop="interactionCount" content="UserComments:356" />
+ <span itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+  <span itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+   <meta itemprop="url" content="http://fulllink.example.com/logo.jpg">
+  </span>
+  <meta itemprop="name" content="Example Blog">
+ </span>
 <!-- Itemprop WP 3.4.9 by Rolands Umbrovskis http://umbrovskis.com end -->
 </span>
 `

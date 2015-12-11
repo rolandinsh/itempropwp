@@ -212,6 +212,7 @@ class itempropwp
             $thisipwp_post = get_post($post_id);
             $ipwp_posth = FALSE;
             $ipwp_image = '';
+            $ipwp_publisher = '';
             $showcommcount = '';
             $ipwp_datemodified = '';
             $ipwpdatemodified = get_option('smcipwp_datemodified');
@@ -250,11 +251,23 @@ class itempropwp
             }
             $postauthoris = esc_url($smcipwp_author_link);
 
+            $smcipwp_logo_url = get_option('smcipwp_logo_url');
+            if ($smcipwp_logo_url != '') {
+              $ipwp_publisher = '<span itemprop="publisher" itemscope itemtype="https://schema.org/Organization">' .
+                '<span itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">' .
+                  '<meta itemprop="url" content="' . esc_url($smcipwp_logo_url) . '">' .
+                '</span>' .
+                '<meta itemprop="name" content="' . get_bloginfo('name') . '">' .
+              '</span>';
+            }
+            
             $ipwp_contentx = apply_filters('itempropwp_article_content_before', '<span itemscope itemtype="http://schema.org/Article" class="itempropwp-wrap"><!-- ItemProp WP ' . SMCIPWPV . ' by Rolands Umbrovskis http://umbrovskis.com/ --><meta itemprop="name" content="' . esc_html($thisipwp_post->post_title) . '" /><meta itemprop="headline" content="' . esc_html($thisipwp_post->post_title) . '" /><meta itemscope itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" itemid="' . esc_url(get_permalink()) . '"/> <meta itemprop="url" content="' . esc_url(get_permalink()) . '" />'
                     . $ipwp_image . '<meta itemprop="author" content="' . $postauthoris . '" /><meta itemprop="description" content="' .
                     esc_html(str_replace(array("\r\n", "\n", "\r", "\t"), "", $ipwp_post_dsc)) . '" /><meta itemprop="datePublished" content="' . esc_html($thisipwp_post->post_date) . '" />'
                     . $ipwp_datemodified
-                    . $showcommcount . '<!-- ItemProp WP ' . SMCIPWPV . ' by Rolands Umbrovskis http://umbrovskis.com/ end --></span>');
+                    . $showcommcount
+                    . $ipwp_publisher
+                    . '<!-- ItemProp WP ' . SMCIPWPV . ' by Rolands Umbrovskis http://umbrovskis.com/ end --></span>');
 
             if ($done_ipwp_post) { /* @since 3.3.4 */
                 return $content;
