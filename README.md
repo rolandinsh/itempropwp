@@ -18,6 +18,7 @@ Article
 	<span itemscope itemtype="http://schema.org/Article" class="itempropwp-wrap">
 	<!-- Itemprop WP 3.4.8 by Rolands Umbrovskis http://umbrovskis.com -->
 	 <meta itemprop="name" content="Title of the Article" />
+	 <meta itemscope itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" itemid="http://fulllink.example.com/seo-optimized-article/"/>
 	 <meta itemprop="url" content="http://fulllink.example.com/seo-optimized-article/" />
 	 <span itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
 	  <meta itemprop="url" content="http://fulllink.example.com/seo-optimized-article/example.jpg" />
