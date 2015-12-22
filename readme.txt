@@ -2,9 +2,9 @@
 Contributors: rolandinsh
 Donate link: http://go.mediabox.lv/itempropwpdonatepaypal
 Tags: SEO, schema, schema.org, itemprop, schema.org itemprop, images, microdata, rich snippets, richsnippets, SERP, html5, structured data, itemprop article, itemprop review
-Requires at least: 3.3
-Tested up to: 4.3.1
-Stable tag: 3.4.8
+Requires at least: 4.0
+Tested up to: 4.4
+Stable tag: 3.4.10
 License: simplemediacode
 License URI: http://simplemediacode.com/license/gpl/
 
@@ -16,7 +16,7 @@ This plugin is very simple. Using WordPress built in function to filter element 
 
 This plugin will NOT FIX BADly programmed WordPress sites!
 
-[Project itempropWP homepage](http://simplemediacode.com/?utm_source=http://wordpress.org/extend/plugins/itempropwp/&utm_medium=link&utm_campaign=itempropWP-WordPress-theme-feature-requests-3.4.8&utm_content=WordPress-plugin-itempropwp-3.4.8)
+[Project itempropWP homepage](http://simplemediacode.com/?utm_source=http://wordpress.org/extend/plugins/itempropwp/&utm_medium=link&utm_campaign=itempropWP-WordPress-theme-feature-requests-3.4.10&utm_content=WordPress-plugin-itempropwp-3.4.10)
 
 Have a good idea for improvement? [Share it](https://github.com/rolandinsh/itempropwp/issues) | [BUG report](https://github.com/rolandinsh/itempropwp/issues) 
 
@@ -24,7 +24,7 @@ Example output:
 
 `
 <span itemscope itemtype="http://schema.org/Article" class="itempropwp-wrap">
-<!-- Itemprop WP 3.4.9 by Rolands Umbrovskis http://umbrovskis.com -->
+<!-- Itemprop WP 3.4.10 by Rolands Umbrovskis http://umbrovskis.com -->
  <meta itemprop="name" content="Title of the Article" />
  <meta itemprop="url" content="http://example.com/seo-optimized-article/" />
  <meta itemprop="image" content="http://example.com/images/example.jpg" />
@@ -33,7 +33,7 @@ Example output:
  <meta itemprop="datePublished" content="2014-09-13 19:17:21" />
  <meta itemprop="dateModified" content="2015-01-29 13:33:25" />
  <meta itemprop="interactionCount" content="UserComments:356" />
-<!-- Itemprop WP 3.4.9 by Rolands Umbrovskis http://umbrovskis.com end -->
+<!-- Itemprop WP 3.4.10 by Rolands Umbrovskis http://umbrovskis.com end -->
 </span>
 `
 
@@ -99,6 +99,14 @@ Require PHP at least 5.3
 There are no questions for now! [Ask!](http://simplemediacode.com/wordpress-pugins/itemprop-wp/)
 
 == Changelog ==
+
+= 3.4.10 =
+
+* Undefined WPLANG [Issue #30](https://github.com/rolandinsh/itempropwp/issues/30). Thanks to [@Monika](https://wordpress.org/support/profile/monika).
+
+= 3.4.9 =
+
+* Same as 3.4.8
 
 = 3.4.8 =
 
@@ -213,6 +221,14 @@ There are no questions for now! [Ask!](http://simplemediacode.com/wordpress-pugi
 * init
 
 == Upgrade Notice ==
+
+= 3.4.10 =
+
+* Undefined WPLANG [Issue #30](https://github.com/rolandinsh/itempropwp/issues/30). Thanks to [@Monika](https://wordpress.org/support/profile/monika).
+
+= 3.4.9 =
+
+* Same as 3.4.8 - Illegal string offset onoff [Issue #20](https://github.com/rolandinsh/itempropwp/issues/20)
 
 = 3.4.8 =
 

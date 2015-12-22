@@ -51,14 +51,14 @@ class itempropwp_review
 
     private function reviewvers()
     {
-        return '1.2.2';
+        return '1.2.3';
     }
 
     public function reviewinit()
     {
 
         add_filter('itempropwp_article_content_before', array($this, 'review'), 11); // Adding context @since 3.0
-        add_filter('add_meta_boxes', array($this, 'itempropwp_review_metabox'), 11); // Adding context @since 3.3.0
+        add_filter('add_meta_boxes', array($this, 'review_metabox'), 11); // Adding context @since 3.3.0
         add_filter('save_post', array($this, 'itempropwp_review_save'), 11); // Adding context @since 3.3.0
     }
 
@@ -103,9 +103,9 @@ class itempropwp_review
                     }
 
 
-                    $review_descr = apply_filters('ipwp_reviewpost_dsc', $reviewpost->post_excerpt); // Extending @since 3.3.1
+                    $review_descr = apply_filters('ipwp_reviewpost_dsc', $reviewpost->post_excerpt ? $reviewpost->post_excerpt : ''); // Extending @since 3.3.1
 
-                    if (!$review_descr) {
+                    if (!empty($review_descr)) {
                         $ipwrp_n = new itempropwp;
                         $review_descr = apply_filters(
                                 'ipwp_reviewpost_dsc', $ipwrp_n->ipwp_excerpt_maxchr(
@@ -126,7 +126,7 @@ class itempropwp_review
         return $content;
     }
 
-    public function itempropwp_review_metabox()
+    public function review_metabox()
     {
         $ipwprprefix = 'ipwp_';
 

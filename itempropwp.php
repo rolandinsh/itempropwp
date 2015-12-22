@@ -2,11 +2,11 @@
 
 /**
   Plugin Name: itemprop WP for SERP (and SEO) Rich snippets
-  Plugin URI: http://simplemediacode.com/?utm_source=wordpress&utm_medium=wpplugin&utm_campaign=itempropWP&utm_content=v-3.4.8-itempropWP_load_widgets
+  Plugin URI: http://simplemediacode.com/?utm_source=wordpress&utm_medium=wpplugin&utm_campaign=itempropWP&utm_content=v-3.4.10-itempropWP_load_widgets
   Description: Add human invisible schema.org code to content
-  Version: 3.4.9
-  Requires at least: 3.3
-  Tested up to: 4.3.1
+  Version: 3.4.10
+  Requires at least: 4.0
+  Tested up to: 4.4
   Author: Rolands Umbrovskis
   Author URI: http://umbrovskis.com
   License: simplemediacode
@@ -26,7 +26,7 @@ if (!function_exists('add_action')) {
     exit();
 }
 /* some old fashion constants */
-define('SMCIPWPV', '3.4.9'); // location general @since 1.0
+define('SMCIPWPV', '3.4.10'); // location general @since 1.0
 define('SMCIPWPM', dirname(__FILE__)); // location general @since 1.0
 define('SMCIPWPF', 'itempropwp'); // location folder @since 1.0 
 define('IPWPT', __('itemprop WP for SERP/SEO Rich snippets', 'itempropwp')); // Name @since 1.1
@@ -43,10 +43,11 @@ define('SMCIPWPORG', 'https://wordpress.org/plugins/' . trailingslashit($smcipwp
  * @since 3.1.4
  */
 $plugref = '?utm_campaign=' . SMCIPWPF . '&utm_content=' . SMCIPWPF . '-' . SMCIPWPV . '&utm_medium=link&utm_source=' . SMCIPWPF . '-plugin';
-switch (WPLANG) {
+$getlanguage = defined('WPLANG') ? WPLANG : get_locale(); // WPLANG is deprecated since 4.0
+switch ($getlanguage) {
     case 'lv':
-        define('IPWPT_HOMEPAGE', 'http://simplemediacode.com/' . $plugref); // Homepage @since 3.1.4
-        define('IPWPT_HOMEPAGEC', 'http://simplemediacode.com/'); // Homepage @since 3.3.0
+        define('IPWPT_HOMEPAGE', 'http://mediabox.lv/' . $plugref); // Homepage @since 3.1.4
+        define('IPWPT_HOMEPAGEC', 'http://mediabox.lv/'); // Homepage @since 3.3.0
         break;
 
     default:
