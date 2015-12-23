@@ -4,7 +4,7 @@ Donate link: http://go.mediabox.lv/itempropwpdonatepaypal
 Tags: SEO, schema, schema.org, itemprop, schema.org itemprop, images, microdata, rich snippets, richsnippets, SERP, html5, structured data, itemprop article, itemprop review
 Requires at least: 4.0
 Tested up to: 4.4
-Stable tag: 3.4.10
+Stable tag: 3.5.201512231
 License: simplemediacode
 License URI: http://simplemediacode.com/license/gpl/
 
@@ -24,7 +24,7 @@ Example output:
 
 `
 <span itemscope itemtype="http://schema.org/Article" class="itempropwp-wrap">
-<!-- Itemprop WP 3.4.10 by Rolands Umbrovskis http://umbrovskis.com -->
+<!-- Itemprop WP 3.5.201512231 by Rolands Umbrovskis http://umbrovskis.com -->
  <meta itemprop="name" content="Title of the Article" />
  <meta itemprop="url" content="http://example.com/seo-optimized-article/" />
  <meta itemprop="image" content="http://example.com/images/example.jpg" />
@@ -33,7 +33,7 @@ Example output:
  <meta itemprop="datePublished" content="2014-09-13 19:17:21" />
  <meta itemprop="dateModified" content="2015-01-29 13:33:25" />
  <meta itemprop="interactionCount" content="UserComments:356" />
-<!-- Itemprop WP 3.4.10 by Rolands Umbrovskis http://umbrovskis.com end -->
+<!-- Itemprop WP 3.5.201512231 by Rolands Umbrovskis http://umbrovskis.com end -->
 </span>
 `
 
@@ -99,6 +99,10 @@ Require PHP at least 5.3
 There are no questions for now! [Ask!](http://simplemediacode.com/wordpress-pugins/itemprop-wp/)
 
 == Changelog ==
+
+= 3.5.201512231 =
+
+* Versions changed. Nothing more
 
 = 3.4.10 =
 
@@ -221,6 +225,10 @@ There are no questions for now! [Ask!](http://simplemediacode.com/wordpress-pugi
 * init
 
 == Upgrade Notice ==
+
+= 3.5.201512231 =
+
+* Versions changed. Nothing more
 
 = 3.4.10 =
 
