@@ -4,7 +4,7 @@ Donate link: http://go.mediabox.lv/itempropwpdonatepaypal
 Tags: SEO, schema, schema.org, itemprop, schema.org itemprop, images, microdata, rich snippets, richsnippets, SERP, html5, structured data, itemprop article, itemprop review
 Requires at least: 4.0
 Tested up to: 4.4
-Stable tag: 3.5.201512231
+Stable tag: 3.5.201512232
 License: simplemediacode
 License URI: http://simplemediacode.com/license/gpl/
 
