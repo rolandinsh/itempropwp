@@ -4,7 +4,7 @@ Donate link: http://go.mediabox.lv/itempropwpdonatepaypal
 Tags: SEO, schema, schema.org, itemprop, schema.org itemprop, images, microdata, rich snippets, richsnippets, SERP, html5, structured data, itemprop article, itemprop review
 Requires at least: 4.0
 Tested up to: 4.4.2
-Stable tag: 3.5.201512232
+Stable tag: 3.5.201602152
 License: simplemediacode
 License URI: http://simplemediacode.com/license/gpl/
 
@@ -16,7 +16,7 @@ This plugin is very simple. Using WordPress built in function to filter element 
 
 This plugin will NOT FIX BADly programmed WordPress sites!
 
-[Project itempropWP homepage](http://simplemediacode.com/?utm_source=http://wordpress.org/extend/plugins/itempropwp/&utm_medium=link&utm_campaign=itempropWP-WordPress-theme-feature-requests-3.4.10&utm_content=WordPress-plugin-itempropwp-3.4.10)
+[Project itempropWP homepage](http://simplemediacode.com/?utm_source=http://wordpress.org/extend/plugins/itempropwp/&utm_medium=link&utm_campaign=itempropWP-WordPress-theme-feature-requests-3.5.201602152&utm_content=WordPress-plugin-itempropwp-3.5.201602152)
 
 Have a good idea for improvement? [Share it](https://github.com/rolandinsh/itempropwp/issues) | [BUG report](https://github.com/rolandinsh/itempropwp/issues) 
 
@@ -24,28 +24,28 @@ Example output:
 
 `
 <span itemscope itemtype="http://schema.org/Article" class="itempropwp-wrap">
-
-<!-- Itemprop WP 3.5.201602151 by Rolands Umbrovskis http://umbrovskis.com -->
-  <meta itemprop="name" content="Title of the Article" />
- <meta itemscope itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" itemid="http://fulllink.example.com/seo-optimized-article/"/>
- <meta itemprop="url" content="http://example.com/seo-optimized-article/" />
- <span itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
-  <meta itemprop="url" content="http://fulllink.example.com/seo-optimized-article/example.jpg" />
-  <meta itemprop="width" content="640"/>
-  <meta itemprop="height" content="480"/>
- </span>
- <meta itemprop="author" content="http://example.com/author/authorusername/"/>
- <meta itemprop="description" content="excerpt from post" />
- <meta itemprop="datePublished" content="2014-09-13 19:17:21" />
- <meta itemprop="dateModified" content="2015-01-29 13:33:25" />
- <meta itemprop="interactionCount" content="UserComments:356" />
- <span itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
-  <span itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
-   <meta itemprop="url" content="http://fulllink.example.com/logo.jpg">
-  </span>
-  <meta itemprop="name" content="Example Blog">
- </span>
-<!-- Itemprop WP 3.5.201602151 by Rolands Umbrovskis http://umbrovskis.com end -->
+    <span itemscope itemtype="http://schema.org/Article" class="itempropwp-wrap">
+        <!-- Itemprop WP 3.5.201602152 by Rolands Umbrovskis http://umbrovskis.com -->
+            <meta itemprop="name" content="Title of the Article" />
+            <meta itemscope itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" itemid="http://fulllink.example.com/seo-optimized-article/"/>
+            <meta itemprop="url" content="http://fulllink.example.com/seo-optimized-article/" />
+            <span itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+                <meta itemprop="url" content="http://fulllink.example.com/seo-optimized-article/example.jpg" />
+                <meta itemprop="width" content="640"/>
+                <meta itemprop="height" content="480"/>
+            </span>
+            <meta itemprop="author" content="http://fulllink.example.com/author/authorusername/"/>
+            <meta itemprop="description" content="excerpt from post OR first 170 symbols (with full word), ..." />
+            <meta itemprop="datePublished" content="2012-09-13 19:17:21"/>
+            <meta itemprop="dateModified" content="2016-02-15 13:33:25" />
+            <meta itemprop="interactionCount" content="UserComments:356"/>
+            <span itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+                <span itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+                    <meta itemprop="url" content="http://fulllink.example.com/logo.jpg">
+                </span>
+            <meta itemprop="name" content="Example Blog">
+        </span>
+    <!-- Itemprop WP 3.5.201602152 by Rolands Umbrovskis http://umbrovskis.com end -->
 </span>
 `
 
@@ -111,6 +111,10 @@ Require PHP at least 5.3
 There are no questions for now! [Ask!](http://simplemediacode.com/wordpress-pugins/itemprop-wp/)
 
 == Changelog ==
+
+= 3.5.201602152 =
+
+* schema.org and Google article requirement changes (since 3.5.201602152). Thanks to [@jasonreposa](https://github.com/jasonreposa) on [Issue #28](https://github.com/rolandinsh/itempropwp/issues/28)
 
 = 3.5.201512231 =
 
@@ -237,6 +241,10 @@ There are no questions for now! [Ask!](http://simplemediacode.com/wordpress-pugi
 * init
 
 == Upgrade Notice ==
+
+= 3.5.201602152 =
+
+* schema.org and Google article requirement changes (since 3.5.201602152). Thanks to [@jasonreposa](https://github.com/jasonreposa)
 
 = 3.5.201512231 =
 

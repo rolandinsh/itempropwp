@@ -15,55 +15,55 @@ This plugin will NOT FIX BADly programmed WordPress sites!
 
 Article
 
-	<span itemscope itemtype="http://schema.org/Article" class="itempropwp-wrap">
-	<!-- Itemprop WP 3.4.10 by Rolands Umbrovskis http://umbrovskis.com -->
-	 <meta itemprop="name" content="Title of the Article" />
-	 <meta itemscope itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" itemid="http://fulllink.example.com/seo-optimized-article/"/>
-	 <meta itemprop="url" content="http://fulllink.example.com/seo-optimized-article/" />
-	 <span itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
-	  <meta itemprop="url" content="http://fulllink.example.com/seo-optimized-article/example.jpg" />
-	  <meta itemprop="width" content="640"/>
-	  <meta itemprop="height" content="480"/>
-	 </span>
-	 <meta itemprop="author" content="http://fulllink.example.com/author/authorusername/"/>
-	 <meta itemprop="description" content="excerpt from post OR first 170 symbols (with full word), ..." />
-	 <meta itemprop="datePublished" content="2012-09-13 19:17:21"/>
-	 <meta itemprop="dateModified" content="2012-09-29 13:33:25" />
-	 <meta itemprop="interactionCount" content="UserComments:356"/>
-	 <span itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
-	  <span itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
-	   <meta itemprop="url" content="http://fulllink.example.com/logo.jpg">
-	  </span>
-	  <meta itemprop="name" content="Example Blog">
-	 </span>
-	<!-- Itemprop WP 3.5.201602151 by Rolands Umbrovskis http://umbrovskis.com end -->
-	</span>
+        <span itemscope itemtype="http://schema.org/Article" class="itempropwp-wrap">
+        <!-- Itemprop WP 3.5.201602152 by Rolands Umbrovskis http://umbrovskis.com -->
+            <meta itemprop="name" content="Title of the Article" />
+            <meta itemscope itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" itemid="http://fulllink.example.com/seo-optimized-article/"/>
+            <meta itemprop="url" content="http://fulllink.example.com/seo-optimized-article/" />
+            <span itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+                <meta itemprop="url" content="http://fulllink.example.com/seo-optimized-article/example.jpg" />
+                <meta itemprop="width" content="640"/>
+                <meta itemprop="height" content="480"/>
+            </span>
+            <meta itemprop="author" content="http://fulllink.example.com/author/authorusername/"/>
+            <meta itemprop="description" content="excerpt from post OR first 170 symbols (with full word), ..." />
+            <meta itemprop="datePublished" content="2012-09-13 19:17:21"/>
+            <meta itemprop="dateModified" content="2012-09-29 13:33:25" />
+            <meta itemprop="interactionCount" content="UserComments:356"/>
+            <span itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+                <span itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+                    <meta itemprop="url" content="http://fulllink.example.com/logo.jpg">
+                </span>
+                <meta itemprop="name" content="Example Blog">
+            </span>
+        <!-- Itemprop WP 3.5.201602152 by Rolands Umbrovskis http://umbrovskis.com end -->
+        </span>
 
 Review
 
-	<div itemprop="review" itemscope itemtype="http://schema.org/Review">
-		<meta itemprop="name" content="Item Title is greate!" />
-		<meta itemprop="author" content="Rolands Umbrovskis" />
-		<meta itemprop="datePublished" content="2011-03-25" />
-		<span itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
-			<meta itemprop="worstRating" content = "1"/>
-			<meta itemprop="ratingValue" content="4.5" />
-			<meta itemprop="bestRating" content="5" />
-		</span>
-		<span itemprop="itemReviewed" itemscope itemtype="http://schema.org/Thing">
-			<meta itemprop="name" content="Item Title" />
-		</span>
+        <div itemprop="review" itemscope itemtype="http://schema.org/Review">
+            <meta itemprop="name" content="Item Title is greate!" />
+            <meta itemprop="author" content="Rolands Umbrovskis" />
+            <meta itemprop="datePublished" content="2011-03-25" />
+            <span itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+                <meta itemprop="worstRating" content = "1"/>
+                <meta itemprop="ratingValue" content="4.5" />
+                <meta itemprop="bestRating" content="5" />
+            </span>
+            <span itemprop="itemReviewed" itemscope itemtype="http://schema.org/Thing">
+                <meta itemprop="name" content="Item Title" />
+            </span>
 		
-		<div itemscope itemtype="http://schema.org/Product">
-			<meta itemprop="name" content="Item Title" />
-			<span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-				<meta itemprop="price" content="55.36" />
-				<meta itemprop="priceCurrency" content="USD" />
-				<link itemprop="availability" href="http://schema.org/InStock" />
-			</span>
-		</div>
-		<meta itemprop="description" content="Great Item Title for the price." />
-	</div>
+            <div itemscope itemtype="http://schema.org/Product">
+                <meta itemprop="name" content="Item Title" />
+                <span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                    <meta itemprop="price" content="55.36" />
+                    <meta itemprop="priceCurrency" content="USD" />
+                    <link itemprop="availability" href="http://schema.org/InStock" />
+                </span>
+            </div>
+            <meta itemprop="description" content="Great Item Title for the price." />
+        </div>
 
 ### How does it work?
 
@@ -83,6 +83,7 @@ Other options, like `datePublished`, `UserComments`, `url` are taken from post
 ### Features
 
 * Admin interface for options: description lenght (if excerpt not provided),show/hide UserComments:325,  show/hide dateModified 
+* schema.org and Google article requirement changes (since 3.5.201602152). Thanks to @jasonreposa
 * itemprop="description" (since 3.1.1)
 * itemprop="name" (since 3.0)
 * itemprop="url" (since 3.0)
