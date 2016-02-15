@@ -100,6 +100,12 @@ class itempropwp
         add_filter('the_content', array($this, 'ipwp_the_content_filter'), 10, 2); // Adding context @since 3.0
     }
 
+    /*
+     * plugin meta infor
+     * @Todo rewrite/update
+     * @since 3.5.201602151
+     */
+
     function smcwpd_set_plugin_meta($links, $file)
     {
         $plugin = plugin_basename(__FILE__);
@@ -202,7 +208,7 @@ class itempropwp
           Now, the $ipwp_contentx is loading just one time and not multiple time if you have more than one the_content(); in your page
           @author sirene
           @date 2013-02-18
-          @version 1.0.0
+          @version 1.1.0
           @since 3.3.4
          */
         static $done_ipwp_post = FALSE;
@@ -226,10 +232,10 @@ class itempropwp
                     $ipwp_posth = $this->itempropwp_get_image($post_id);
 
                     $ipwp_image = '<span itemprop="image" itemscope itemtype="https://schema.org/ImageObject">' .
-                      '<meta itemprop="url" content="' . esc_url($ipwp_posth[0]) . '" />' .
-                      '<meta itemprop="width" content="' . $ipwp_posth[1] . '"/>' .
-                      '<meta itemprop="height" content="' . $ipwp_posth[2] . '"/>' .
-                    '</span>';
+                            '<meta itemprop="url" content="' . esc_url($ipwp_posth[0]) . '" />' .
+                            '<meta itemprop="width" content="' . $ipwp_posth[1] . '"/>' .
+                            '<meta itemprop="height" content="' . $ipwp_posth[2] . '"/>' .
+                            '</span>';
                 }
             }
 
@@ -255,14 +261,14 @@ class itempropwp
 
             $smcipwp_logo_url = get_option('smcipwp_logo_url');
             if ($smcipwp_logo_url != '') {
-              $ipwp_publisher = '<span itemprop="publisher" itemscope itemtype="https://schema.org/Organization">' .
-                '<span itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">' .
-                  '<meta itemprop="url" content="' . esc_url($smcipwp_logo_url) . '">' .
-                '</span>' .
-                '<meta itemprop="name" content="' . get_bloginfo('name') . '">' .
-              '</span>';
+                $ipwp_publisher = '<span itemprop="publisher" itemscope itemtype="https://schema.org/Organization">' .
+                        '<span itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">' .
+                        '<meta itemprop="url" content="' . esc_url($smcipwp_logo_url) . '">' .
+                        '</span>' .
+                        '<meta itemprop="name" content="' . get_bloginfo('name') . '">' .
+                        '</span>';
             }
-            
+
             $ipwp_contentx = apply_filters('itempropwp_article_content_before', '<span itemscope itemtype="http://schema.org/Article" class="itempropwp-wrap"><!-- ItemProp WP ' . SMCIPWPV . ' by Rolands Umbrovskis http://umbrovskis.com/ --><meta itemprop="name" content="' . esc_html($thisipwp_post->post_title) . '" /><meta itemprop="headline" content="' . esc_html($thisipwp_post->post_title) . '" /><meta itemscope itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" itemid="' . esc_url(get_permalink()) . '"/> <meta itemprop="url" content="' . esc_url(get_permalink()) . '" />'
                     . $ipwp_image . '<meta itemprop="author" content="' . $postauthoris . '" /><meta itemprop="description" content="' .
                     esc_html(str_replace(array("\r\n", "\n", "\r", "\t"), "", $ipwp_post_dsc)) . '" /><meta itemprop="datePublished" content="' . esc_html($thisipwp_post->post_date) . '" />'
