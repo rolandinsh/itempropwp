@@ -137,7 +137,7 @@ There are no questions for now! [Ask!](https://simplemediacode.com/)
 
 = 3.4.8 =
 
-* Illegal string offset onoff [Issue #20](https://github.com/rolandinsh/itempropwp/issues/20), thank to Robert Roose (@summatix on GitHub)[https://github.com/summatix]
+* Illegal string offset onoff [Issue #20](https://github.com/rolandinsh/itempropwp/issues/20), thank to Robert Roose (@summatix)[https://github.com/summatix] on GitHub
 
 = 3.4.7 =
 
