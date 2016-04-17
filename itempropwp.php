@@ -119,7 +119,6 @@ class itempropwp
         return $links;
     }
 
-    /* 3.0 drop */
 
     public function ipwp_img_attr($attr)
     {
@@ -127,7 +126,7 @@ class itempropwp
         return apply_filters('ipwp_img_attr_filter', $attr); // Extending @since 3.1
     }
 
-    /*
+    /**
      * if post has no excerpt, we will use this
      * @Todo rewrite
      * @since 3.1
