@@ -5,6 +5,9 @@ Add human invisible schema.org itemprop code to post content
 * [Donate](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=Z4ALL9WUMY3CL&lc=LV&item_name=Umbrovskis%2e%20WordPress%20plugins&item_number=002&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted) or promote this work 
 * License URI: http://simplemediacode.com/license/gpl/
 
+
+[![Throughput Graph](https://graphs.waffle.io/rolandinsh/itempropwp/throughput.svg)](https://waffle.io/rolandinsh/itempropwp/metrics/throughput)
+
 ## Description
 
 Have a good idea for improvement? [Share it](https://github.com/rolandinsh/itempropwp/issues) | [BUG report](https://github.com/rolandinsh/itempropwp/issues) 
