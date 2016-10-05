@@ -3,10 +3,10 @@ Contributors: rolandinsh
 Donate link: http://go.mediabox.lv/itempropwpdonatepaypal
 Tags: SEO, schema, schema.org, itemprop, schema.org itemprop, images, microdata, rich snippets, richsnippets, SERP, html5, structured data, itemprop article, itemprop review
 Requires at least: 4.0
-Tested up to: 4.5
-Stable tag: 3.5.201604171
+Tested up to: 4.6.1
+Stable tag: 3.5.201610051
 License: simplemediacode
-License URI: http://simplemediacode.com/license/gpl/
+License URI: https://simplemediacode.com/license/gpl/
 
 Add schema.org itemprop code to the (custom) post content for search engines and bots for better SERP results
 
@@ -16,7 +16,7 @@ This plugin is very simple. Using WordPress built in function to filter element 
 
 This plugin will NOT FIX BADly programmed WordPress sites!
 
-[Project itempropWP homepage](https://simplemediacode.com/?utm_source=http://wordpress.org/extend/plugins/itempropwp/&utm_medium=link&utm_campaign=itempropWP-WordPress-theme-feature-requests-3.5.201604171&utm_content=WordPress-plugin-itempropwp-3.5.201604171)
+[Project itempropWP homepage](https://simplemediacode.com/?utm_source=http://wordpress.org/extend/plugins/itempropwp/&utm_medium=link&utm_campaign=itempropWP-WordPress-theme-feature-requests-3.5.201610051&utm_content=WordPress-plugin-itempropwp-3.5.201610051)
 
 Have a good idea for improvement? [Share it](https://github.com/rolandinsh/itempropwp/issues) | [BUG report](https://github.com/rolandinsh/itempropwp/issues) 
 
@@ -25,7 +25,7 @@ Example output:
 `
 <span itemscope itemtype="http://schema.org/Article" class="itempropwp-wrap">
   <span itemscope itemtype="http://schema.org/Article" class="itempropwp-wrap">
-    <!-- Itemprop WP 3.5.201604171 by Rolands Umbrovskis https://umbrovskis.com -->
+    <!-- Itemprop WP 3.5.201610051 by Rolands Umbrovskis https://umbrovskis.com -->
     <meta itemprop="name" content="Title of the Article" />
     <meta itemscope itemprop="mainEntityOfPage"  
       itemType="https://schema.org/WebPage" 
@@ -48,7 +48,7 @@ Example output:
       </span>
       <meta itemprop="name" content="Example Blog">
     </span>
-    <!-- Itemprop WP 3.5.201602152 by Rolands Umbrovskis https://umbrovskis.com end -->
+    <!-- Itemprop WP 3.5.201610051 by Rolands Umbrovskis https://umbrovskis.com end -->
 </span>
 `
 
@@ -87,15 +87,16 @@ This assumes that Your page is not fully integrated with HTML5's data properties
 
 Once we are on singular page:
 
-# we will extract from it EXCERPT.
-# If You haven't provided excerpt, plugin will look-up for post content, and downsize it to 170 symbols up to full word.
-# If your content consist ONLY of shortcode, it will strip it out, and leave empty content. :(
-# If we have empty content, from previous step, we will use post title. Not best choice, but at least we have some `description`.
-# If Your post do not have even title, plugin will give up and your description will be empty. (This is very bad :') )
+* we will extract from it EXCERPT.
+* If You haven't provided excerpt, plugin will look-up for post content, and downsize it to 170 symbols up to full word.
+* If your content consist ONLY of shortcode, it will strip it out, and leave empty content. :(
+* If we have empty content, from previous step, we will use post title. Not best choice, but at least we have some `description`.
+* If Your post do not have even title, plugin will give up and your description will be empty. (This is very bad :') )
 
 Other options, like `datePublished`, `dateModified` (if enabled), `UserComments` (if enabled), `url` are taken from post
 
 * [SMC Facebook](https://www.facebook.com/simplemediacode)
+* [Author's Facebook page](https://www.facebook.com/RolandsUmbrovskis.public)
 
 Development: [Github](https://github.com/rolandinsh/itempropwp)
 
@@ -114,6 +115,10 @@ Require PHP at least 5.3
 There are no questions for now! [Ask!](https://simplemediacode.com/)
 
 == Changelog ==
+
+= 3.5.201610051 =
+
+* tested up to 4.6.1
 
 = 3.5.201604171 =
 
@@ -183,7 +188,7 @@ There are no questions for now! [Ask!](https://simplemediacode.com/)
 
 = 3.3.4 = 
 
-* small bugfix in rare cases: "loading content multiple times", thanks to [sirene's commit on SimpleMediaCode.org](http://simplemediacode.org/forums/topic/schema-display-3-times/#post-97) 
+* small bugfix in rare cases: "loading content multiple times", thanks to [sirene's commit on SimpleMediaCode.org](https://simplemediacode.org/forums/topic/schema-display-3-times/#post-97) 
 
 = 3.3.3 = 
 
@@ -248,6 +253,10 @@ There are no questions for now! [Ask!](https://simplemediacode.com/)
 * init
 
 == Upgrade Notice ==
+
+= 3.5.201610051 =
+
+* tested up to 4.6.1
 
 = 3.5.201604171 =
 
@@ -316,5 +325,5 @@ There are no questions for now! [Ask!](https://simplemediacode.com/)
 * small bugfix "Fixing undeclared variables", thanks to [semplon's commit on github](https://github.com/rolandinsh/itempropwp/commit/d4e18904329faabb84f6c47a7011a261c973b6bf) 
 
 == Screenshots ==
-1. 3.0 Full featured example http://simplemediacode.com/wordpress-pugins/itemprop-wp/
-3. 3.3.0 Full featured Review example http://simplemediacode.com/wordpress-pugins/itemprop-wp/
+1. 3.0 Full featured example https://simplemediacode.com/wordpress-pugins/itemprop-wp/
+2. 3.3.0 Full featured Review example https://simplemediacode.com/wordpress-pugins/itemprop-wp/

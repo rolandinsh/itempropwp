@@ -16,7 +16,7 @@ This plugin will NOT FIX BADly programmed WordPress sites!
 Article
 
         <span itemscope itemtype="http://schema.org/Article" class="itempropwp-wrap">
-        <!-- Itemprop WP 3.5.201602152 by Rolands Umbrovskis http://umbrovskis.com -->
+        <!-- Itemprop WP 3.5.201610051 by Rolands Umbrovskis https://umbrovskis.com -->
             <meta itemprop="name" content="Title of the Article" />
             <meta itemscope itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" itemid="http://fulllink.example.com/seo-optimized-article/"/>
             <meta itemprop="url" content="http://fulllink.example.com/seo-optimized-article/" />
@@ -36,7 +36,7 @@ Article
                 </span>
                 <meta itemprop="name" content="Example Blog">
             </span>
-        <!-- Itemprop WP 3.5.201602152 by Rolands Umbrovskis http://umbrovskis.com end -->
+        <!-- Itemprop WP 3.5.201610051 by Rolands Umbrovskis https://umbrovskis.com end -->
         </span>
 
 Review
@@ -95,8 +95,8 @@ Other options, like `datePublished`, `UserComments`, `url` are taken from post
 
 ### Links
 
-* [Project Page](http://simplemediacode.com/wordpress-pugins/itemprop-wp/)
-* [SMC Facebook](http://www.facebook.com/SimpleMediaCode/)
+* [Project Page](https://simplemediacode.com/wordpress-pugins/itemprop-wp/)
+* [SMC Facebook](https://www.facebook.com/SimpleMediaCode/)
 * Development: [Github](https://github.com/rolandinsh/itempropwp)
 
 ## Installation
@@ -110,4 +110,4 @@ Require PHP at least 5.3
 
 ## Frequently Asked Questions
 
-There are no questions for now! [Ask!](http://simplemediacode.com/wordpress-pugins/itemprop-wp/)
+There are no questions for now! [Ask!](https://simplemediacode.com/wordpress-pugins/itemprop-wp/)

@@ -90,9 +90,9 @@ function smcipwp_settings()
       </form>
       <hr />
       <p class="description">
-        <a href="http://simplemediacode.com/" target="_blank">SimpleMediaCode.com - custom WordPress development</a> | 
+        <a href="https://simplemediacode.com/" target="_blank">SimpleMediaCode.com - custom WordPress development</a> | 
         <a href="http://twitter.com/SimpleMediaCode" target="_blank">Follow @SimpleMediaCode</a> | 
-        Freelance WordPress developer <a href="http://umbrovskis.com/" target="_blank">Rolands Umbrovskis</a>
+        Freelance WordPress developer <a href="https://umbrovskis.com/" target="_blank">Rolands Umbrovskis</a>
       </p>
     </div><?php
 }

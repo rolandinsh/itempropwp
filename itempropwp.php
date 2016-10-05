@@ -2,15 +2,15 @@
 
 /**
   Plugin Name: itemprop WP for SERP (and SEO) Rich snippets
-  Plugin URI: http://simplemediacode.com/?utm_source=wordpress&utm_medium=wpplugin&utm_campaign=itempropWP&utm_content=v-3.5.201604171-itempropWP_load_widgets
+  Plugin URI: https://simplemediacode.com/?utm_source=wordpress&utm_medium=wpplugin&utm_campaign=itempropWP&utm_content=v-3.5.201610051-itempropWP_load_widgets
   Description: Add human invisible schema.org code to content
-  Version: 3.5.201604171
+  Version: 3.5.201610051
   Requires at least: 4.0
-  Tested up to: 4.5
+  Tested up to: 4.6.1
   Author: Rolands Umbrovskis
-  Author URI: http://umbrovskis.com
+  Author URI: https://umbrovskis.com
   License: simplemediacode
-  License URI: http://simplemediacode.com/license/gpl/
+  License URI: https://simplemediacode.com/license/gpl/
 
   Copyright (C) 2008-2016, Rolands Umbrovskis - rolands@simplemediacode.com
 
@@ -27,7 +27,7 @@ if (!function_exists('add_action')) {
 }
 /* some old fashion constants */
 
-define('SMCIPWPV', '3.5.201604171'); // location general @since 1.0
+define('SMCIPWPV', '3.5.201610051'); // location general @since 1.0
 define('SMCIPWPM', dirname(__FILE__)); // location general @since 1.0
 define('SMCIPWPF', 'itempropwp'); // location folder @since 1.0 
 define('IPWPT', __('itemprop WP for SERP/SEO Rich snippets', 'itempropwp')); // Name @since 1.1
@@ -73,7 +73,6 @@ class itempropwp
         add_action('init', array($this, 'init'), 11);
         add_action('plugin_row_meta', array($this, 'smcwpd_set_plugin_meta'), 11, 2);
 //        add_action( 'pre_amp_render_post',array($this, 'amp_add_content'),10 );
-
     }
 
     // Initialize
@@ -121,7 +120,6 @@ class itempropwp
         return $links;
     }
 
-
     public function ipwp_img_attr($attr)
     {
         $attr['itemprop'] = 'image';
@@ -133,7 +131,6 @@ class itempropwp
      * @Todo rewrite
      * @since 3.1
      */
-
     public function ipwp_excerpt_maxchr($charlength = 170, $ipwp_content = '')
     {
         /* did we get content? No, let's make it from post */
@@ -203,7 +200,7 @@ class itempropwp
     public function ipwp_the_content_filter($content)
     {
         /**
-          Content loading multiple times. patch by sirene http://simplemediacode.org/forums/topic/schema-display-3-times/#post-97
+          Content loading multiple times. patch by sirene https://simplemediacode.org/forums/topic/schema-display-3-times/#post-97
           Now, the $ipwp_contentx is loading just one time and not multiple time if you have more than one the_content(); in your page
           @author sirene
           @date 2013-02-18
