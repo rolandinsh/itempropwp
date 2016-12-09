@@ -6,7 +6,7 @@
   Description: Add human invisible schema.org code to content
   Version: 3.5.201610051
   Requires at least: 4.0
-  Tested up to: 4.6.1
+  Tested up to: 4.7
   Author: Rolands Umbrovskis
   Author URI: https://umbrovskis.com
   License: simplemediacode
