@@ -309,7 +309,27 @@ if (!in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get
     /*
      * Starting itempropwp
      */
-    new itempropwp();
+    
+    
+    try {
+
+        /**
+         * Do itempropwp
+         * @since 1.0.0
+         */
+        new itempropwp();
+    } catch (Exception $e) {
+
+        /**
+         * Do Errors and debug
+         * @since 1.0.0
+         */
+        $itempropwp_debug = 'Caught exception: itempropwp ' . $e->getMessage() . "\n";
+
+        if (apply_filters('itempropwp_debug_log', defined('WP_DEBUG_LOG') && WP_DEBUG_LOG)) {
+            error_log(print_r(compact('itempropwp_debug'), true));
+        }
+    }
     /* itemprop Review */
     include_once(SMCIPWPM . '/itemprop_review.php');
     /* itemprop Person */
