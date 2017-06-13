@@ -3,8 +3,8 @@ Contributors: rolandinsh
 Donate link: http://go.mediabox.lv/itempropwpdonatepaypal
 Tags: SEO, schema, schema.org, itemprop, schema.org itemprop, images, microdata, rich snippets, richsnippets, SERP, html5, structured data, itemprop article, itemprop review
 Requires at least: 4.0
-Tested up to: 4.7
-Stable tag: 3.5.201610051
+Tested up to: 4.8
+Stable tag: 3.5.201706131
 License: simplemediacode
 License URI: https://simplemediacode.com/license/gpl/
 
@@ -115,6 +115,10 @@ Require PHP at least 5.3
 There are no questions for now! [Ask!](https://simplemediacode.com/)
 
 == Changelog ==
+
+= 3.5.201706131 =
+
+* implementing index.php against exposure of data
 
 = 3.5.201610051 =
 
@@ -253,6 +257,10 @@ There are no questions for now! [Ask!](https://simplemediacode.com/)
 * init
 
 == Upgrade Notice ==
+
+= 3.5.201706131 =
+
+* implementing index.php against exposure of data
 
 = 3.5.201610051 =
 
