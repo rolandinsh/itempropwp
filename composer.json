@@ -9,7 +9,7 @@
 		"seo"
 	],
 	"homepage": "https://simplemediacode.com/wordpress/",
-	"license": "GPL-2.1",
+	"license": "GPL-2.0-or-later",
 	"authors": [
 		{
 			"name": "Rolands Umbrovskis",
